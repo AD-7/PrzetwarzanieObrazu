@@ -153,12 +153,14 @@ namespace Zadanie_1
             {
                 case 0:
                     mask = new int[3, 3] { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
+                    mask = new int[3, 3] { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
                     break;
                 case 1:
                     mask = new int[5, 5] { { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 } };
                     break;
                 case 2:
                     mask = new int[7, 7] { { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 } };
+
                     break;
 
             }
@@ -176,10 +178,11 @@ namespace Zadanie_1
 
         private void btnApplyMedianFilter_Click(object sender, EventArgs e)
         {
-            if(pbImage.Image != null)
+            if (pbImage.Image != null)
             {
 
-
+                Image result = ProcessingMethods.ApplyMedianFilter(pbImage.Image, mask);
+                pbResultImage.Image = result;
             }
         }
     }

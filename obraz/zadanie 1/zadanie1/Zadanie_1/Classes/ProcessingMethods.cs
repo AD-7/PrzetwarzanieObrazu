@@ -146,16 +146,24 @@ namespace Zadanie_1.Classes
             return result;
         }
 
-        public static Bitmap ApplyAverageFilter(Image image, int[,] mask)
+        public static Bitmap ApplyMask(Image image, int[,] mask)
         {
             Bitmap result = new Bitmap(image);
             Bitmap tmp = new Bitmap(image);
             FasterBitmap fasterBitmap = new FasterBitmap(result);
             FasterBitmap bitmapHelperValues = new FasterBitmap(tmp);
+        
 
             int len = mask.Length;
             int width = Convert.ToInt32(Math.Sqrt(len));
             int ignorePixels = 0;
+            int divide = 0;
+
+            foreach(int maskVlaue in mask )
+            {
+                divide += maskVlaue;
+            }
+
             if (len == 9)
             {
                 ignorePixels = 1;
@@ -168,6 +176,8 @@ namespace Zadanie_1.Classes
             {
                 ignorePixels = 3;
             }
+
+
 
 
             fasterBitmap.LockBits();
@@ -193,9 +203,9 @@ namespace Zadanie_1.Classes
 
                     }
 
-                    int avgR = sumR / len;
-                    int avgG = sumG / len;
-                    int avgB = sumB / len;
+                    int avgR = sumR / (divide);
+                    int avgG = sumG / (divide);
+                    int avgB = sumB / (divide);
 
                     Color avgColor = Color.FromArgb(avgR, avgG, avgB);
                     fasterBitmap.SetPixel(x, y, avgColor);
@@ -206,6 +216,11 @@ namespace Zadanie_1.Classes
             fasterBitmap.UnlockBits();
             bitmapHelperValues.UnlockBits();
             return result;
+        }
+
+        public static Bitmap ApplyAverageFilter(Image image, int[,] mask)
+        {
+            return ApplyMask(image, mask);
 
         }
 
@@ -217,11 +232,63 @@ namespace Zadanie_1.Classes
             Bitmap tmp = new Bitmap(image);
             FasterBitmap fasterBitmap = new FasterBitmap(result);
             FasterBitmap bitmapHelperValues = new FasterBitmap(tmp);
+            int len = mask.Length;
+            int width = Convert.ToInt32(Math.Sqrt(len));
+            int ignorePixels = 0;
+            if (len == 9)
+            {
+                ignorePixels = 1;
+            }
+            else if (len == 25)
+            {
+                ignorePixels = 2;
+            }
+            else if (len == 49)
+            {
+                ignorePixels = 3;
+            }
+
+            List<int> valuesR = new List<int>();
+            List<int> valuesG = new List<int>();
+            List<int> valuesB = new List<int>();
 
 
+            fasterBitmap.LockBits();
+            bitmapHelperValues.LockBits();
+            for (int x = ignorePixels; x < image.Width - ignorePixels; x++)
+            {
+                for (int y = ignorePixels; y < image.Height - ignorePixels; y++)
+                {
+                    valuesR.Clear();
+                    valuesG.Clear();
+                    valuesB.Clear();
+                    for (int i = -ignorePixels; i <= ignorePixels; i++)
+                    {
+                        for (int j = -ignorePixels; j <= ignorePixels; j++)
+                        {
+                            valuesR.Add(bitmapHelperValues.GetPixel(x + i, y + j).R);
+                            valuesG.Add(bitmapHelperValues.GetPixel(x + i, y + j).G);
+                            valuesB.Add(bitmapHelperValues.GetPixel(x + i, y + j).B);
+
+                        }
+                    }
+
+                    valuesR.Sort();
+                    valuesG.Sort();
+                    valuesB.Sort();
+
+                    int medianR = valuesR[(len - 1) / 2];
+                    int medianG = valuesG[(len - 1) / 2];
+                    int medianB = valuesB[(len - 1) / 2];
+                    Color medianColor = Color.FromArgb(medianR, medianG, medianB);
+                    fasterBitmap.SetPixel(x, y, medianColor);
+
+                }
+            }
 
 
-
+            fasterBitmap.UnlockBits();
+            bitmapHelperValues.UnlockBits();
             return result;
 
         }
