@@ -36,6 +36,8 @@ namespace Zadanie_1
             chartLUT.ChartAreas[0].AxisY.Maximum = 255;
             chartLUT.ChartAreas[0].AxisY.Minimum = 0;
             cmbMaskSize.SelectedIndex = 0;
+            cmbMaskSizeLinear.SelectedIndex = 0;
+            cmbTypeLinearMask.SelectedIndex = 0;
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -195,13 +197,14 @@ namespace Zadanie_1
             string[] lines = new string[1];
 
             LoadLinearMask(ref mask, ref lines);
-
+            lines = tbMaskView.Text.Split('\n');
             List<string> maskValues = new List<string>();
             foreach (string line in lines)
             {
-                if (line != "")
+                if (line != "" && line != "\r")
                 {
-                    maskValues.Add(line.Replace("\t", ""));
+                    string tmp = line.Replace("\r", "");
+                    maskValues.Add(tmp.Replace("\t", ""));
                 }
             }
 
@@ -227,7 +230,7 @@ namespace Zadanie_1
             }
 
 
-            tbMaskView.Text = mask;
+            
 
         }
 
@@ -291,8 +294,24 @@ namespace Zadanie_1
             }
         }
 
+        private void RefreshMaskLinear()
+        {
+            string mask = "";
+            string[] lines = new string[1];
+            LoadLinearMask(ref mask, ref lines);
+            tbMaskView.Text = mask;
+        }
 
+        private void cmbMaskSizeLinear_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshMaskLinear();
+        }
 
+        private void cmbTypeLinearMask_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            RefreshMaskLinear();
+        }
 
+      
     }
 }

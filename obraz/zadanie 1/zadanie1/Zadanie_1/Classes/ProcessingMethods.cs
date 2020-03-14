@@ -212,8 +212,7 @@ namespace Zadanie_1.Classes
                         avgG = sumG / (divide);
                         avgB = sumB / (divide);
                     }
-                    else
-                    {
+                   
                         if (sumR < 0)
                         {
                             avgR = 0;
@@ -250,7 +249,7 @@ namespace Zadanie_1.Classes
                         {
                             avgB = sumB;
                         }
-                    }
+                   
 
 
                     Color avgColor = Color.FromArgb(avgR, avgG, avgB);
