@@ -152,14 +152,14 @@ namespace Zadanie_1.Classes
             Bitmap tmp = new Bitmap(image);
             FasterBitmap fasterBitmap = new FasterBitmap(result);
             FasterBitmap bitmapHelperValues = new FasterBitmap(tmp);
-        
+
 
             int len = mask.Length;
             int width = Convert.ToInt32(Math.Sqrt(len));
             int ignorePixels = 0;
             int divide = 0;
 
-            foreach(int maskVlaue in mask )
+            foreach (int maskVlaue in mask)
             {
                 divide += maskVlaue;
             }
@@ -203,9 +203,55 @@ namespace Zadanie_1.Classes
 
                     }
 
-                    int avgR = sumR / (divide);
-                    int avgG = sumG / (divide);
-                    int avgB = sumB / (divide);
+                    int avgR;
+                    int avgG;
+                    int avgB;
+                    if (!(divide <= 0))
+                    {
+                        avgR = sumR / (divide);
+                        avgG = sumG / (divide);
+                        avgB = sumB / (divide);
+                    }
+                    else
+                    {
+                        if (sumR < 0)
+                        {
+                            avgR = 0;
+                        }
+                        else if (sumR > 255 )
+                        {
+                            avgR = 255;
+                        }
+                        else
+                        {
+                            avgR = sumR;
+                        }
+                        if (sumG < 0)
+                        {
+                            avgG = 0;
+                        }
+                        else if (sumG > 255)
+                        {
+                            avgG = 255;
+                        }
+                        else
+                        {
+                            avgG = sumG;
+                        }
+                        if (sumB < 0)
+                        {
+                            avgB = 0;
+                        }
+                        else if(sumB > 255)
+                        {
+                            avgB = 255;
+                        }
+                        else
+                        {
+                            avgB = sumB;
+                        }
+                    }
+
 
                     Color avgColor = Color.FromArgb(avgR, avgG, avgB);
                     fasterBitmap.SetPixel(x, y, avgColor);
@@ -292,6 +338,14 @@ namespace Zadanie_1.Classes
             return result;
 
         }
+
+
+
+
+
+
+
+
 
     }
 }

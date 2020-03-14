@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Imaging;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -19,6 +20,7 @@ namespace Zadanie_1
         Bitmap loadedImage;
 
         int[,] mask;
+        int[,] maskLinearFilter;
 
 
         public Form1()
@@ -153,7 +155,7 @@ namespace Zadanie_1
             {
                 case 0:
                     mask = new int[3, 3] { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
-                    mask = new int[3, 3] { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
+                
                     break;
                 case 1:
                     mask = new int[5, 5] { { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 } };
@@ -184,6 +186,24 @@ namespace Zadanie_1
                 Image result = ProcessingMethods.ApplyMedianFilter(pbImage.Image, mask);
                 pbResultImage.Image = result;
             }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            maskLinearFilter = new int[3, 3] { { 1, 1, 1 }, { 1, -2, 1 }, { -1, -1, -1 } };
+            string mask = File.ReadAllText(@"Maski\3x3_Liniowy_Północ.txt");
+            string[] lines = File.ReadAllLines(@"Maski\3x3_Liniowy_Północ.txt");
+
+            if (pbImage.Image != null)
+            {
+
+                Image result = ProcessingMethods.ApplyMask(pbImage.Image,maskLinearFilter);
+                pbResultImage.Image = result;
+            }
+
+
+            tbMaskView.Text = mask;
+
         }
     }
 }

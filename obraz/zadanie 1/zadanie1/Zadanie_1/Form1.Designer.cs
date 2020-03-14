@@ -29,9 +29,9 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend3 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series3 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pbImage = new System.Windows.Forms.PictureBox();
@@ -56,6 +56,11 @@
             this.label1 = new System.Windows.Forms.Label();
             this.btnSaveImage = new System.Windows.Forms.Button();
             this.saveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.groupBox5 = new System.Windows.Forms.GroupBox();
+            this.cmbMaskSizeLinear = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.button2 = new System.Windows.Forms.Button();
+            this.tbMaskView = new System.Windows.Forms.TextBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -67,6 +72,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
+            this.groupBox5.SuspendLayout();
             this.SuspendLayout();
             // 
             // panel1
@@ -163,16 +169,16 @@
             // 
             // chartLUT
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartLUT.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.chartLUT.ChartAreas.Add(chartArea3);
             resources.ApplyResources(this.chartLUT, "chartLUT");
-            legend1.Name = "Legend1";
-            this.chartLUT.Legends.Add(legend1);
+            legend3.Name = "Legend1";
+            this.chartLUT.Legends.Add(legend3);
             this.chartLUT.Name = "chartLUT";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartLUT.Series.Add(series1);
+            series3.ChartArea = "ChartArea1";
+            series3.Legend = "Legend1";
+            series3.Name = "Series1";
+            this.chartLUT.Series.Add(series3);
             // 
             // btnClearContrast
             // 
@@ -259,10 +265,48 @@
             this.btnSaveImage.UseVisualStyleBackColor = true;
             this.btnSaveImage.Click += new System.EventHandler(this.btnSaveImage_Click);
             // 
+            // groupBox5
+            // 
+            this.groupBox5.Controls.Add(this.tbMaskView);
+            this.groupBox5.Controls.Add(this.button2);
+            this.groupBox5.Controls.Add(this.cmbMaskSizeLinear);
+            this.groupBox5.Controls.Add(this.label2);
+            resources.ApplyResources(this.groupBox5, "groupBox5");
+            this.groupBox5.Name = "groupBox5";
+            this.groupBox5.TabStop = false;
+            // 
+            // cmbMaskSizeLinear
+            // 
+            this.cmbMaskSizeLinear.FormattingEnabled = true;
+            this.cmbMaskSizeLinear.Items.AddRange(new object[] {
+            resources.GetString("cmbMaskSizeLinear.Items"),
+            resources.GetString("cmbMaskSizeLinear.Items1"),
+            resources.GetString("cmbMaskSizeLinear.Items2")});
+            resources.ApplyResources(this.cmbMaskSizeLinear, "cmbMaskSizeLinear");
+            this.cmbMaskSizeLinear.Name = "cmbMaskSizeLinear";
+            // 
+            // label2
+            // 
+            resources.ApplyResources(this.label2, "label2");
+            this.label2.Name = "label2";
+            // 
+            // button2
+            // 
+            resources.ApplyResources(this.button2, "button2");
+            this.button2.Name = "button2";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // tbMaskView
+            // 
+            resources.ApplyResources(this.tbMaskView, "tbMaskView");
+            this.tbMaskView.Name = "tbMaskView";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
+            this.Controls.Add(this.groupBox5);
             this.Controls.Add(this.btnSaveImage);
             this.Controls.Add(this.groupBox4);
             this.Controls.Add(this.groupBox3);
@@ -287,6 +331,8 @@
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
+            this.groupBox5.ResumeLayout(false);
+            this.groupBox5.PerformLayout();
             this.ResumeLayout(false);
 
         }
@@ -317,6 +363,11 @@
         private System.Windows.Forms.Button btnApplyMedianFilter;
         private System.Windows.Forms.Button btnSaveImage;
         private System.Windows.Forms.SaveFileDialog saveFileDialog;
+        private System.Windows.Forms.GroupBox groupBox5;
+        private System.Windows.Forms.ComboBox cmbMaskSizeLinear;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox tbMaskView;
     }
 }
 
