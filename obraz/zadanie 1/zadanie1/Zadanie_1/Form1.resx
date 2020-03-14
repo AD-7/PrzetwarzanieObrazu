@@ -861,6 +861,69 @@
   <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>120, 17</value>
   </metadata>
+  <data name="cmbTypeLinearMask.Items" xml:space="preserve">
+    <value>północ</value>
+  </data>
+  <data name="cmbTypeLinearMask.Items1" xml:space="preserve">
+    <value>północny-wschód</value>
+  </data>
+  <data name="cmbTypeLinearMask.Items2" xml:space="preserve">
+    <value>wschód</value>
+  </data>
+  <data name="cmbTypeLinearMask.Items3" xml:space="preserve">
+    <value>południowy-wschód</value>
+  </data>
+  <data name="cmbTypeLinearMask.Location" type="System.Drawing.Point, System.Drawing">
+    <value>99, 87</value>
+  </data>
+  <data name="cmbTypeLinearMask.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cmbTypeLinearMask.TabIndex" type="System.Int32, mscorlib">
+    <value>54</value>
+  </data>
+  <data name="&gt;&gt;cmbTypeLinearMask.Name" xml:space="preserve">
+    <value>cmbTypeLinearMask</value>
+  </data>
+  <data name="&gt;&gt;cmbTypeLinearMask.Type" xml:space="preserve">
+    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;cmbTypeLinearMask.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;cmbTypeLinearMask.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="label3.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label3.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 90</value>
+  </data>
+  <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>58, 13</value>
+  </data>
+  <data name="label3.TabIndex" type="System.Int32, mscorlib">
+    <value>53</value>
+  </data>
+  <data name="label3.Text" xml:space="preserve">
+    <value>Typ maski:</value>
+  </data>
+  <data name="&gt;&gt;label3.Name" xml:space="preserve">
+    <value>label3</value>
+  </data>
+  <data name="&gt;&gt;label3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
+    <value>groupBox5</value>
+  </data>
+  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="tbMaskView.Location" type="System.Drawing.Point, System.Drawing">
     <value>18, 181</value>
   </data>
@@ -883,7 +946,7 @@
     <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;tbMaskView.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>45, 137</value>
@@ -907,7 +970,7 @@
     <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="cmbMaskSizeLinear.Items" xml:space="preserve">
     <value>3x3</value>
@@ -937,7 +1000,7 @@
     <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;cmbMaskSizeLinear.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label2.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -967,7 +1030,7 @@
     <value>groupBox5</value>
   </data>
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
     <value>595, 70</value>

@@ -155,7 +155,7 @@ namespace Zadanie_1
             {
                 case 0:
                     mask = new int[3, 3] { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
-                
+
                     break;
                 case 1:
                     mask = new int[5, 5] { { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 } };
@@ -190,14 +190,39 @@ namespace Zadanie_1
 
         private void button2_Click(object sender, EventArgs e)
         {
-            maskLinearFilter = new int[3, 3] { { 1, 1, 1 }, { 1, -2, 1 }, { -1, -1, -1 } };
-            string mask = File.ReadAllText(@"Maski\3x3_Liniowy_Północ.txt");
-            string[] lines = File.ReadAllLines(@"Maski\3x3_Liniowy_Północ.txt");
+
+            string mask = "";
+            string[] lines = new string[1];
+
+            LoadLinearMask(ref mask, ref lines);
+
+            List<string> maskValues = new List<string>();
+            foreach (string line in lines)
+            {
+                if (line != "")
+                {
+                    maskValues.Add(line.Replace("\t", ""));
+                }
+            }
+
+            maskLinearFilter = new int[maskValues.Count, maskValues.Count];
+
+            for (int i = 0; i < maskValues.Count; i++)
+            {
+                int index = 0;
+                for (int j = 0; j < maskValues.Count; j++)
+                {
+
+                    maskLinearFilter[i, j] = GetNextValue(ref index, maskValues[i]);
+                    index++;
+                }
+            }
+
 
             if (pbImage.Image != null)
             {
 
-                Image result = ProcessingMethods.ApplyMask(pbImage.Image,maskLinearFilter);
+                Image result = ProcessingMethods.ApplyMask(pbImage.Image, maskLinearFilter);
                 pbResultImage.Image = result;
             }
 
@@ -205,5 +230,69 @@ namespace Zadanie_1
             tbMaskView.Text = mask;
 
         }
+
+        private int GetNextValue(ref int i, string stringRow)
+        {
+            string test = stringRow.Substring(i, 1);
+            if (test == "-")
+            {
+                string test2 = stringRow.Substring(i, 2);
+                i++;
+                return Convert.ToInt32(test2);
+            }
+            else
+            {
+
+                return Convert.ToInt32(test);
+            }
+        }
+
+        private void LoadLinearMask(ref string textMask, ref string[] textMaskLines)
+        {
+            string path = "Maski\\";
+
+            switch (cmbMaskSizeLinear.SelectedIndex)
+            {
+                case 0:
+                    path += "3x3";
+                   
+                    break;
+                case 1:
+                    path += "5x5";
+           
+                    break;
+                case 2:
+                    path += "7x7";
+          
+                    break;
+            }
+            path += "_Liniowy_";
+            switch (cmbTypeLinearMask.SelectedIndex)
+            {
+                case 0:
+                    path += "Północ";
+                    break;
+                case 1:
+                    path += "Północny-wschód";
+                    break;
+                case 2:
+                    path += "Wschód";
+                    break;
+                case 3:
+                    path += "Południowy-wschód";
+                    break;
+            }
+            path += ".txt";
+
+            if (File.Exists(path))
+            {
+                textMask= File.ReadAllText(@path);
+                textMaskLines = File.ReadAllLines(@path);
+            }
+        }
+
+
+
+
     }
 }
