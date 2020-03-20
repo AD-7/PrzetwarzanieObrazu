@@ -212,44 +212,44 @@ namespace Zadanie_1.Classes
                         avgG = sumG / (divide);
                         avgB = sumB / (divide);
                     }
-                   
-                        if (sumR < 0)
-                        {
-                            avgR = 0;
-                        }
-                        else if (sumR > 255 )
-                        {
-                            avgR = 255;
-                        }
-                        else
-                        {
-                            avgR = sumR;
-                        }
-                        if (sumG < 0)
-                        {
-                            avgG = 0;
-                        }
-                        else if (sumG > 255)
-                        {
-                            avgG = 255;
-                        }
-                        else
-                        {
-                            avgG = sumG;
-                        }
-                        if (sumB < 0)
-                        {
-                            avgB = 0;
-                        }
-                        else if(sumB > 255)
-                        {
-                            avgB = 255;
-                        }
-                        else
-                        {
-                            avgB = sumB;
-                        }
-                   
+
+                    if (sumR < 0)
+                    {
+                        avgR = 0;
+                    }
+                    else if (sumR > 255)
+                    {
+                        avgR = 255;
+                    }
+                    else
+                    {
+                        avgR = sumR;
+                    }
+                    if (sumG < 0)
+                    {
+                        avgG = 0;
+                    }
+                    else if (sumG > 255)
+                    {
+                        avgG = 255;
+                    }
+                    else
+                    {
+                        avgG = sumG;
+                    }
+                    if (sumB < 0)
+                    {
+                        avgB = 0;
+                    }
+                    else if (sumB > 255)
+                    {
+                        avgB = 255;
+                    }
+                    else
+                    {
+                        avgB = sumB;
+                    }
+
 
 
                     Color avgColor = Color.FromArgb(avgR, avgG, avgB);
@@ -340,27 +340,114 @@ namespace Zadanie_1.Classes
 
 
 
+        public static Bitmap ModifyWithHistogram(Image image, List<Histogram> histograms, int minimalBrightness, int maximalBrightness)
+        {
+            var minimalPower = Math.Pow(minimalBrightness, 1.0 / 3);
+            var maximalPower = Math.Pow(maximalBrightness, 1.0 / 3);
+            var test = Image.GetPixelFormatSize(image.PixelFormat) != 8;
+            var result = new Bitmap(image);
+            var fasterBitmap = new FasterBitmap(result);
+            fasterBitmap.LockBits();
+            var pixelNumber = (double)fasterBitmap.Width * fasterBitmap.Height;
+
+            int Calculate(int value, Histogram histogram)
+            {
+                var sum = histogram.CalculateSum(value);
+                var calculated = Math.Pow((minimalPower + (maximalPower - minimalPower) * (sum / pixelNumber)), 3.0);
+                if (calculated < 0) return 0;
+                if (calculated > 255) return 255;
+                return (int)calculated;
+            }
 
 
+            for (int i = 0; i < fasterBitmap.Height; i++)
+            {
+                for (int j = 0; j < fasterBitmap.Width; j++)
+                {
+                    var color = fasterBitmap.GetPixel(i, j);
+                    var r = Calculate(color.R, histograms[0]);
+                    var g = r;
+                    var b = r;
+                    if (test)
+                    {
+                        g = Calculate(color.G, histograms[1]);
+                        b = Calculate(color.B, histograms[2]);
+                    }
+                    fasterBitmap.SetPixel(i, j, Color.FromArgb(r, g, b));
+                }
+            }
+
+            fasterBitmap.UnlockBits();
+            return result;
+        }
+
+        private static int ProcessSingleColor(FasterBitmap fasterBitmap, int x, int y, int channel, double rCoefficient)
+        {
+            int sum1 = 0, sum2 = 0;
+            for (var i = 1; i < rCoefficient; i++)
+            {
+                if (x + i - 1 < 0 || x + i > fasterBitmap.Width)
+                {
+                    continue;
+                }
+
+                sum1 += fasterBitmap.GetSingleChannel(x + i - 1, y, channel);
+            }
+            for (var i = 1; i < rCoefficient; i++)
+            {
+                if (x - 1 < 0 || x - 1 > fasterBitmap.Width)
+                {
+                    continue;
+                }
+                sum2 += fasterBitmap.GetSingleChannel(x - 1, y, channel);
+            }
+            var result = (int)((sum1 - sum2) / rCoefficient);
+            if (result > 255)
+            {
+                return 255;
+            }
+            if (result < 0)
+            {
+                return 0;
+            }
+            return result;
+        }
 
 
+        public static Bitmap ApplyRosenfeld(Image image, double p)
+        {
+            var original = new Bitmap(image);
+            var originalBitmap = new FasterBitmap(original);
+            var result = new Bitmap(image);
+            var resultBitmap = new FasterBitmap(result);
+            var test = Image.GetPixelFormatSize(image.PixelFormat) == 8;
+            resultBitmap.LockBits();
+            originalBitmap.LockBits();
+
+            for (var i = 0; i < resultBitmap.Height; i++)
+            {
+                for (var j = 0; j < resultBitmap.Width; j++)
+                {
+                    if (test)
+                    {
+                        var value = ProcessSingleColor(originalBitmap, i, j, 0, p);
+                        resultBitmap.SetPixel(i, j, Color.FromArgb(value, value, value));
+                    }
+                    else
+                    {
+                        var r = ProcessSingleColor(originalBitmap, i, j, 0, p);
+                        var g = ProcessSingleColor(originalBitmap, i, j, 1, p);
+                        var b = ProcessSingleColor(originalBitmap, i, j, 2, p);
+                        resultBitmap.SetPixel(i, j, Color.FromArgb(r, g, b));
+                    }
+                }
+            }
+
+            resultBitmap.UnlockBits();
+            originalBitmap.UnlockBits();
+            return result;
+        }
 
 
     }
 }
-// for(int x = ignorePixels; x<image.Width - ignorePixels; x++)
-//            {
-//                for(int y = ignorePixels; y<image.Height - ignorePixels; y++)
-//                {
-
-//                    for(int i =-ignorePixels; i <= ignorePixels; i++)
-//                    {
-//                        for(int j = -ignorePixels; j <= ignorePixels; j++)
-//                        {
-
-
-//                        }
-//                    }
-
-//                }
-//            }

@@ -48,6 +48,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\FasterBitmap.cs" />
+    <Compile Include="Classes\Histogram.cs" />
     <Compile Include="Classes\ProcessingMethods.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

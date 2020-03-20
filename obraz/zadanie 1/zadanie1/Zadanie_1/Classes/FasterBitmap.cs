@@ -121,6 +121,19 @@ namespace Zadanie_1.Classes
             return clr;
         }
 
+        public byte GetSingleChannel(int x, int y, int d)
+        {
+            // Get color components count
+            int cCount = Depth / 8;
+
+            // Get start index of the specified pixel
+            int i = ((y * Width) + x) * cCount;
+
+            if (i > Pixels.Length - cCount || i + d > Pixels.Length)
+                throw new IndexOutOfRangeException();
+            return Pixels[i + d];
+        }
+
 
         public void SetPixel(int x, int y, Color color)
         {

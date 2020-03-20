@@ -38,7 +38,23 @@ namespace Zadanie_1
             cmbMaskSize.SelectedIndex = 0;
             cmbMaskSizeLinear.SelectedIndex = 0;
             cmbTypeLinearMask.SelectedIndex = 0;
+
+
+            chartHistogram.ChartAreas[0].AxisX.Maximum = 255;
+            chartHistogram.ChartAreas[0].AxisX.Minimum = 0;
+            chartHistogram.ChartAreas[0].AxisY.Maximum = 255;
+            chartHistogram.ChartAreas[0].AxisY.Minimum = 0;
+            chartHistogram.Series.Clear();
+
+            labelContrastValue.Text = trackBarContrast.Value.ToString();
         }
+
+        private void Reset()
+        {
+            chartHistogram.Series.Clear();
+            btnHistogramModify.Enabled = false;
+        }
+
 
         private void button1_Click(object sender, EventArgs e)
         {
@@ -50,6 +66,7 @@ namespace Zadanie_1
                 originalImage = new Bitmap(fileDialog.FileName);
                 loadedImage = originalImage.Clone() as Bitmap;
                 pbImage.Image = originalImage;
+                Reset();
             }
         }
 
@@ -230,7 +247,7 @@ namespace Zadanie_1
             }
 
 
-            
+
 
         }
 
@@ -258,15 +275,15 @@ namespace Zadanie_1
             {
                 case 0:
                     path += "3x3";
-                   
+
                     break;
                 case 1:
                     path += "5x5";
-           
+
                     break;
                 case 2:
                     path += "7x7";
-          
+
                     break;
             }
             path += "_Liniowy_";
@@ -289,7 +306,7 @@ namespace Zadanie_1
 
             if (File.Exists(path))
             {
-                textMask= File.ReadAllText(@path);
+                textMask = File.ReadAllText(@path);
                 textMaskLines = File.ReadAllLines(@path);
             }
         }
@@ -312,6 +329,66 @@ namespace Zadanie_1
             RefreshMaskLinear();
         }
 
-      
+
+        private void AddSeriesToHistogram(Histogram histogram, int seriesNumber, Color color, string name)
+        {
+            chartHistogram.Series.Add(new Series());
+            chartHistogram.Series[seriesNumber].Points.Clear();
+            chartHistogram.Series[seriesNumber].Color = color;
+            chartHistogram.Series[seriesNumber].ChartType = SeriesChartType.Spline;
+            chartHistogram.Series[seriesNumber].BorderWidth = 2;
+            chartHistogram.Series[seriesNumber].Name = name;
+            for (var i = 0; i < histogram.Values.Length; i++)
+            {
+                chartHistogram.Series[seriesNumber].Points.Add(new DataPoint(i, histogram.Values[i]));
+            }
+        }
+
+
+        private List<Histogram> _histograms;
+
+        private void btnCalculateHistogram_Click(object sender, EventArgs e)
+        {
+            chartHistogram.Series.Clear();
+            _histograms = Histogram.CreateHistogram(originalImage);
+            var maxHeights = new List<int>();
+            if (_histograms.Count == 1)
+            {
+                AddSeriesToHistogram(_histograms[0], 0, Color.Black, "Jasność");
+                maxHeights.Add(_histograms[0].Values.Max());
+            }
+
+            if (_histograms.Count == 3)
+            {
+                AddSeriesToHistogram(_histograms[0], 0, Color.Red, "Czerwony");
+                AddSeriesToHistogram(_histograms[1], 1, Color.Green, "Zielony");
+                AddSeriesToHistogram(_histograms[2], 2, Color.Blue, "Niebieski");
+                maxHeights.Add(_histograms[0].Values.Max());
+                maxHeights.Add(_histograms[1].Values.Max());
+                maxHeights.Add(_histograms[2].Values.Max());
+            }
+
+            chartHistogram.ChartAreas[0].AxisY.Maximum = maxHeights.Max();
+            chartHistogram.ChartAreas[0].AxisY.LabelStyle.Format = "0";
+
+            btnHistogramModify.Enabled = true;
+        }
+
+        private void trackBarContrast_ValueChanged(object sender, EventArgs e)
+        {
+            labelContrastValue.Text = trackBarContrast.Value.ToString();
+        }
+
+        private void btnHistogramModify_Click(object sender, EventArgs e)
+        {
+            var minimalBrightness = int.Parse(minimalBrightnessHistogram.Text);
+            var maximalBrightness = int.Parse(maximalBrightnessHistogram.Text);
+            pbResultImage.Image = ProcessingMethods.ModifyWithHistogram(pbImage.Image, _histograms, minimalBrightness, maximalBrightness);
+        }
+
+        private void btnOperator_Click(object sender, EventArgs e)
+        {
+            pbResultImage.Image = ProcessingMethods.ApplyRosenfeld(pbImage.Image, int.Parse(valueRosenfeld.Text));
+        }
     }
 }
