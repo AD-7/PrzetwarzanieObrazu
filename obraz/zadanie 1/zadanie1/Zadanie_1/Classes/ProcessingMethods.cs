@@ -146,6 +146,83 @@ namespace Zadanie_1.Classes
             return result;
         }
 
+        public static Bitmap ApplyMaskAverage(Image image, int[,] mask)
+        {
+            Bitmap result = new Bitmap(image);
+            Bitmap tmp = new Bitmap(image);
+            FasterBitmap fasterBitmap = new FasterBitmap(result);
+            FasterBitmap bitmapHelperValues = new FasterBitmap(tmp);
+
+
+            int len = mask.Length;
+            int ignorePixels = 0;
+            int divide = 0;
+
+            foreach (int maskVlaue in mask)
+            {
+                divide += maskVlaue;
+            }
+
+            if (len == 9)
+            {
+                ignorePixels = 1;
+            }
+            else if (len == 25)
+            {
+                ignorePixels = 2;
+            }
+            else if (len == 49)
+            {
+                ignorePixels = 3;
+            }
+
+
+
+
+            fasterBitmap.LockBits();
+            bitmapHelperValues.LockBits();
+
+            for (int x = ignorePixels; x < image.Width - ignorePixels - 1; x++)
+            {
+                for (int y = ignorePixels; y < image.Height - ignorePixels - 1; y++)
+                {
+                    int sumR = 0;
+                    int sumG = 0;
+                    int sumB = 0;
+
+                    for (int i = -ignorePixels; i <= ignorePixels; i++)
+                    {
+                        for (int j = -ignorePixels; j <= ignorePixels; j++)
+                        {
+                            sumR += bitmapHelperValues.GetPixel(x + i, y + j).R * mask[i + ignorePixels, j + ignorePixels];
+                            sumG += bitmapHelperValues.GetPixel(x + i, y + j).G * mask[i + ignorePixels, j + ignorePixels];
+                            sumB += bitmapHelperValues.GetPixel(x + i, y + j).B * mask[i + ignorePixels, j + ignorePixels];
+
+                        }
+
+                    }
+
+                    int avgR = 0;
+                    int avgG = 0;
+                    int avgB = 0;
+                    if (divide!=0)
+                    {
+                        avgR = sumR / (divide);
+                        avgG = sumG / (divide);
+                        avgB = sumB / (divide);
+                    }
+
+                    Color avgColor = Color.FromArgb(avgR, avgG, avgB);
+                    fasterBitmap.SetPixel(x, y, avgColor);
+
+                }
+            }
+
+            fasterBitmap.UnlockBits();
+            bitmapHelperValues.UnlockBits();
+            return result;
+        }
+        
         public static Bitmap ApplyMask(Image image, int[,] mask)
         {
             Bitmap result = new Bitmap(image);
@@ -195,9 +272,9 @@ namespace Zadanie_1.Classes
                     {
                         for (int j = -ignorePixels; j <= ignorePixels; j++)
                         {
-                            sumR += bitmapHelperValues.GetPixel(x + i, y + j).R * mask[i + ignorePixels, j + ignorePixels];
-                            sumG += bitmapHelperValues.GetPixel(x + i, y + j).G * mask[i + ignorePixels, j + ignorePixels];
-                            sumB += bitmapHelperValues.GetPixel(x + i, y + j).B * mask[i + ignorePixels, j + ignorePixels];
+                            sumR += bitmapHelperValues.GetPixel(x + i, y + j).R * mask[j + ignorePixels, i + ignorePixels];
+                            sumG += bitmapHelperValues.GetPixel(x + i, y + j).G * mask[j + ignorePixels, i + ignorePixels];
+                            sumB += bitmapHelperValues.GetPixel(x + i, y + j).B * mask[j + ignorePixels, i + ignorePixels];
 
                         }
 
@@ -265,7 +342,7 @@ namespace Zadanie_1.Classes
 
         public static Bitmap ApplyAverageFilter(Image image, int[,] mask)
         {
-            return ApplyMask(image, mask);
+            return ApplyMaskAverage(image, mask);
 
         }
 

@@ -46,13 +46,14 @@ namespace Zadanie_1
             chartHistogram.ChartAreas[0].AxisY.Minimum = 0;
             chartHistogram.Series.Clear();
 
-            labelContrastValue.Text = trackBarContrast.Value.ToString();
+            textBoxContrast.Text = trackBarContrast.Value.ToString();
         }
 
         private void Reset()
         {
             chartHistogram.Series.Clear();
             btnHistogramModify.Enabled = false;
+            btnHistogramSave.Enabled = false;
         }
 
 
@@ -75,9 +76,12 @@ namespace Zadanie_1
 
             if (pbResultImage.Image != null)
             {
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.DefaultExt = ".jpg";
+                saveFileDialog.Filter = "Obrazy(*.bmp;*.jpg;*.gif)|*.bmp;*.jpg;*.gif|Wszystkie pliki (*.*)|*.*";
                 if (saveFileDialog.ShowDialog() == DialogResult.OK)
                 {
-                    pbResultImage.Image.Save(saveFileDialog.FileName + ".jpg", ImageFormat.Jpeg);
+                    pbResultImage.Image.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
                 }
             }
 
@@ -210,10 +214,10 @@ namespace Zadanie_1
         private void button2_Click(object sender, EventArgs e)
         {
 
-            string mask = "";
+            string maskLocal = "";
             string[] lines = new string[1];
 
-            LoadLinearMask(ref mask, ref lines);
+            LoadLinearMask(ref maskLocal, ref lines);
             lines = tbMaskView.Text.Split('\n');
             List<string> maskValues = new List<string>();
             foreach (string line in lines)
@@ -372,11 +376,12 @@ namespace Zadanie_1
             chartHistogram.ChartAreas[0].AxisY.LabelStyle.Format = "0";
 
             btnHistogramModify.Enabled = true;
+            btnHistogramSave.Enabled = true;
         }
 
         private void trackBarContrast_ValueChanged(object sender, EventArgs e)
         {
-            labelContrastValue.Text = trackBarContrast.Value.ToString();
+            textBoxContrast.Text = trackBarContrast.Value.ToString();
         }
 
         private void btnHistogramModify_Click(object sender, EventArgs e)
@@ -389,6 +394,22 @@ namespace Zadanie_1
         private void btnOperator_Click(object sender, EventArgs e)
         {
             pbResultImage.Image = ProcessingMethods.ApplyRosenfeld(pbImage.Image, int.Parse(valueRosenfeld.Text));
+        }
+
+        private void textBoxContrast_TextChanged(object sender, EventArgs e)
+        {
+            trackBarContrast.Value = int.Parse(textBoxContrast.Text);
+        }
+
+        private void btnHistogramSave_Click(object sender, EventArgs e)
+        {
+            saveFileDialog.AddExtension = true;
+            saveFileDialog.DefaultExt = ".jpg";
+            saveFileDialog.Filter = "Obrazy(*.bmp;*.jpg;*.gif)|*.bmp;*.jpg;*.gif|Wszystkie pliki (*.*)|*.*";
+            if (saveFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                chartHistogram.SaveImage(saveFileDialog.FileName, ImageFormat.Jpeg);
+            }
         }
     }
 }
