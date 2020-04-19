@@ -411,5 +411,25 @@ namespace Zadanie_1
                 chartHistogram.SaveImage(saveFileDialog.FileName, ImageFormat.Jpeg);
             }
         }
+
+
+        /// ZADANIE 2
+        /// 
+
+
+        private void btnDFT_Click(object sender, EventArgs e)
+        {
+            if (pbImage.Image != null)
+            {
+
+                Image result = FourierProcessingMethods.CalculateDFT(pbImage.Image);
+                pbDFT.Image = result;
+            }
+        }
+
+        private void pbDFT_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

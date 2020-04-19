@@ -28,20 +28,13 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources =
-                new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 =
-                new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend1 =
-                new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series1 =
-                new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 =
-                new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend2 =
-                new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series2 =
-                new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pbImage = new System.Windows.Forms.PictureBox();
@@ -75,6 +68,7 @@
             this.cmbMaskSizeLinear = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.groupBox6 = new System.Windows.Forms.GroupBox();
+            this.btnHistogramSave = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.maximalBrightnessHistogram = new System.Windows.Forms.NumericUpDown();
@@ -86,25 +80,33 @@
             this.groupBox7 = new System.Windows.Forms.GroupBox();
             this.valueRosenfeld = new System.Windows.Forms.NumericUpDown();
             this.label6 = new System.Windows.Forms.Label();
-            this.btnHistogramSave = new System.Windows.Forms.Button();
+            this.tabControl1 = new System.Windows.Forms.TabControl();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.pbDFT = new System.Windows.Forms.PictureBox();
+            this.btnDFT = new System.Windows.Forms.Button();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbResultImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbResultImage)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.brightnessValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessValue)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.chartLUT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBarContrast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLUT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.maximalBrightnessHistogram)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.minimalBrightnessHistogram)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.chartHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximalBrightnessHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalBrightnessHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).BeginInit();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.valueRosenfeld)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRosenfeld)).BeginInit();
+            this.tabControl1.SuspendLayout();
+            this.tabPage1.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -131,8 +133,7 @@
             resources.ApplyResources(this.pbResultImage, "pbResultImage");
             this.pbResultImage.Name = "pbResultImage";
             this.pbResultImage.TabStop = false;
-            this.pbResultImage.MouseDoubleClick +=
-                new System.Windows.Forms.MouseEventHandler(this.pbResultImage_MouseDoubleClick);
+            this.pbResultImage.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.pbResultImage_MouseDoubleClick);
             // 
             // fileDialog
             // 
@@ -173,10 +174,22 @@
             // 
             this.brightnessValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.brightnessValue, "brightnessValue");
-            this.brightnessValue.Maximum = new decimal(new int[] {255, 0, 0, 0});
-            this.brightnessValue.Minimum = new decimal(new int[] {1, 0, 0, 0});
+            this.brightnessValue.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.brightnessValue.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.brightnessValue.Name = "brightnessValue";
-            this.brightnessValue.Value = new decimal(new int[] {1, 0, 0, 0});
+            this.brightnessValue.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBox2
             // 
@@ -197,16 +210,16 @@
             // 
             // chartLUT
             // 
-            chartArea1.Name = "ChartArea1";
-            this.chartLUT.ChartAreas.Add(chartArea1);
+            chartArea9.Name = "ChartArea1";
+            this.chartLUT.ChartAreas.Add(chartArea9);
             resources.ApplyResources(this.chartLUT, "chartLUT");
-            legend1.Name = "Legend1";
-            this.chartLUT.Legends.Add(legend1);
+            legend9.Name = "Legend1";
+            this.chartLUT.Legends.Add(legend9);
             this.chartLUT.Name = "chartLUT";
-            series1.ChartArea = "ChartArea1";
-            series1.Legend = "Legend1";
-            series1.Name = "Series1";
-            this.chartLUT.Series.Add(series1);
+            series9.ChartArea = "ChartArea1";
+            series9.Legend = "Legend1";
+            series9.Name = "Series1";
+            this.chartLUT.Series.Add(series9);
             // 
             // btnClearContrast
             // 
@@ -274,11 +287,10 @@
             // cmbMaskSize
             // 
             this.cmbMaskSize.FormattingEnabled = true;
-            this.cmbMaskSize.Items.AddRange(new object[]
-            {
-                resources.GetString("cmbMaskSize.Items"), resources.GetString("cmbMaskSize.Items1"),
-                resources.GetString("cmbMaskSize.Items2")
-            });
+            this.cmbMaskSize.Items.AddRange(new object[] {
+            resources.GetString("cmbMaskSize.Items"),
+            resources.GetString("cmbMaskSize.Items1"),
+            resources.GetString("cmbMaskSize.Items2")});
             resources.ApplyResources(this.cmbMaskSize, "cmbMaskSize");
             this.cmbMaskSize.Name = "cmbMaskSize";
             this.cmbMaskSize.SelectedIndexChanged += new System.EventHandler(this.cmbRozmiarMaski_SelectedIndexChanged);
@@ -310,15 +322,14 @@
             // cmbTypeLinearMask
             // 
             this.cmbTypeLinearMask.FormattingEnabled = true;
-            this.cmbTypeLinearMask.Items.AddRange(new object[]
-            {
-                resources.GetString("cmbTypeLinearMask.Items"), resources.GetString("cmbTypeLinearMask.Items1"),
-                resources.GetString("cmbTypeLinearMask.Items2"), resources.GetString("cmbTypeLinearMask.Items3")
-            });
+            this.cmbTypeLinearMask.Items.AddRange(new object[] {
+            resources.GetString("cmbTypeLinearMask.Items"),
+            resources.GetString("cmbTypeLinearMask.Items1"),
+            resources.GetString("cmbTypeLinearMask.Items2"),
+            resources.GetString("cmbTypeLinearMask.Items3")});
             resources.ApplyResources(this.cmbTypeLinearMask, "cmbTypeLinearMask");
             this.cmbTypeLinearMask.Name = "cmbTypeLinearMask";
-            this.cmbTypeLinearMask.SelectedIndexChanged +=
-                new System.EventHandler(this.cmbTypeLinearMask_SelectedIndexChanged);
+            this.cmbTypeLinearMask.SelectedIndexChanged += new System.EventHandler(this.cmbTypeLinearMask_SelectedIndexChanged);
             // 
             // label3
             // 
@@ -340,12 +351,12 @@
             // cmbMaskSizeLinear
             // 
             this.cmbMaskSizeLinear.FormattingEnabled = true;
-            this.cmbMaskSizeLinear.Items.AddRange(new object[]
-                {resources.GetString("cmbMaskSizeLinear.Items"), resources.GetString("cmbMaskSizeLinear.Items1")});
+            this.cmbMaskSizeLinear.Items.AddRange(new object[] {
+            resources.GetString("cmbMaskSizeLinear.Items"),
+            resources.GetString("cmbMaskSizeLinear.Items1")});
             resources.ApplyResources(this.cmbMaskSizeLinear, "cmbMaskSizeLinear");
             this.cmbMaskSizeLinear.Name = "cmbMaskSizeLinear";
-            this.cmbMaskSizeLinear.SelectedIndexChanged +=
-                new System.EventHandler(this.cmbMaskSizeLinear_SelectedIndexChanged);
+            this.cmbMaskSizeLinear.SelectedIndexChanged += new System.EventHandler(this.cmbMaskSizeLinear_SelectedIndexChanged);
             // 
             // label2
             // 
@@ -366,6 +377,13 @@
             this.groupBox6.Name = "groupBox6";
             this.groupBox6.TabStop = false;
             // 
+            // btnHistogramSave
+            // 
+            resources.ApplyResources(this.btnHistogramSave, "btnHistogramSave");
+            this.btnHistogramSave.Name = "btnHistogramSave";
+            this.btnHistogramSave.UseVisualStyleBackColor = true;
+            this.btnHistogramSave.Click += new System.EventHandler(this.btnHistogramSave_Click);
+            // 
             // label5
             // 
             resources.ApplyResources(this.label5, "label5");
@@ -379,14 +397,26 @@
             // maximalBrightnessHistogram
             // 
             resources.ApplyResources(this.maximalBrightnessHistogram, "maximalBrightnessHistogram");
-            this.maximalBrightnessHistogram.Maximum = new decimal(new int[] {1000, 0, 0, 0});
+            this.maximalBrightnessHistogram.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.maximalBrightnessHistogram.Name = "maximalBrightnessHistogram";
-            this.maximalBrightnessHistogram.Value = new decimal(new int[] {100, 0, 0, 0});
+            this.maximalBrightnessHistogram.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // minimalBrightnessHistogram
             // 
             resources.ApplyResources(this.minimalBrightnessHistogram, "minimalBrightnessHistogram");
-            this.minimalBrightnessHistogram.Maximum = new decimal(new int[] {1000, 0, 0, 0});
+            this.minimalBrightnessHistogram.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.minimalBrightnessHistogram.Name = "minimalBrightnessHistogram";
             // 
             // btnHistogramModify
@@ -405,16 +435,16 @@
             // 
             // chartHistogram
             // 
-            chartArea2.Name = "ChartArea1";
-            this.chartHistogram.ChartAreas.Add(chartArea2);
-            legend2.Name = "Legend1";
-            this.chartHistogram.Legends.Add(legend2);
+            chartArea10.Name = "ChartArea1";
+            this.chartHistogram.ChartAreas.Add(chartArea10);
+            legend10.Name = "Legend1";
+            this.chartHistogram.Legends.Add(legend10);
             resources.ApplyResources(this.chartHistogram, "chartHistogram");
             this.chartHistogram.Name = "chartHistogram";
-            series2.ChartArea = "ChartArea1";
-            series2.Legend = "Legend1";
-            series2.Name = "Series1";
-            this.chartHistogram.Series.Add(series2);
+            series10.ChartArea = "ChartArea1";
+            series10.Legend = "Legend1";
+            series10.Name = "Series1";
+            this.chartHistogram.Series.Add(series10);
             // 
             // btnOperator
             // 
@@ -435,34 +465,73 @@
             // valueRosenfeld
             // 
             resources.ApplyResources(this.valueRosenfeld, "valueRosenfeld");
-            this.valueRosenfeld.Maximum = new decimal(new int[] {256, 0, 0, 0});
+            this.valueRosenfeld.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
             this.valueRosenfeld.Name = "valueRosenfeld";
-            this.valueRosenfeld.Value = new decimal(new int[] {16, 0, 0, 0});
+            this.valueRosenfeld.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
             // 
             // label6
             // 
             resources.ApplyResources(this.label6, "label6");
             this.label6.Name = "label6";
             // 
-            // btnHistogramSave
+            // tabControl1
             // 
-            resources.ApplyResources(this.btnHistogramSave, "btnHistogramSave");
-            this.btnHistogramSave.Name = "btnHistogramSave";
-            this.btnHistogramSave.UseVisualStyleBackColor = true;
-            this.btnHistogramSave.Click += new System.EventHandler(this.btnHistogramSave_Click);
+            this.tabControl1.Controls.Add(this.tabPage1);
+            this.tabControl1.Controls.Add(this.tabPage2);
+            resources.ApplyResources(this.tabControl1, "tabControl1");
+            this.tabControl1.Name = "tabControl1";
+            this.tabControl1.SelectedIndex = 0;
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.groupBox2);
+            this.tabPage1.Controls.Add(this.groupBox7);
+            this.tabPage1.Controls.Add(this.groupBox1);
+            this.tabPage1.Controls.Add(this.groupBox6);
+            this.tabPage1.Controls.Add(this.groupBox3);
+            this.tabPage1.Controls.Add(this.groupBox5);
+            this.tabPage1.Controls.Add(this.groupBox4);
+            resources.ApplyResources(this.tabPage1, "tabPage1");
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // tabPage2
+            // 
+            this.tabPage2.Controls.Add(this.pbDFT);
+            this.tabPage2.Controls.Add(this.btnDFT);
+            resources.ApplyResources(this.tabPage2, "tabPage2");
+            this.tabPage2.Name = "tabPage2";
+            this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // pbDFT
+            // 
+            this.pbDFT.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.pbDFT, "pbDFT");
+            this.pbDFT.Name = "pbDFT";
+            this.pbDFT.TabStop = false;
+            this.pbDFT.Click += new System.EventHandler(this.pbDFT_Click);
+            // 
+            // btnDFT
+            // 
+            resources.ApplyResources(this.btnDFT, "btnDFT");
+            this.btnDFT.Name = "btnDFT";
+            this.btnDFT.UseVisualStyleBackColor = true;
+            this.btnDFT.Click += new System.EventHandler(this.btnDFT_Click);
             // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
             resources.ApplyResources(this, "$this");
-            this.Controls.Add(this.groupBox7);
-            this.Controls.Add(this.groupBox6);
-            this.Controls.Add(this.groupBox5);
+            this.Controls.Add(this.tabControl1);
             this.Controls.Add(this.btnSaveImage);
-            this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
-            this.Controls.Add(this.groupBox2);
-            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.panel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedToolWindow;
@@ -471,14 +540,15 @@
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.pbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbResultImage)).EndInit();
+            this.tableLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbResultImage)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.brightnessValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessValue)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.chartLUT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBarContrast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLUT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -486,13 +556,18 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.maximalBrightnessHistogram)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.minimalBrightnessHistogram)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.chartHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximalBrightnessHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalBrightnessHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.valueRosenfeld)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRosenfeld)).EndInit();
+            this.tabControl1.ResumeLayout(false);
+            this.tabPage1.ResumeLayout(false);
+            this.tabPage2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).EndInit();
             this.ResumeLayout(false);
+
         }
 
         #endregion
@@ -542,6 +617,11 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox textBoxContrast;
         private System.Windows.Forms.Button btnHistogramSave;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
+        private System.Windows.Forms.Button btnDFT;
+        private System.Windows.Forms.PictureBox pbDFT;
     }
 }
 
