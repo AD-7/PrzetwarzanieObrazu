@@ -89,6 +89,8 @@
             this.pbFilterMask = new System.Windows.Forms.PictureBox();
             this.label7 = new System.Windows.Forms.Label();
             this.numRadius = new System.Windows.Forms.NumericUpDown();
+            this.numRadius2 = new System.Windows.Forms.NumericUpDown();
+            this.label8 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -113,6 +115,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRadius)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius2)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -511,6 +514,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.numRadius2);
+            this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.numRadius);
             this.tabPage2.Controls.Add(this.label7);
             this.tabPage2.Controls.Add(this.pbFilterMask);
@@ -560,6 +565,16 @@
             resources.ApplyResources(this.numRadius, "numRadius");
             this.numRadius.Name = "numRadius";
             // 
+            // numRadius2
+            // 
+            resources.ApplyResources(this.numRadius2, "numRadius2");
+            this.numRadius2.Name = "numRadius2";
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -603,6 +618,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRadius)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -663,6 +679,8 @@
         private System.Windows.Forms.PictureBox pbFilterMask;
         private System.Windows.Forms.NumericUpDown numRadius;
         private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.NumericUpDown numRadius2;
+        private System.Windows.Forms.Label label8;
     }
 }
 

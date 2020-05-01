@@ -452,7 +452,8 @@ namespace Zadanie_1
             pbResultImage.Refresh();
             if (pbImage.Image != null && pbDFT.Image != null)
             {
-                Tuple<Image,Image>  result = FourierProcessingMethods.ApplyFilter(pbImage.Image,fourierTAB,1,(int)numRadius.Value);
+                Complex[,] tmp = fourierTAB;
+                Tuple<Image,Image>  result = FourierProcessingMethods.ApplyFilter(pbImage.Image,fourierTAB,1,(int)numRadius.Value,(int)numRadius2.Value);
 
 
                 pbResultImage.Image = result.Item1;

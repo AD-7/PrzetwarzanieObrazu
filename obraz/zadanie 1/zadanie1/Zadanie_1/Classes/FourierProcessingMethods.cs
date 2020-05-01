@@ -11,7 +11,7 @@ namespace Zadanie_1.Classes
     public static class FourierProcessingMethods
     {
 
-        public static Tuple<Image,Image> ApplyFilter(Image source, Complex[,] fourierTAB, int filtr, int radius)
+        public static Tuple<Image,Image> ApplyFilter(Image source, Complex[,] fourierTAB, int filtr, int radius,int radius2)
         {
             Bitmap result = new Bitmap(source);
             Bitmap resultMask = new Bitmap(source);
@@ -20,9 +20,10 @@ namespace Zadanie_1.Classes
             fasterBitmapResult.LockBits();
             fasterBitmapMask.LockBits();
             double[,] modulus = new double[fourierTAB.GetLength(0), fourierTAB.GetLength(1)];
-         
-           // fourierTAB = LowpassFilter(fourierTAB,radius);
-            fourierTAB = HighpassFilter(fourierTAB, radius);
+
+            // fourierTAB = LowpassFilter(fourierTAB,radius);
+            // fourierTAB = HighpassFilter(fourierTAB, radius);
+            fourierTAB = BandWithFilter(fourierTAB, radius, radius2);
             for (int x = 0; x < fourierTAB.GetLength(0); x++)
             {
                 for (int y = 0; y < fourierTAB.GetLength(1); y++)
@@ -61,9 +62,13 @@ namespace Zadanie_1.Classes
             {
                 for (int y = 0; y < source.Height; y++)
                 {
-                    if(modulus[x,y] > 254 || modulus[x,y] < 0)
+                    if(modulus[x,y] > 254 )
                     {
-                        double test = modulus[x, y];
+                         modulus[x, y] = 255;
+                    }
+                    if (modulus[x, y] <0)
+                    {
+                        modulus[x, y] = 0;
                     }
                     byte color = Convert.ToByte(modulus[x, y]);
                     fasterBitmapResult.SetPixel(x, y, Color.FromArgb(color, color, color));
@@ -75,7 +80,23 @@ namespace Zadanie_1.Classes
         }
 
 
+        private static Complex[,] BandWithFilter(Complex[,] fourierTAB, int radius,int radius2) // zaporowy
+        {
+            for (int x = 0; x < fourierTAB.GetLength(0); x++)
+            {
+                for (int y = 0; y < fourierTAB.GetLength(1); y++)
+                {
+                    if (Math.Sqrt(Math.Pow((x - fourierTAB.GetLength(0) / 2), 2) + Math.Pow((y - fourierTAB.GetLength(1) / 2), 2)) > radius &&
+                        Math.Sqrt(Math.Pow((x - fourierTAB.GetLength(0) / 2), 2) + Math.Pow((y - fourierTAB.GetLength(1) / 2), 2)) <= radius2)
+                    {
+                        fourierTAB[x, y] = new Complex(0, 0);
+                    }
 
+                }
+
+            }
+            return fourierTAB;
+        }
 
         private static Complex[,] LowpassFilter(Complex[,] fourierTAB, int radius)
         {
@@ -100,15 +121,15 @@ namespace Zadanie_1.Classes
             {
                 for (int y = 0; y < fourierTAB.GetLength(1); y++)
                 {
-                    if ((x == fourierTAB.GetLength(0) / 2 - 1 && y == fourierTAB.GetLength(1) / 2 - 1) ||
-                        (x == fourierTAB.GetLength(0) / 2 + 1 && y == fourierTAB.GetLength(1) / 2 + 1)
-                        || (x == fourierTAB.GetLength(0) / 2 + 1 && y == fourierTAB.GetLength(1) / 2 - 1)
-                        || (x == fourierTAB.GetLength(0) / 2 - 1 && y == fourierTAB.GetLength(1) / 2 + 1)
-                        || (x == fourierTAB.GetLength(0) / 2  && y == fourierTAB.GetLength(1) / 2 ))
-                    {
+                    //if ((x == fourierTAB.GetLength(0) / 2 - 1 && y == fourierTAB.GetLength(1) / 2 - 1) ||
+                    //    (x == fourierTAB.GetLength(0) / 2 + 1 && y == fourierTAB.GetLength(1) / 2 + 1)
+                    //    || (x == fourierTAB.GetLength(0) / 2 + 1 && y == fourierTAB.GetLength(1) / 2 - 1)
+                    //    || (x == fourierTAB.GetLength(0) / 2 - 1 && y == fourierTAB.GetLength(1) / 2 + 1)
+                    //    || (x == fourierTAB.GetLength(0) / 2  && y == fourierTAB.GetLength(1) / 2 ))
+                    //{
 
-                    }
-                    else
+                    //}
+                    //else
                     if (Math.Sqrt(Math.Pow((x - fourierTAB.GetLength(0) / 2), 2) + Math.Pow((y - fourierTAB.GetLength(1) / 2), 2)) <= radius)
                     {
                         fourierTAB[x, y] = new Complex(0, 0);
