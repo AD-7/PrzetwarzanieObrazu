@@ -11,7 +11,7 @@ namespace Zadanie_1.Classes
     public static class FourierProcessingMethods
     {
 
-        public static Tuple<Image,Image> ApplyFilter(Image source, Complex[,] fourierTAB, int filtr)
+        public static Tuple<Image,Image> ApplyFilter(Image source, Complex[,] fourierTAB, int filtr, int radius)
         {
             Bitmap result = new Bitmap(source);
             Bitmap resultMask = new Bitmap(source);
@@ -21,7 +21,8 @@ namespace Zadanie_1.Classes
             fasterBitmapMask.LockBits();
             double[,] modulus = new double[fourierTAB.GetLength(0), fourierTAB.GetLength(1)];
          
-            fourierTAB = LowpassFilter(fourierTAB);
+           // fourierTAB = LowpassFilter(fourierTAB,radius);
+            fourierTAB = HighpassFilter(fourierTAB, radius);
             for (int x = 0; x < fourierTAB.GetLength(0); x++)
             {
                 for (int y = 0; y < fourierTAB.GetLength(1); y++)
@@ -54,11 +55,16 @@ namespace Zadanie_1.Classes
 
                 }
             }
-           
+
+
             for (int x = 0; x < source.Width; x++)
             {
                 for (int y = 0; y < source.Height; y++)
                 {
+                    if(modulus[x,y] > 254 || modulus[x,y] < 0)
+                    {
+                        double test = modulus[x, y];
+                    }
                     byte color = Convert.ToByte(modulus[x, y]);
                     fasterBitmapResult.SetPixel(x, y, Color.FromArgb(color, color, color));
                 }
@@ -71,13 +77,13 @@ namespace Zadanie_1.Classes
 
 
 
-        private static Complex[,] LowpassFilter(Complex[,] fourierTAB)
+        private static Complex[,] LowpassFilter(Complex[,] fourierTAB, int radius)
         {
             for (int x = 0; x < fourierTAB.GetLength(0); x++)
             {
                 for (int y = 0; y < fourierTAB.GetLength(1); y++)
                 {
-                    if (Math.Sqrt(Math.Pow((x - fourierTAB.GetLength(0)/2),2) + Math.Pow((y - fourierTAB.GetLength(1)/2),2)) > 100)
+                    if (Math.Sqrt(Math.Pow((x - fourierTAB.GetLength(0)/2),2) + Math.Pow((y - fourierTAB.GetLength(1)/2),2)) > radius)
                     {
                         fourierTAB[x, y] = new Complex(0, 0);
                     }
@@ -87,6 +93,33 @@ namespace Zadanie_1.Classes
             }
             return fourierTAB;
         }
+
+        private static Complex[,] HighpassFilter(Complex[,] fourierTAB, int radius)
+        {
+            for (int x = 0; x < fourierTAB.GetLength(0); x++)
+            {
+                for (int y = 0; y < fourierTAB.GetLength(1); y++)
+                {
+                    if ((x == fourierTAB.GetLength(0) / 2 - 1 && y == fourierTAB.GetLength(1) / 2 - 1) ||
+                        (x == fourierTAB.GetLength(0) / 2 + 1 && y == fourierTAB.GetLength(1) / 2 + 1)
+                        || (x == fourierTAB.GetLength(0) / 2 + 1 && y == fourierTAB.GetLength(1) / 2 - 1)
+                        || (x == fourierTAB.GetLength(0) / 2 - 1 && y == fourierTAB.GetLength(1) / 2 + 1)
+                        || (x == fourierTAB.GetLength(0) / 2  && y == fourierTAB.GetLength(1) / 2 ))
+                    {
+
+                    }
+                    else
+                    if (Math.Sqrt(Math.Pow((x - fourierTAB.GetLength(0) / 2), 2) + Math.Pow((y - fourierTAB.GetLength(1) / 2), 2)) <= radius)
+                    {
+                        fourierTAB[x, y] = new Complex(0, 0);
+                    }
+
+                }
+
+            }
+            return fourierTAB;
+        }
+
 
         public static Tuple<Image,Image,Complex[,]> CalculateFFT(Image source)
         {

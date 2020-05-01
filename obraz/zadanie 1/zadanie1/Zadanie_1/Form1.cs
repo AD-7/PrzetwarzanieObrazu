@@ -69,6 +69,7 @@ namespace Zadanie_1
                 originalImage = new Bitmap(fileDialog.FileName);
                 loadedImage = originalImage.Clone() as Bitmap;
                 pbImage.Image = originalImage;
+                
                 Reset();
             }
         }
@@ -427,8 +428,12 @@ namespace Zadanie_1
               
                    
                 pbDFT.Image = result.Item1;
-                pbResultImage.Image = result.Item2;
+               
                 fourierTAB = result.Item3;
+                numRadius.Maximum = Math.Min(pbDFT.Width, pbDFT.Height);
+                numRadius.Minimum = 1;
+                numRadius.Enabled = true;
+                numRadius.Value = 10;
             }
         }
 
@@ -439,14 +444,23 @@ namespace Zadanie_1
 
         private void btnIDFT_Click(object sender, EventArgs e)
         {
-            if(pbImage.Image != null && pbDFT.Image != null)
+            pbResultImage.Image = null;
+           
+            pbFilterMask.Image = null;
+
+            pbFilterMask.Refresh();
+            pbResultImage.Refresh();
+            if (pbImage.Image != null && pbDFT.Image != null)
             {
-                Tuple<Image,Image>  result = FourierProcessingMethods.ApplyFilter(pbImage.Image,fourierTAB,1);
+                Tuple<Image,Image>  result = FourierProcessingMethods.ApplyFilter(pbImage.Image,fourierTAB,1,(int)numRadius.Value);
 
 
                 pbResultImage.Image = result.Item1;
+               
                 pbFilterMask.Image = result.Item2;
-              
+                pbFilterMask.Refresh();
+                pbResultImage.Refresh();
+
             }
         }
     }
