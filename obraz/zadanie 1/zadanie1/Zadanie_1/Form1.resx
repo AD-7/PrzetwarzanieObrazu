@@ -1623,14 +1623,68 @@
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="pbFilterMask.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="pbFilterMask.Location" type="System.Drawing.Point, System.Drawing">
+    <value>653, 6</value>
+  </data>
+  <data name="pbFilterMask.Size" type="System.Drawing.Size, System.Drawing">
+    <value>420, 332</value>
+  </data>
+  <data name="pbFilterMask.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>StretchImage</value>
+  </data>
+  <data name="pbFilterMask.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;pbFilterMask.Name" xml:space="preserve">
+    <value>pbFilterMask</value>
+  </data>
+  <data name="&gt;&gt;pbFilterMask.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;pbFilterMask.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;pbFilterMask.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnIDFT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnIDFT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>87, 28</value>
+  </data>
+  <data name="btnIDFT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 34</value>
+  </data>
+  <data name="btnIDFT.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnIDFT.Text" xml:space="preserve">
+    <value>IFFT</value>
+  </data>
+  <data name="&gt;&gt;btnIDFT.Name" xml:space="preserve">
+    <value>btnIDFT</value>
+  </data>
+  <data name="&gt;&gt;btnIDFT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;btnIDFT.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;btnIDFT.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="pbDFT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
   <data name="pbDFT.Location" type="System.Drawing.Point, System.Drawing">
-    <value>101, 6</value>
+    <value>205, 6</value>
   </data>
   <data name="pbDFT.Size" type="System.Drawing.Size, System.Drawing">
-    <value>420, 340</value>
+    <value>420, 332</value>
   </data>
   <data name="pbDFT.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
     <value>StretchImage</value>
@@ -1648,7 +1702,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;pbDFT.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="btnDFT.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 28</value>
@@ -1672,7 +1726,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;btnDFT.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>

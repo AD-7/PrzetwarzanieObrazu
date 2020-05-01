@@ -6,6 +6,7 @@ using System.Drawing;
 using System.Drawing.Imaging;
 using System.IO;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -22,6 +23,7 @@ namespace Zadanie_1
         int[,] mask;
         int[,] maskLinearFilter;
 
+        Complex[,] fourierTAB;
 
         public Form1()
         {
@@ -421,15 +423,31 @@ namespace Zadanie_1
         {
             if (pbImage.Image != null)
             {
-
-                Image result = FourierProcessingMethods.CalculateDFT(pbImage.Image);
-                pbDFT.Image = result;
+               Tuple<Image,Image,Complex[,]> result =  FourierProcessingMethods.CalculateFFT(pbImage.Image);
+              
+                   
+                pbDFT.Image = result.Item1;
+                pbResultImage.Image = result.Item2;
+                fourierTAB = result.Item3;
             }
         }
 
         private void pbDFT_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnIDFT_Click(object sender, EventArgs e)
+        {
+            if(pbImage.Image != null && pbDFT.Image != null)
+            {
+                Tuple<Image,Image>  result = FourierProcessingMethods.ApplyFilter(pbImage.Image,fourierTAB,1);
+
+
+                pbResultImage.Image = result.Item1;
+                pbFilterMask.Image = result.Item2;
+              
+            }
         }
     }
 }

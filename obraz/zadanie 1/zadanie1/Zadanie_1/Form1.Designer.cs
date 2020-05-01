@@ -29,12 +29,12 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend9 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series9 = new System.Windows.Forms.DataVisualization.Charting.Series();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.Legend legend10 = new System.Windows.Forms.DataVisualization.Charting.Legend();
-            System.Windows.Forms.DataVisualization.Charting.Series series10 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend5 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series5 = new System.Windows.Forms.DataVisualization.Charting.Series();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend6 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series6 = new System.Windows.Forms.DataVisualization.Charting.Series();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.pbImage = new System.Windows.Forms.PictureBox();
@@ -85,6 +85,8 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.pbDFT = new System.Windows.Forms.PictureBox();
             this.btnDFT = new System.Windows.Forms.Button();
+            this.btnIDFT = new System.Windows.Forms.Button();
+            this.pbFilterMask = new System.Windows.Forms.PictureBox();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -107,6 +109,7 @@
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -210,16 +213,16 @@
             // 
             // chartLUT
             // 
-            chartArea9.Name = "ChartArea1";
-            this.chartLUT.ChartAreas.Add(chartArea9);
+            chartArea5.Name = "ChartArea1";
+            this.chartLUT.ChartAreas.Add(chartArea5);
             resources.ApplyResources(this.chartLUT, "chartLUT");
-            legend9.Name = "Legend1";
-            this.chartLUT.Legends.Add(legend9);
+            legend5.Name = "Legend1";
+            this.chartLUT.Legends.Add(legend5);
             this.chartLUT.Name = "chartLUT";
-            series9.ChartArea = "ChartArea1";
-            series9.Legend = "Legend1";
-            series9.Name = "Series1";
-            this.chartLUT.Series.Add(series9);
+            series5.ChartArea = "ChartArea1";
+            series5.Legend = "Legend1";
+            series5.Name = "Series1";
+            this.chartLUT.Series.Add(series5);
             // 
             // btnClearContrast
             // 
@@ -435,16 +438,16 @@
             // 
             // chartHistogram
             // 
-            chartArea10.Name = "ChartArea1";
-            this.chartHistogram.ChartAreas.Add(chartArea10);
-            legend10.Name = "Legend1";
-            this.chartHistogram.Legends.Add(legend10);
+            chartArea6.Name = "ChartArea1";
+            this.chartHistogram.ChartAreas.Add(chartArea6);
+            legend6.Name = "Legend1";
+            this.chartHistogram.Legends.Add(legend6);
             resources.ApplyResources(this.chartHistogram, "chartHistogram");
             this.chartHistogram.Name = "chartHistogram";
-            series10.ChartArea = "ChartArea1";
-            series10.Legend = "Legend1";
-            series10.Name = "Series1";
-            this.chartHistogram.Series.Add(series10);
+            series6.ChartArea = "ChartArea1";
+            series6.Legend = "Legend1";
+            series6.Name = "Series1";
+            this.chartHistogram.Series.Add(series6);
             // 
             // btnOperator
             // 
@@ -505,6 +508,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.pbFilterMask);
+            this.tabPage2.Controls.Add(this.btnIDFT);
             this.tabPage2.Controls.Add(this.pbDFT);
             this.tabPage2.Controls.Add(this.btnDFT);
             resources.ApplyResources(this.tabPage2, "tabPage2");
@@ -525,6 +530,20 @@
             this.btnDFT.Name = "btnDFT";
             this.btnDFT.UseVisualStyleBackColor = true;
             this.btnDFT.Click += new System.EventHandler(this.btnDFT_Click);
+            // 
+            // btnIDFT
+            // 
+            resources.ApplyResources(this.btnIDFT, "btnIDFT");
+            this.btnIDFT.Name = "btnIDFT";
+            this.btnIDFT.UseVisualStyleBackColor = true;
+            this.btnIDFT.Click += new System.EventHandler(this.btnIDFT_Click);
+            // 
+            // pbFilterMask
+            // 
+            this.pbFilterMask.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.pbFilterMask, "pbFilterMask");
+            this.pbFilterMask.Name = "pbFilterMask";
+            this.pbFilterMask.TabStop = false;
             // 
             // Form1
             // 
@@ -566,6 +585,7 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -622,6 +642,8 @@
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.Button btnDFT;
         private System.Windows.Forms.PictureBox pbDFT;
+        private System.Windows.Forms.Button btnIDFT;
+        private System.Windows.Forms.PictureBox pbFilterMask;
     }
 }
 
