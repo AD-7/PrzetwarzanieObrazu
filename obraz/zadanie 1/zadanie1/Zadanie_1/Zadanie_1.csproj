@@ -12,6 +12,7 @@
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
     <Deterministic>true</Deterministic>
+    <AllowUnsafeBlocks>true</AllowUnsafeBlocks>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -48,10 +49,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Classes\Extensions.cs" />
     <Compile Include="Classes\FasterBitmap.cs" />
     <Compile Include="Classes\FourierProcessingMethods.cs" />
     <Compile Include="Classes\Histogram.cs" />
     <Compile Include="Classes\ProcessingMethods.cs" />
+    <Compile Include="Classes\Segmentation.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

@@ -49,6 +49,7 @@ namespace Zadanie_1
             chartHistogram.Series.Clear();
 
             textBoxContrast.Text = trackBarContrast.Value.ToString();
+            SetSegmentationGUIStatus(false);
         }
 
         private void Reset()
@@ -58,25 +59,37 @@ namespace Zadanie_1
             btnHistogramSave.Enabled = false;
         }
 
+        private readonly Segmentation _segmentation = new Segmentation();
+        private bool _isSegmentationActive = false;
+
+        private void SetSegmentation()
+        {
+            segHeightLabel.Text = $"Wysokość: {loadedImage.Height}";
+            segWidthLabel.Text = $"Szerokość: {loadedImage.Width}";
+            _segmentation.SourceImage = pbImage.Image;
+            var temp = new Bitmap(pbImage.Image);
+            segCurrentColorLabel.BackColor = temp.GetPixel(0, 0);
+            temp.Dispose();
+        }
 
         private void button1_Click(object sender, EventArgs e)
         {
-
-
             if (fileDialog.ShowDialog() == DialogResult.OK)
             {
-
                 originalImage = new Bitmap(fileDialog.FileName);
                 loadedImage = originalImage.Clone() as Bitmap;
                 pbImage.Image = originalImage;
 
                 Reset();
+
+                var seg = new Segmentation();
+                pbResultImage.Image = seg.Process(loadedImage);
+                SetSegmentation();
             }
         }
 
         private void btnSaveImage_Click(object sender, EventArgs e)
         {
-
             if (pbResultImage.Image != null)
             {
                 saveFileDialog.AddExtension = true;
@@ -87,8 +100,6 @@ namespace Zadanie_1
                     pbResultImage.Image.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
                 }
             }
-
-
         }
 
 
@@ -100,14 +111,14 @@ namespace Zadanie_1
                 pbImage.Image = originalImage;
                 pbResultImage.Image = null;
             }
-
         }
 
         private void btnIncreaseBrightness_Click(object sender, EventArgs e)
         {
             if (pbImage.Image != null)
             {
-                Image result = ProcessingMethods.ChangeBrightness(pbImage.Image, Convert.ToInt32(brightnessValue.Value), true);
+                Image result =
+                    ProcessingMethods.ChangeBrightness(pbImage.Image, Convert.ToInt32(brightnessValue.Value), true);
                 pbResultImage.Image = result;
             }
         }
@@ -116,7 +127,8 @@ namespace Zadanie_1
         {
             if (pbImage.Image != null)
             {
-                Image result = ProcessingMethods.ChangeBrightness(pbImage.Image, Convert.ToInt32(brightnessValue.Value), false);
+                Image result =
+                    ProcessingMethods.ChangeBrightness(pbImage.Image, Convert.ToInt32(brightnessValue.Value), false);
                 pbResultImage.Image = result;
             }
         }
@@ -155,15 +167,15 @@ namespace Zadanie_1
                     }
                     else
                     {
-                        LUT[i] = (byte)(a * (i - 127) + 127);
+                        LUT[i] = (byte) (a * (i - 127) + 127);
                     }
+
                     chartLUT.Series[0].Points.Add(new DataPoint(i, LUT[i]));
                 }
 
                 Image result = ProcessingMethods.ChangeContrast(pbImage.Image, LUT);
                 pbResultImage.Image = result;
             }
-
         }
 
         private void btnApplyNegative_Click(object sender, EventArgs e)
@@ -180,17 +192,21 @@ namespace Zadanie_1
             switch (cmbMaskSize.SelectedIndex)
             {
                 case 0:
-                    mask = new int[3, 3] { { 1, 1, 1 }, { 1, 1, 1 }, { 1, 1, 1 } };
+                    mask = new int[3, 3] {{1, 1, 1}, {1, 1, 1}, {1, 1, 1}};
 
                     break;
                 case 1:
-                    mask = new int[5, 5] { { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1 } };
+                    mask = new int[5, 5]
+                        {{1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}, {1, 1, 1, 1, 1}};
                     break;
                 case 2:
-                    mask = new int[7, 7] { { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 }, { 1, 1, 1, 1, 1, 1, 1 } };
+                    mask = new int[7, 7]
+                    {
+                        {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1},
+                        {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}, {1, 1, 1, 1, 1, 1, 1}
+                    };
 
                     break;
-
             }
         }
 
@@ -201,14 +217,12 @@ namespace Zadanie_1
                 Image result = ProcessingMethods.ApplyAverageFilter(pbImage.Image, mask);
                 pbResultImage.Image = result;
             }
-
         }
 
         private void btnApplyMedianFilter_Click(object sender, EventArgs e)
         {
             if (pbImage.Image != null)
             {
-
                 Image result = ProcessingMethods.ApplyMedianFilter(pbImage.Image, mask);
                 pbResultImage.Image = result;
             }
@@ -216,7 +230,6 @@ namespace Zadanie_1
 
         private void button2_Click(object sender, EventArgs e)
         {
-
             string maskLocal = "";
             string[] lines = new string[1];
 
@@ -239,7 +252,6 @@ namespace Zadanie_1
                 int index = 0;
                 for (int j = 0; j < maskValues.Count; j++)
                 {
-
                     maskLinearFilter[i, j] = GetNextValue(ref index, maskValues[i]);
                     index++;
                 }
@@ -248,14 +260,9 @@ namespace Zadanie_1
 
             if (pbImage.Image != null)
             {
-
                 Image result = ProcessingMethods.ApplyMask(pbImage.Image, maskLinearFilter);
                 pbResultImage.Image = result;
             }
-
-
-
-
         }
 
         private int GetNextValue(ref int i, string stringRow)
@@ -269,7 +276,6 @@ namespace Zadanie_1
             }
             else
             {
-
                 return Convert.ToInt32(test);
             }
         }
@@ -293,6 +299,7 @@ namespace Zadanie_1
 
                     break;
             }
+
             path += "_Liniowy_";
             switch (cmbTypeLinearMask.SelectedIndex)
             {
@@ -309,6 +316,7 @@ namespace Zadanie_1
                     path += "Południowy-wschód";
                     break;
             }
+
             path += ".txt";
 
             if (File.Exists(path))
@@ -391,7 +399,8 @@ namespace Zadanie_1
         {
             var minimalBrightness = int.Parse(minimalBrightnessHistogram.Text);
             var maximalBrightness = int.Parse(maximalBrightnessHistogram.Text);
-            pbResultImage.Image = ProcessingMethods.ModifyWithHistogram(pbImage.Image, _histograms, minimalBrightness, maximalBrightness);
+            pbResultImage.Image =
+                ProcessingMethods.ModifyWithHistogram(pbImage.Image, _histograms, minimalBrightness, maximalBrightness);
         }
 
         private void btnOperator_Click(object sender, EventArgs e)
@@ -418,8 +427,6 @@ namespace Zadanie_1
 
         /// ZADANIE 2
         /// 
-
-
         private void btnDFT_Click(object sender, EventArgs e)
         {
             if (pbImage.Image != null)
@@ -431,14 +438,11 @@ namespace Zadanie_1
 
                 fourierTAB = result.Item3;
                 cmbFilter.Enabled = true;
-
-           
             }
         }
 
         private void pbDFT_Click(object sender, EventArgs e)
         {
-
         }
 
         private void btnIDFT_Click(object sender, EventArgs e)
@@ -449,7 +453,7 @@ namespace Zadanie_1
 
             pbFilterMask.Refresh();
             pbResultImage.Refresh();
-            if (pbImage.Image != null && pbDFT.Image != null && cmbFilter.SelectedIndex >=0)
+            if (pbImage.Image != null && pbDFT.Image != null && cmbFilter.SelectedIndex >= 0)
             {
                 Complex[,] tmpp = new Complex[fourierTAB.GetLength(0), fourierTAB.GetLength(1)];
 
@@ -460,7 +464,10 @@ namespace Zadanie_1
                         tmpp[i, j] = fourierTAB[i, j];
                     }
                 }
-                Tuple<Image, Image> result = FourierProcessingMethods.ApplyFilter(pbImage.Image, tmpp, cmbFilter.SelectedIndex, (int)numRadius.Value, (int)numRadius2.Value,(int)numK.Value,(int)numL.Value);
+
+                Tuple<Image, Image> result = FourierProcessingMethods.ApplyFilter(pbImage.Image, tmpp,
+                    cmbFilter.SelectedIndex, (int) numRadius.Value, (int) numRadius2.Value, (int) numK.Value,
+                    (int) numL.Value);
 
 
                 pbResultImage.Image = result.Item1;
@@ -468,7 +475,6 @@ namespace Zadanie_1
                 pbFilterMask.Image = result.Item2;
                 pbFilterMask.Refresh();
                 pbResultImage.Refresh();
-
             }
         }
 
@@ -484,7 +490,7 @@ namespace Zadanie_1
             numRadius2.Value = 20;
 
 
-            if(cmbFilter.SelectedIndex == 2 || cmbFilter.SelectedIndex == 3)
+            if (cmbFilter.SelectedIndex == 2 || cmbFilter.SelectedIndex == 3)
             {
                 numRadius2.Enabled = true;
             }
@@ -493,7 +499,7 @@ namespace Zadanie_1
                 numRadius2.Enabled = false;
             }
 
-            if(cmbFilter.SelectedIndex == 5)
+            if (cmbFilter.SelectedIndex == 5)
             {
                 numK.Enabled = true;
                 numK.Value = 100;
@@ -505,27 +511,123 @@ namespace Zadanie_1
                 numK.Enabled = false;
                 numL.Enabled = false;
             }
-
         }
 
         private void numRadius_ValueChanged(object sender, EventArgs e)
         {
-            if(numRadius.Value >= numRadius2.Value)
+            if (numRadius.Value >= numRadius2.Value)
             {
                 numRadius2.Value += 1;
-
             }
-
         }
 
         private void numRadius2_ValueChanged(object sender, EventArgs e)
         {
-
             if (numRadius.Value >= numRadius2.Value)
             {
                 numRadius2.Value += 1;
-
             }
+        }
+
+        private void UpdateSegmentationLocation()
+        {
+            var x = segXText.Text;
+            var y = segYText.Text;
+            if (string.IsNullOrWhiteSpace(x))
+            {
+                x = "0";
+            }
+
+            if (string.IsNullOrWhiteSpace(y))
+            {
+                y = "0";
+            }
+
+            _segmentation.ChangeLocation(int.Parse(x), int.Parse(y));
+            pbResultImage.Image = _segmentation.Process(originalImage);
+        }
+
+        private void segXText_TextChanged(object sender, EventArgs e) => UpdateSegmentationLocation();
+
+        private void segYText_TextChanged(object sender, EventArgs e) => UpdateSegmentationLocation();
+
+        private void SetSegmentationGUIStatus(bool isActive)
+        {
+            segXText.Enabled = isActive;
+            segYText.Enabled = isActive;
+            segThresholdText.Enabled = isActive;
+            segAddColorButton.Enabled = isActive;
+            segMaskButton.Enabled = isActive;
+        }
+
+        private void segStartButton_Click(object sender, EventArgs e)
+        {
+            if (_isSegmentationActive)
+            {
+                segStartButton.Text = "Stop";
+                SetSegmentationGUIStatus(false);
+                _isSegmentationActive = false;
+            }
+            else
+            {
+                segStartButton.Text = "Start";
+                SetSegmentationGUIStatus(true);
+                _isSegmentationActive = true;
+            }
+        }
+
+        private void pbImage_Click(object sender, EventArgs e)
+        {
+            if (_isSegmentationActive)
+            {
+                var y = pbImage.PointToClient(MousePosition).Y;
+                var x = pbImage.PointToClient(MousePosition).X;
+                segYText.Text = y.ToString();
+                segXText.Text = x.ToString();
+                segYText.Refresh();
+                segXText.Refresh();
+                if (x < 0 || x > pbImage.Image.Width || y < 0 || y > pbImage.Image.Height) return;
+                var temp = new Bitmap(pbImage.Image);
+                segCurrentColorLabel.BackColor = temp.GetPixel(x, y);
+                temp.Dispose();
+            }
+        }
+
+        private void segThresholdText_TextChanged(object sender, EventArgs e)
+        {
+            var threshold = segThresholdText.Text;
+            if (string.IsNullOrWhiteSpace(threshold))
+            {
+                threshold = "0";
+            }
+
+            _segmentation.Threshold = int.Parse(threshold);
+            pbResultImage.Image = _segmentation.Process(originalImage);
+        }
+
+        private Color GetTextColor()
+        {
+            var color = segCurrentColorLabel.BackColor.GetGrayScale();
+            if (color > 122) return Color.Black;
+            else return Color.White;
+        }
+
+        private void segColorsText_TextChanged(object sender, EventArgs e)
+        {
+            segColorsList.Controls.Add(new Label
+            {
+                BackColor = segCurrentColorLabel.BackColor, Text = $@"{segXText.Text}, {segYText.Text}",
+                ForeColor = GetTextColor()
+            });
+            _segmentation.AddLocation();
+            segXText.Text = 0.ToString();
+            segYText.Text = 0.ToString();
+            segColorsLabel.Text = $"Liczba kolorów: {_segmentation.CurrentColor + 1}";
+        }
+
+        private void segMaskButton_Click(object sender, EventArgs e)
+        {
+            pbResultImage.Image = _segmentation.Process(originalImage, false);
         }
     }
 }

@@ -117,51 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="&gt;&gt;tableLayoutPanel1.Name" xml:space="preserve">
-    <value>tableLayoutPanel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TableLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.Parent" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;tableLayoutPanel1.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
-    <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pbImage" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="pbResultImage" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,49,Percent,2,Percent,49" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
-  </data>
-  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
-    <value>Bottom</value>
-  </data>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>0, 423</value>
-  </data>
-  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>1904, 618</value>
-  </data>
   <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
-    <value>panel1</value>
-  </data>
-  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
-    <value>$this</value>
-  </data>
-  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="tableLayoutPanel1.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
   <data name="tableLayoutPanel1.CellBorderStyle" type="System.Windows.Forms.TableLayoutPanelCellBorderStyle, System.Windows.Forms">
     <value>Single</value>
   </data>
@@ -171,6 +131,10 @@
   <data name="pbImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
   </data>
+  <data name="pbImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="pbImage.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 4</value>
   </data>
@@ -197,6 +161,9 @@
   </data>
   <data name="pbResultImage.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
     <value>Fill</value>
+  </data>
+  <data name="pbResultImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="pbResultImage.Location" type="System.Drawing.Point, System.Drawing">
     <value>975, 4</value>
@@ -252,6 +219,30 @@
   <data name="tableLayoutPanel1.LayoutSettings" type="System.Windows.Forms.TableLayoutSettings, System.Windows.Forms">
     <value>&lt;?xml version="1.0" encoding="utf-16"?&gt;&lt;TableLayoutSettings&gt;&lt;Controls&gt;&lt;Control Name="pbImage" Row="0" RowSpan="1" Column="0" ColumnSpan="1" /&gt;&lt;Control Name="pbResultImage" Row="0" RowSpan="1" Column="2" ColumnSpan="1" /&gt;&lt;/Controls&gt;&lt;Columns Styles="Percent,49,Percent,2,Percent,49" /&gt;&lt;Rows Styles="Percent,100" /&gt;&lt;/TableLayoutSettings&gt;</value>
   </data>
+  <data name="panel1.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="panel1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 423</value>
+  </data>
+  <data name="panel1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1904, 618</value>
+  </data>
+  <data name="panel1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;panel1.Name" xml:space="preserve">
+    <value>panel1</value>
+  </data>
+  <data name="&gt;&gt;panel1.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;panel1.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;panel1.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
   <metadata name="fileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
@@ -277,66 +268,6 @@
     <value>$this</value>
   </data>
   <data name="&gt;&gt;button1.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnDecreaseBrigthness.Name" xml:space="preserve">
-    <value>btnDecreaseBrigthness</value>
-  </data>
-  <data name="&gt;&gt;btnDecreaseBrigthness.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnDecreaseBrigthness.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btnDecreaseBrigthness.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;btnIncreaseBrightness.Name" xml:space="preserve">
-    <value>btnIncreaseBrightness</value>
-  </data>
-  <data name="&gt;&gt;btnIncreaseBrightness.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnIncreaseBrightness.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;btnIncreaseBrightness.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;brightnessValue.Name" xml:space="preserve">
-    <value>brightnessValue</value>
-  </data>
-  <data name="&gt;&gt;brightnessValue.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;brightnessValue.Parent" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;brightnessValue.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 175</value>
-  </data>
-  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>208, 100</value>
-  </data>
-  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="groupBox1.Text" xml:space="preserve">
-    <value>JASNOŚĆ</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
-    <value>groupBox1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
   <data name="btnDecreaseBrigthness.Font" type="System.Drawing.Font, System.Drawing">
@@ -371,6 +302,9 @@
   </data>
   <data name="btnIncreaseBrightness.Font" type="System.Drawing.Font, System.Drawing">
     <value>Microsoft Sans Serif, 9.75pt</value>
+  </data>
+  <data name="btnIncreaseBrightness.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnIncreaseBrightness.Location" type="System.Drawing.Point, System.Drawing">
     <value>34, 63</value>
@@ -417,89 +351,29 @@
   <data name="&gt;&gt;brightnessValue.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
-  <data name="&gt;&gt;textBoxContrast.Name" xml:space="preserve">
-    <value>textBoxContrast</value>
+  <data name="groupBox1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 175</value>
   </data>
-  <data name="&gt;&gt;textBoxContrast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBox1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>208, 100</value>
   </data>
-  <data name="&gt;&gt;textBoxContrast.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;textBoxContrast.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;chartLUT.Name" xml:space="preserve">
-    <value>chartLUT</value>
-  </data>
-  <data name="&gt;&gt;chartLUT.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
-  </data>
-  <data name="&gt;&gt;chartLUT.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;chartLUT.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;btnClearContrast.Name" xml:space="preserve">
-    <value>btnClearContrast</value>
-  </data>
-  <data name="&gt;&gt;btnClearContrast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnClearContrast.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;btnClearContrast.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;btnApplyContrast.Name" xml:space="preserve">
-    <value>btnApplyContrast</value>
-  </data>
-  <data name="&gt;&gt;btnApplyContrast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnApplyContrast.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;btnApplyContrast.ZOrder" xml:space="preserve">
+  <data name="groupBox1.TabIndex" type="System.Int32, mscorlib">
     <value>3</value>
   </data>
-  <data name="&gt;&gt;trackBarContrast.Name" xml:space="preserve">
-    <value>trackBarContrast</value>
+  <data name="groupBox1.Text" xml:space="preserve">
+    <value>JASNOŚĆ</value>
   </data>
-  <data name="&gt;&gt;trackBarContrast.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TrackBar, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBox1.Name" xml:space="preserve">
+    <value>groupBox1</value>
   </data>
-  <data name="&gt;&gt;trackBarContrast.Parent" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;trackBarContrast.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 3</value>
-  </data>
-  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>569, 163</value>
-  </data>
-  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
-    <value>4</value>
-  </data>
-  <data name="groupBox2.Text" xml:space="preserve">
-    <value>KONTRAST</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
-    <value>groupBox2</value>
-  </data>
-  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+  <data name="&gt;&gt;groupBox1.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox1.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="&gt;&gt;groupBox1.ZOrder" xml:space="preserve">
+    <value>2</value>
   </data>
   <data name="textBoxContrast.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 67</value>
@@ -533,9 +407,6 @@
   </data>
   <data name="chartLUT.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
-  </data>
-  <data name="chartLUT.Text" xml:space="preserve">
-    <value>Look Up Table</value>
   </data>
   <data name="&gt;&gt;chartLUT.Name" xml:space="preserve">
     <value>chartLUT</value>
@@ -576,6 +447,9 @@
   <data name="&gt;&gt;btnClearContrast.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="btnApplyContrast.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnApplyContrast.Location" type="System.Drawing.Point, System.Drawing">
     <value>15, 126</value>
   </data>
@@ -600,6 +474,9 @@
   <data name="&gt;&gt;btnApplyContrast.ZOrder" xml:space="preserve">
     <value>3</value>
   </data>
+  <data name="trackBarContrast.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="trackBarContrast.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 37</value>
   </data>
@@ -620,6 +497,45 @@
   </data>
   <data name="&gt;&gt;trackBarContrast.ZOrder" xml:space="preserve">
     <value>4</value>
+  </data>
+  <data name="groupBox2.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 3</value>
+  </data>
+  <data name="groupBox2.Size" type="System.Drawing.Size, System.Drawing">
+    <value>569, 163</value>
+  </data>
+  <data name="groupBox2.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="groupBox2.Text" xml:space="preserve">
+    <value>KONTRAST</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Name" xml:space="preserve">
+    <value>groupBox2</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;groupBox2.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="btnApplyNegative.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnApplyNegative.Location" type="System.Drawing.Point, System.Drawing">
+    <value>54, 28</value>
+  </data>
+  <data name="btnApplyNegative.Size" type="System.Drawing.Size, System.Drawing">
+    <value>75, 23</value>
+  </data>
+  <data name="btnApplyNegative.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="btnApplyNegative.Text" xml:space="preserve">
+    <value>Zastosuj</value>
   </data>
   <data name="&gt;&gt;btnApplyNegative.Name" xml:space="preserve">
     <value>btnApplyNegative</value>
@@ -657,32 +573,20 @@
   <data name="&gt;&gt;groupBox3.ZOrder" xml:space="preserve">
     <value>4</value>
   </data>
-  <data name="btnApplyNegative.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+  <data name="btnApplyMedianFilter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
-  <data name="btnApplyNegative.Location" type="System.Drawing.Point, System.Drawing">
-    <value>54, 28</value>
+  <data name="btnApplyMedianFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 116</value>
   </data>
-  <data name="btnApplyNegative.Size" type="System.Drawing.Size, System.Drawing">
-    <value>75, 23</value>
+  <data name="btnApplyMedianFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 23</value>
   </data>
-  <data name="btnApplyNegative.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
+  <data name="btnApplyMedianFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
   </data>
-  <data name="btnApplyNegative.Text" xml:space="preserve">
-    <value>Zastosuj</value>
-  </data>
-  <data name="&gt;&gt;btnApplyNegative.Name" xml:space="preserve">
-    <value>btnApplyNegative</value>
-  </data>
-  <data name="&gt;&gt;btnApplyNegative.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnApplyNegative.Parent" xml:space="preserve">
-    <value>groupBox3</value>
-  </data>
-  <data name="&gt;&gt;btnApplyNegative.ZOrder" xml:space="preserve">
-    <value>0</value>
+  <data name="btnApplyMedianFilter.Text" xml:space="preserve">
+    <value>Zastosuj filtr medianowy</value>
   </data>
   <data name="&gt;&gt;btnApplyMedianFilter.Name" xml:space="preserve">
     <value>btnApplyMedianFilter</value>
@@ -696,6 +600,21 @@
   <data name="&gt;&gt;btnApplyMedianFilter.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="btnApplyAverageFilter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="btnApplyAverageFilter.Location" type="System.Drawing.Point, System.Drawing">
+    <value>95, 77</value>
+  </data>
+  <data name="btnApplyAverageFilter.Size" type="System.Drawing.Size, System.Drawing">
+    <value>138, 23</value>
+  </data>
+  <data name="btnApplyAverageFilter.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="btnApplyAverageFilter.Text" xml:space="preserve">
+    <value>Zastosuj filtr uśredniający</value>
+  </data>
   <data name="&gt;&gt;btnApplyAverageFilter.Name" xml:space="preserve">
     <value>btnApplyAverageFilter</value>
   </data>
@@ -706,6 +625,33 @@
     <value>groupBox4</value>
   </data>
   <data name="&gt;&gt;btnApplyAverageFilter.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="cmbMaskSize.Items" xml:space="preserve">
+    <value>3x3</value>
+  </data>
+  <data name="cmbMaskSize.Items1" xml:space="preserve">
+    <value>5x5</value>
+  </data>
+  <data name="cmbMaskSize.Items2" xml:space="preserve">
+    <value>7x7</value>
+  </data>
+  <data name="cmbMaskSize.Items3" xml:space="preserve">
+    <value>3x3</value>
+  </data>
+  <data name="cmbMaskSize.Items4" xml:space="preserve">
+    <value>5x5</value>
+  </data>
+  <data name="cmbMaskSize.Items5" xml:space="preserve">
+    <value>7x7</value>
+  </data>
+  <data name="cmbMaskSize.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 33</value>
+  </data>
+  <data name="cmbMaskSize.Size" type="System.Drawing.Size, System.Drawing">
+    <value>121, 21</value>
+  </data>
+  <data name="cmbMaskSize.TabIndex" type="System.Int32, mscorlib">
     <value>1</value>
   </data>
   <data name="&gt;&gt;cmbMaskSize.Name" xml:space="preserve">
@@ -719,6 +665,21 @@
   </data>
   <data name="&gt;&gt;cmbMaskSize.ZOrder" xml:space="preserve">
     <value>2</value>
+  </data>
+  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label1.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
+    <value>66, 36</value>
+  </data>
+  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="label1.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
   </data>
   <data name="&gt;&gt;label1.Name" xml:space="preserve">
     <value>label1</value>
@@ -756,114 +717,6 @@
   <data name="&gt;&gt;groupBox4.ZOrder" xml:space="preserve">
     <value>6</value>
   </data>
-  <data name="btnApplyMedianFilter.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
-    <value>NoControl</value>
-  </data>
-  <data name="btnApplyMedianFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 116</value>
-  </data>
-  <data name="btnApplyMedianFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 23</value>
-  </data>
-  <data name="btnApplyMedianFilter.TabIndex" type="System.Int32, mscorlib">
-    <value>3</value>
-  </data>
-  <data name="btnApplyMedianFilter.Text" xml:space="preserve">
-    <value>Zastosuj filtr medianowy</value>
-  </data>
-  <data name="&gt;&gt;btnApplyMedianFilter.Name" xml:space="preserve">
-    <value>btnApplyMedianFilter</value>
-  </data>
-  <data name="&gt;&gt;btnApplyMedianFilter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnApplyMedianFilter.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;btnApplyMedianFilter.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="btnApplyAverageFilter.Location" type="System.Drawing.Point, System.Drawing">
-    <value>95, 77</value>
-  </data>
-  <data name="btnApplyAverageFilter.Size" type="System.Drawing.Size, System.Drawing">
-    <value>138, 23</value>
-  </data>
-  <data name="btnApplyAverageFilter.TabIndex" type="System.Int32, mscorlib">
-    <value>2</value>
-  </data>
-  <data name="btnApplyAverageFilter.Text" xml:space="preserve">
-    <value>Zastosuj filtr uśredniający</value>
-  </data>
-  <data name="&gt;&gt;btnApplyAverageFilter.Name" xml:space="preserve">
-    <value>btnApplyAverageFilter</value>
-  </data>
-  <data name="&gt;&gt;btnApplyAverageFilter.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnApplyAverageFilter.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;btnApplyAverageFilter.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="cmbMaskSize.Items" xml:space="preserve">
-    <value>3x3</value>
-  </data>
-  <data name="cmbMaskSize.Items1" xml:space="preserve">
-    <value>5x5</value>
-  </data>
-  <data name="cmbMaskSize.Items2" xml:space="preserve">
-    <value>7x7</value>
-  </data>
-  <data name="cmbMaskSize.Location" type="System.Drawing.Point, System.Drawing">
-    <value>159, 33</value>
-  </data>
-  <data name="cmbMaskSize.Size" type="System.Drawing.Size, System.Drawing">
-    <value>121, 21</value>
-  </data>
-  <data name="cmbMaskSize.TabIndex" type="System.Int32, mscorlib">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSize.Name" xml:space="preserve">
-    <value>cmbMaskSize</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSize.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSize.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSize.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="label1.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label1.Location" type="System.Drawing.Point, System.Drawing">
-    <value>66, 36</value>
-  </data>
-  <data name="label1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
-  </data>
-  <data name="label1.TabIndex" type="System.Int32, mscorlib">
-    <value>0</value>
-  </data>
-  <data name="label1.Text" xml:space="preserve">
-    <value>Rozmiar maski:</value>
-  </data>
-  <data name="&gt;&gt;label1.Name" xml:space="preserve">
-    <value>label1</value>
-  </data>
-  <data name="&gt;&gt;label1.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label1.Parent" xml:space="preserve">
-    <value>groupBox4</value>
-  </data>
-  <data name="&gt;&gt;label1.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
   <data name="btnSaveImage.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
   </data>
@@ -894,102 +747,6 @@
   <metadata name="saveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>120, 17</value>
   </metadata>
-  <data name="&gt;&gt;cmbTypeLinearMask.Name" xml:space="preserve">
-    <value>cmbTypeLinearMask</value>
-  </data>
-  <data name="&gt;&gt;cmbTypeLinearMask.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbTypeLinearMask.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;cmbTypeLinearMask.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label3.Name" xml:space="preserve">
-    <value>label3</value>
-  </data>
-  <data name="&gt;&gt;label3.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label3.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;label3.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;tbMaskView.Name" xml:space="preserve">
-    <value>tbMaskView</value>
-  </data>
-  <data name="&gt;&gt;tbMaskView.Type" xml:space="preserve">
-    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;tbMaskView.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;tbMaskView.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;button2.Name" xml:space="preserve">
-    <value>button2</value>
-  </data>
-  <data name="&gt;&gt;button2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;button2.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;button2.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSizeLinear.Name" xml:space="preserve">
-    <value>cmbMaskSizeLinear</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSizeLinear.Type" xml:space="preserve">
-    <value>System.Windows.Forms.ComboBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSizeLinear.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;cmbMaskSizeLinear.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;label2.Name" xml:space="preserve">
-    <value>label2</value>
-  </data>
-  <data name="&gt;&gt;label2.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label2.Parent" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
-  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
-    <value>581, 6</value>
-  </data>
-  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>281, 347</value>
-  </data>
-  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
-    <value>5</value>
-  </data>
-  <data name="groupBox5.Text" xml:space="preserve">
-    <value>FILTR LINIOWY</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
-    <value>groupBox5</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
-    <value>tabPage1</value>
-  </data>
-  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
-    <value>5</value>
-  </data>
   <data name="cmbTypeLinearMask.Items" xml:space="preserve">
     <value>północ</value>
   </data>
@@ -1000,6 +757,18 @@
     <value>wschód</value>
   </data>
   <data name="cmbTypeLinearMask.Items3" xml:space="preserve">
+    <value>południowy-wschód</value>
+  </data>
+  <data name="cmbTypeLinearMask.Items4" xml:space="preserve">
+    <value>północ</value>
+  </data>
+  <data name="cmbTypeLinearMask.Items5" xml:space="preserve">
+    <value>północny-wschód</value>
+  </data>
+  <data name="cmbTypeLinearMask.Items6" xml:space="preserve">
+    <value>wschód</value>
+  </data>
+  <data name="cmbTypeLinearMask.Items7" xml:space="preserve">
     <value>południowy-wschód</value>
   </data>
   <data name="cmbTypeLinearMask.Location" type="System.Drawing.Point, System.Drawing">
@@ -1033,13 +802,10 @@
     <value>15, 54</value>
   </data>
   <data name="label3.Size" type="System.Drawing.Size, System.Drawing">
-    <value>58, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label3.TabIndex" type="System.Int32, mscorlib">
     <value>53</value>
-  </data>
-  <data name="label3.Text" xml:space="preserve">
-    <value>Typ maski:</value>
   </data>
   <data name="&gt;&gt;label3.Name" xml:space="preserve">
     <value>label3</value>
@@ -1077,6 +843,9 @@
   <data name="&gt;&gt;tbMaskView.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="button2.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="button2.Location" type="System.Drawing.Point, System.Drawing">
     <value>82, 300</value>
   </data>
@@ -1105,6 +874,12 @@
     <value>3x3</value>
   </data>
   <data name="cmbMaskSizeLinear.Items1" xml:space="preserve">
+    <value>5x5</value>
+  </data>
+  <data name="cmbMaskSizeLinear.Items2" xml:space="preserve">
+    <value>3x3</value>
+  </data>
+  <data name="cmbMaskSizeLinear.Items3" xml:space="preserve">
     <value>5x5</value>
   </data>
   <data name="cmbMaskSizeLinear.Location" type="System.Drawing.Point, System.Drawing">
@@ -1138,13 +913,10 @@
     <value>15, 27</value>
   </data>
   <data name="label2.Size" type="System.Drawing.Size, System.Drawing">
-    <value>78, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label2.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
-  </data>
-  <data name="label2.Text" xml:space="preserve">
-    <value>Rozmiar maski:</value>
   </data>
   <data name="&gt;&gt;label2.Name" xml:space="preserve">
     <value>label2</value>
@@ -1158,128 +930,35 @@
   <data name="&gt;&gt;label2.ZOrder" xml:space="preserve">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;btnHistogramSave.Name" xml:space="preserve">
-    <value>btnHistogramSave</value>
+  <data name="groupBox5.Location" type="System.Drawing.Point, System.Drawing">
+    <value>581, 6</value>
   </data>
-  <data name="&gt;&gt;btnHistogramSave.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="groupBox5.Size" type="System.Drawing.Size, System.Drawing">
+    <value>281, 347</value>
   </data>
-  <data name="&gt;&gt;btnHistogramSave.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;btnHistogramSave.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="&gt;&gt;label5.Name" xml:space="preserve">
-    <value>label5</value>
-  </data>
-  <data name="&gt;&gt;label5.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label5.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;label5.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="&gt;&gt;label4.Name" xml:space="preserve">
-    <value>label4</value>
-  </data>
-  <data name="&gt;&gt;label4.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label4.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;label4.ZOrder" xml:space="preserve">
-    <value>2</value>
-  </data>
-  <data name="&gt;&gt;maximalBrightnessHistogram.Name" xml:space="preserve">
-    <value>maximalBrightnessHistogram</value>
-  </data>
-  <data name="&gt;&gt;maximalBrightnessHistogram.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;maximalBrightnessHistogram.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;maximalBrightnessHistogram.ZOrder" xml:space="preserve">
-    <value>3</value>
-  </data>
-  <data name="&gt;&gt;minimalBrightnessHistogram.Name" xml:space="preserve">
-    <value>minimalBrightnessHistogram</value>
-  </data>
-  <data name="&gt;&gt;minimalBrightnessHistogram.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;minimalBrightnessHistogram.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;minimalBrightnessHistogram.ZOrder" xml:space="preserve">
-    <value>4</value>
-  </data>
-  <data name="&gt;&gt;btnHistogramModify.Name" xml:space="preserve">
-    <value>btnHistogramModify</value>
-  </data>
-  <data name="&gt;&gt;btnHistogramModify.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;btnHistogramModify.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;btnHistogramModify.ZOrder" xml:space="preserve">
+  <data name="groupBox5.TabIndex" type="System.Int32, mscorlib">
     <value>5</value>
   </data>
-  <data name="&gt;&gt;btnCalculateHistogram.Name" xml:space="preserve">
-    <value>btnCalculateHistogram</value>
+  <data name="groupBox5.Text" xml:space="preserve">
+    <value>FILTR LINIOWY</value>
   </data>
-  <data name="&gt;&gt;btnCalculateHistogram.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  <data name="&gt;&gt;groupBox5.Name" xml:space="preserve">
+    <value>groupBox5</value>
   </data>
-  <data name="&gt;&gt;btnCalculateHistogram.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;btnCalculateHistogram.ZOrder" xml:space="preserve">
-    <value>6</value>
-  </data>
-  <data name="&gt;&gt;chartHistogram.Name" xml:space="preserve">
-    <value>chartHistogram</value>
-  </data>
-  <data name="&gt;&gt;chartHistogram.Type" xml:space="preserve">
-    <value>System.Windows.Forms.DataVisualization.Charting.Chart, System.Windows.Forms.DataVisualization, Version=4.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35</value>
-  </data>
-  <data name="&gt;&gt;chartHistogram.Parent" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;chartHistogram.ZOrder" xml:space="preserve">
-    <value>7</value>
-  </data>
-  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>868, 6</value>
-  </data>
-  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>857, 341</value>
-  </data>
-  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
-    <value>6</value>
-  </data>
-  <data name="groupBox6.Text" xml:space="preserve">
-    <value>HISTOGRAM</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
-    <value>groupBox6</value>
-  </data>
-  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
+  <data name="&gt;&gt;groupBox5.Type" xml:space="preserve">
     <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+  <data name="&gt;&gt;groupBox5.Parent" xml:space="preserve">
     <value>tabPage1</value>
   </data>
-  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
-    <value>3</value>
+  <data name="&gt;&gt;groupBox5.ZOrder" xml:space="preserve">
+    <value>5</value>
   </data>
   <data name="btnHistogramSave.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
+  </data>
+  <data name="btnHistogramSave.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnHistogramSave.Location" type="System.Drawing.Point, System.Drawing">
     <value>725, 22</value>
@@ -1308,17 +987,17 @@
   <data name="label5.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label5.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="label5.Location" type="System.Drawing.Point, System.Drawing">
     <value>370, 27</value>
   </data>
   <data name="label5.Size" type="System.Drawing.Size, System.Drawing">
-    <value>60, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label5.TabIndex" type="System.Int32, mscorlib">
     <value>8</value>
-  </data>
-  <data name="label5.Text" xml:space="preserve">
-    <value>Maksimum:</value>
   </data>
   <data name="&gt;&gt;label5.Name" xml:space="preserve">
     <value>label5</value>
@@ -1335,17 +1014,17 @@
   <data name="label4.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label4.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="label4.Location" type="System.Drawing.Point, System.Drawing">
     <value>186, 27</value>
   </data>
   <data name="label4.Size" type="System.Drawing.Size, System.Drawing">
-    <value>51, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label4.TabIndex" type="System.Int32, mscorlib">
     <value>7</value>
-  </data>
-  <data name="label4.Text" xml:space="preserve">
-    <value>Minimum:</value>
   </data>
   <data name="&gt;&gt;label4.Name" xml:space="preserve">
     <value>label4</value>
@@ -1404,6 +1083,9 @@
   <data name="btnHistogramModify.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
+  <data name="btnHistogramModify.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnHistogramModify.Location" type="System.Drawing.Point, System.Drawing">
     <value>93, 22</value>
   </data>
@@ -1427,6 +1109,9 @@
   </data>
   <data name="&gt;&gt;btnHistogramModify.ZOrder" xml:space="preserve">
     <value>5</value>
+  </data>
+  <data name="btnCalculateHistogram.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
   </data>
   <data name="btnCalculateHistogram.Location" type="System.Drawing.Point, System.Drawing">
     <value>9, 22</value>
@@ -1461,9 +1146,6 @@
   <data name="chartHistogram.TabIndex" type="System.Int32, mscorlib">
     <value>2</value>
   </data>
-  <data name="chartHistogram.Text" xml:space="preserve">
-    <value>chart1</value>
-  </data>
   <data name="&gt;&gt;chartHistogram.Name" xml:space="preserve">
     <value>chartHistogram</value>
   </data>
@@ -1475,6 +1157,30 @@
   </data>
   <data name="&gt;&gt;chartHistogram.ZOrder" xml:space="preserve">
     <value>7</value>
+  </data>
+  <data name="groupBox6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>868, 6</value>
+  </data>
+  <data name="groupBox6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>857, 341</value>
+  </data>
+  <data name="groupBox6.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="groupBox6.Text" xml:space="preserve">
+    <value>HISTOGRAM</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Name" xml:space="preserve">
+    <value>groupBox6</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Type" xml:space="preserve">
+    <value>System.Windows.Forms.GroupBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.Parent" xml:space="preserve">
+    <value>tabPage1</value>
+  </data>
+  <data name="&gt;&gt;groupBox6.ZOrder" xml:space="preserve">
+    <value>3</value>
   </data>
   <data name="btnOperator.Location" type="System.Drawing.Point, System.Drawing">
     <value>6, 19</value>
@@ -1500,6 +1206,15 @@
   <data name="&gt;&gt;btnOperator.ZOrder" xml:space="preserve">
     <value>2</value>
   </data>
+  <data name="valueRosenfeld.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 67</value>
+  </data>
+  <data name="valueRosenfeld.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 20</value>
+  </data>
+  <data name="valueRosenfeld.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
   <data name="&gt;&gt;valueRosenfeld.Name" xml:space="preserve">
     <value>valueRosenfeld</value>
   </data>
@@ -1511,6 +1226,21 @@
   </data>
   <data name="&gt;&gt;valueRosenfeld.ZOrder" xml:space="preserve">
     <value>0</value>
+  </data>
+  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="label6.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
+    <value>6, 49</value>
+  </data>
+  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
+    <value>0, 13</value>
+  </data>
+  <data name="label6.TabIndex" type="System.Int32, mscorlib">
+    <value>8</value>
   </data>
   <data name="&gt;&gt;label6.Name" xml:space="preserve">
     <value>label6</value>
@@ -1546,54 +1276,6 @@
     <value>tabPage1</value>
   </data>
   <data name="&gt;&gt;groupBox7.ZOrder" xml:space="preserve">
-    <value>1</value>
-  </data>
-  <data name="valueRosenfeld.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 67</value>
-  </data>
-  <data name="valueRosenfeld.Size" type="System.Drawing.Size, System.Drawing">
-    <value>120, 20</value>
-  </data>
-  <data name="valueRosenfeld.TabIndex" type="System.Int32, mscorlib">
-    <value>9</value>
-  </data>
-  <data name="&gt;&gt;valueRosenfeld.Name" xml:space="preserve">
-    <value>valueRosenfeld</value>
-  </data>
-  <data name="&gt;&gt;valueRosenfeld.Type" xml:space="preserve">
-    <value>System.Windows.Forms.NumericUpDown, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;valueRosenfeld.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;valueRosenfeld.ZOrder" xml:space="preserve">
-    <value>0</value>
-  </data>
-  <data name="label6.AutoSize" type="System.Boolean, mscorlib">
-    <value>True</value>
-  </data>
-  <data name="label6.Location" type="System.Drawing.Point, System.Drawing">
-    <value>6, 49</value>
-  </data>
-  <data name="label6.Size" type="System.Drawing.Size, System.Drawing">
-    <value>50, 13</value>
-  </data>
-  <data name="label6.TabIndex" type="System.Int32, mscorlib">
-    <value>8</value>
-  </data>
-  <data name="label6.Text" xml:space="preserve">
-    <value>Wartość:</value>
-  </data>
-  <data name="&gt;&gt;label6.Name" xml:space="preserve">
-    <value>label6</value>
-  </data>
-  <data name="&gt;&gt;label6.Type" xml:space="preserve">
-    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
-  </data>
-  <data name="&gt;&gt;label6.Parent" xml:space="preserve">
-    <value>groupBox7</value>
-  </data>
-  <data name="&gt;&gt;label6.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
   <data name="tabPage1.Location" type="System.Drawing.Point, System.Drawing">
@@ -1657,13 +1339,10 @@
     <value>8, 245</value>
   </data>
   <data name="label10.Size" type="System.Drawing.Size, System.Drawing">
-    <value>9, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label10.TabIndex" type="System.Int32, mscorlib">
     <value>12</value>
-  </data>
-  <data name="label10.Text" xml:space="preserve">
-    <value>l</value>
   </data>
   <data name="&gt;&gt;label10.Name" xml:space="preserve">
     <value>label10</value>
@@ -1711,13 +1390,10 @@
     <value>8, 219</value>
   </data>
   <data name="label11.Size" type="System.Drawing.Size, System.Drawing">
-    <value>13, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label11.TabIndex" type="System.Int32, mscorlib">
     <value>10</value>
-  </data>
-  <data name="label11.Text" xml:space="preserve">
-    <value>k</value>
   </data>
   <data name="&gt;&gt;label11.Name" xml:space="preserve">
     <value>label11</value>
@@ -1741,13 +1417,10 @@
     <value>8, 81</value>
   </data>
   <data name="label9.Size" type="System.Drawing.Size, System.Drawing">
-    <value>23, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label9.TabIndex" type="System.Int32, mscorlib">
     <value>9</value>
-  </data>
-  <data name="label9.Text" xml:space="preserve">
-    <value>Filtr</value>
   </data>
   <data name="&gt;&gt;label9.Name" xml:space="preserve">
     <value>label9</value>
@@ -1777,6 +1450,24 @@
     <value>detekcja krawędzi</value>
   </data>
   <data name="cmbFilter.Items5" xml:space="preserve">
+    <value>modyfikacja widma P(n,m)</value>
+  </data>
+  <data name="cmbFilter.Items6" xml:space="preserve">
+    <value>dolnoprzepustowy</value>
+  </data>
+  <data name="cmbFilter.Items7" xml:space="preserve">
+    <value>górnoprzepustowy</value>
+  </data>
+  <data name="cmbFilter.Items8" xml:space="preserve">
+    <value>pasmowozaporowy</value>
+  </data>
+  <data name="cmbFilter.Items9" xml:space="preserve">
+    <value>pasmowoprzepustowy</value>
+  </data>
+  <data name="cmbFilter.Items10" xml:space="preserve">
+    <value>detekcja krawędzi</value>
+  </data>
+  <data name="cmbFilter.Items11" xml:space="preserve">
     <value>modyfikacja widma P(n,m)</value>
   </data>
   <data name="cmbFilter.Location" type="System.Drawing.Point, System.Drawing">
@@ -1834,13 +1525,10 @@
     <value>8, 188</value>
   </data>
   <data name="label8.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label8.TabIndex" type="System.Int32, mscorlib">
     <value>6</value>
-  </data>
-  <data name="label8.Text" xml:space="preserve">
-    <value>d1</value>
   </data>
   <data name="&gt;&gt;label8.Name" xml:space="preserve">
     <value>label8</value>
@@ -1881,17 +1569,17 @@
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
   </data>
+  <data name="label7.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="label7.Location" type="System.Drawing.Point, System.Drawing">
     <value>8, 162</value>
   </data>
   <data name="label7.Size" type="System.Drawing.Size, System.Drawing">
-    <value>19, 13</value>
+    <value>0, 13</value>
   </data>
   <data name="label7.TabIndex" type="System.Int32, mscorlib">
     <value>4</value>
-  </data>
-  <data name="label7.Text" xml:space="preserve">
-    <value>d0</value>
   </data>
   <data name="&gt;&gt;label7.Name" xml:space="preserve">
     <value>label7</value>
@@ -1986,6 +1674,9 @@
   <data name="&gt;&gt;pbDFT.ZOrder" xml:space="preserve">
     <value>12</value>
   </data>
+  <data name="btnDFT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
   <data name="btnDFT.Location" type="System.Drawing.Point, System.Drawing">
     <value>49, 21</value>
   </data>
@@ -2037,6 +1728,390 @@
   <data name="&gt;&gt;tabPage2.ZOrder" xml:space="preserve">
     <value>1</value>
   </data>
+  <data name="segColorsList.Location" type="System.Drawing.Point, System.Drawing">
+    <value>159, 218</value>
+  </data>
+  <data name="segColorsList.Size" type="System.Drawing.Size, System.Drawing">
+    <value>800, 23</value>
+  </data>
+  <data name="segColorsList.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="&gt;&gt;segColorsList.Name" xml:space="preserve">
+    <value>segColorsList</value>
+  </data>
+  <data name="&gt;&gt;segColorsList.Type" xml:space="preserve">
+    <value>System.Windows.Forms.FlowLayoutPanel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segColorsList.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segColorsList.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="segMaskButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segMaskButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 248</value>
+  </data>
+  <data name="segMaskButton.RightToLeft" type="System.Windows.Forms.RightToLeft, System.Windows.Forms">
+    <value>Yes</value>
+  </data>
+  <data name="segMaskButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 24</value>
+  </data>
+  <data name="segMaskButton.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="segMaskButton.Text" xml:space="preserve">
+    <value>Aplikuj maskę</value>
+  </data>
+  <data name="&gt;&gt;segMaskButton.Name" xml:space="preserve">
+    <value>segMaskButton</value>
+  </data>
+  <data name="&gt;&gt;segMaskButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segMaskButton.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segMaskButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="segCurrentColorLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segCurrentColorLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 222</value>
+  </data>
+  <data name="segCurrentColorLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segCurrentColorLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="segCurrentColorLabel.Text" xml:space="preserve">
+    <value>Obecny kolor</value>
+  </data>
+  <data name="&gt;&gt;segCurrentColorLabel.Name" xml:space="preserve">
+    <value>segCurrentColorLabel</value>
+  </data>
+  <data name="&gt;&gt;segCurrentColorLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segCurrentColorLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segCurrentColorLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="segColorsLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segColorsLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 199</value>
+  </data>
+  <data name="segColorsLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segColorsLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="segColorsLabel.Text" xml:space="preserve">
+    <value>Liczba kolorów: 1</value>
+  </data>
+  <data name="&gt;&gt;segColorsLabel.Name" xml:space="preserve">
+    <value>segColorsLabel</value>
+  </data>
+  <data name="&gt;&gt;segColorsLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segColorsLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segColorsLabel.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="segAddColorButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 172</value>
+  </data>
+  <data name="segAddColorButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 24</value>
+  </data>
+  <data name="segAddColorButton.TabIndex" type="System.Int32, mscorlib">
+    <value>9</value>
+  </data>
+  <data name="segAddColorButton.Text" xml:space="preserve">
+    <value>Dodaj kolor</value>
+  </data>
+  <data name="&gt;&gt;segAddColorButton.Name" xml:space="preserve">
+    <value>segAddColorButton</value>
+  </data>
+  <data name="&gt;&gt;segAddColorButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segAddColorButton.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segAddColorButton.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="segThresholdText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 123</value>
+  </data>
+  <data name="segThresholdText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="segThresholdText.TabIndex" type="System.Int32, mscorlib">
+    <value>7</value>
+  </data>
+  <data name="segThresholdText.Text" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;segThresholdText.Name" xml:space="preserve">
+    <value>segThresholdText</value>
+  </data>
+  <data name="&gt;&gt;segThresholdText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segThresholdText.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segThresholdText.ZOrder" xml:space="preserve">
+    <value>5</value>
+  </data>
+  <data name="segTresholdLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 123</value>
+  </data>
+  <data name="segTresholdLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segTresholdLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="segTresholdLabel.Text" xml:space="preserve">
+    <value>Próg:</value>
+  </data>
+  <data name="&gt;&gt;segTresholdLabel.Name" xml:space="preserve">
+    <value>segTresholdLabel</value>
+  </data>
+  <data name="&gt;&gt;segTresholdLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segTresholdLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segTresholdLabel.ZOrder" xml:space="preserve">
+    <value>6</value>
+  </data>
+  <data name="segYText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 100</value>
+  </data>
+  <data name="segYText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="segYText.TabIndex" type="System.Int32, mscorlib">
+    <value>5</value>
+  </data>
+  <data name="segYText.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;segYText.Name" xml:space="preserve">
+    <value>segYText</value>
+  </data>
+  <data name="&gt;&gt;segYText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segYText.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segYText.ZOrder" xml:space="preserve">
+    <value>7</value>
+  </data>
+  <data name="segXText.Location" type="System.Drawing.Point, System.Drawing">
+    <value>71, 77</value>
+  </data>
+  <data name="segXText.Size" type="System.Drawing.Size, System.Drawing">
+    <value>73, 20</value>
+  </data>
+  <data name="segXText.TabIndex" type="System.Int32, mscorlib">
+    <value>4</value>
+  </data>
+  <data name="segXText.Text" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;segXText.Name" xml:space="preserve">
+    <value>segXText</value>
+  </data>
+  <data name="&gt;&gt;segXText.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segXText.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segXText.ZOrder" xml:space="preserve">
+    <value>8</value>
+  </data>
+  <data name="segYLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segYLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 103</value>
+  </data>
+  <data name="segYLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segYLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>3</value>
+  </data>
+  <data name="segYLabel.Text" xml:space="preserve">
+    <value>Y:</value>
+  </data>
+  <data name="&gt;&gt;segYLabel.Name" xml:space="preserve">
+    <value>segYLabel</value>
+  </data>
+  <data name="&gt;&gt;segYLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segYLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segYLabel.ZOrder" xml:space="preserve">
+    <value>9</value>
+  </data>
+  <data name="segXLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segXLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 80</value>
+  </data>
+  <data name="segXLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segXLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="segXLabel.Text" xml:space="preserve">
+    <value>X:</value>
+  </data>
+  <data name="&gt;&gt;segXLabel.Name" xml:space="preserve">
+    <value>segXLabel</value>
+  </data>
+  <data name="&gt;&gt;segXLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segXLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segXLabel.ZOrder" xml:space="preserve">
+    <value>10</value>
+  </data>
+  <data name="segHeightLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segHeightLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 57</value>
+  </data>
+  <data name="segHeightLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segHeightLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="segHeightLabel.Text" xml:space="preserve">
+    <value>Wysokość:</value>
+  </data>
+  <data name="&gt;&gt;segHeightLabel.Name" xml:space="preserve">
+    <value>segHeightLabel</value>
+  </data>
+  <data name="&gt;&gt;segHeightLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segHeightLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segHeightLabel.ZOrder" xml:space="preserve">
+    <value>11</value>
+  </data>
+  <data name="segWidthLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segWidthLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 30</value>
+  </data>
+  <data name="segWidthLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segWidthLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="segWidthLabel.Text" xml:space="preserve">
+    <value>Szerokość:</value>
+  </data>
+  <data name="&gt;&gt;segWidthLabel.Name" xml:space="preserve">
+    <value>segWidthLabel</value>
+  </data>
+  <data name="&gt;&gt;segWidthLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segWidthLabel.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segWidthLabel.ZOrder" xml:space="preserve">
+    <value>12</value>
+  </data>
+  <data name="segStartButton.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segStartButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 3</value>
+  </data>
+  <data name="segStartButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 24</value>
+  </data>
+  <data name="segStartButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="segStartButton.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="&gt;&gt;segStartButton.Name" xml:space="preserve">
+    <value>segStartButton</value>
+  </data>
+  <data name="&gt;&gt;segStartButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;segStartButton.Parent" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;segStartButton.ZOrder" xml:space="preserve">
+    <value>13</value>
+  </data>
+  <data name="tabPage3.Location" type="System.Drawing.Point, System.Drawing">
+    <value>4, 22</value>
+  </data>
+  <data name="tabPage3.Size" type="System.Drawing.Size, System.Drawing">
+    <value>1884, 344</value>
+  </data>
+  <data name="tabPage3.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="tabPage3.Text" xml:space="preserve">
+    <value>Segmentacja</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Name" xml:space="preserve">
+    <value>tabPage3</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TabPage, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.Parent" xml:space="preserve">
+    <value>tabControl1</value>
+  </data>
+  <data name="&gt;&gt;tabPage3.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
   <data name="tabControl1.Location" type="System.Drawing.Point, System.Drawing">
     <value>12, 47</value>
   </data>
@@ -2058,14 +2133,32 @@
   <data name="&gt;&gt;tabControl1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="segThresholdLabel.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="segThresholdLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>3, 126</value>
+  </data>
+  <data name="segThresholdLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>100, 23</value>
+  </data>
+  <data name="segThresholdLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="&gt;&gt;segThresholdLabel.Name" xml:space="preserve">
+    <value>segThresholdLabel</value>
+  </data>
+  <data name="&gt;&gt;segThresholdLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
   <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
     <value>True</value>
   </metadata>
   <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
     <value>1904, 1041</value>
   </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>Przetwarzanie obrazów i dźwięku - ZADANIE 1</value>
+  <data name="$this.Location" type="System.Drawing.Point, System.Drawing">
+    <value>15, 15</value>
   </data>
   <data name="&gt;&gt;fileDialog.Name" xml:space="preserve">
     <value>fileDialog</value>
