@@ -83,14 +83,20 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.pbDFT = new System.Windows.Forms.PictureBox();
-            this.btnDFT = new System.Windows.Forms.Button();
-            this.btnIDFT = new System.Windows.Forms.Button();
-            this.pbFilterMask = new System.Windows.Forms.PictureBox();
-            this.label7 = new System.Windows.Forms.Label();
-            this.numRadius = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.cmbFilter = new System.Windows.Forms.ComboBox();
             this.numRadius2 = new System.Windows.Forms.NumericUpDown();
             this.label8 = new System.Windows.Forms.Label();
+            this.numRadius = new System.Windows.Forms.NumericUpDown();
+            this.label7 = new System.Windows.Forms.Label();
+            this.pbFilterMask = new System.Windows.Forms.PictureBox();
+            this.btnIDFT = new System.Windows.Forms.Button();
+            this.pbDFT = new System.Windows.Forms.PictureBox();
+            this.btnDFT = new System.Windows.Forms.Button();
+            this.numL = new System.Windows.Forms.NumericUpDown();
+            this.label10 = new System.Windows.Forms.Label();
+            this.numK = new System.Windows.Forms.NumericUpDown();
+            this.label11 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
@@ -112,10 +118,12 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRadius)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRadius2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numK)).BeginInit();
             this.SuspendLayout();
             // 
             // panel1
@@ -514,6 +522,12 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.numL);
+            this.tabPage2.Controls.Add(this.label10);
+            this.tabPage2.Controls.Add(this.numK);
+            this.tabPage2.Controls.Add(this.label11);
+            this.tabPage2.Controls.Add(this.label9);
+            this.tabPage2.Controls.Add(this.cmbFilter);
             this.tabPage2.Controls.Add(this.numRadius2);
             this.tabPage2.Controls.Add(this.label8);
             this.tabPage2.Controls.Add(this.numRadius);
@@ -525,6 +539,61 @@
             resources.ApplyResources(this.tabPage2, "tabPage2");
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // label9
+            // 
+            resources.ApplyResources(this.label9, "label9");
+            this.label9.Name = "label9";
+            // 
+            // cmbFilter
+            // 
+            this.cmbFilter.FormattingEnabled = true;
+            this.cmbFilter.Items.AddRange(new object[] {
+            resources.GetString("cmbFilter.Items"),
+            resources.GetString("cmbFilter.Items1"),
+            resources.GetString("cmbFilter.Items2"),
+            resources.GetString("cmbFilter.Items3"),
+            resources.GetString("cmbFilter.Items4"),
+            resources.GetString("cmbFilter.Items5")});
+            resources.ApplyResources(this.cmbFilter, "cmbFilter");
+            this.cmbFilter.Name = "cmbFilter";
+            this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
+            // 
+            // numRadius2
+            // 
+            resources.ApplyResources(this.numRadius2, "numRadius2");
+            this.numRadius2.Name = "numRadius2";
+            this.numRadius2.ValueChanged += new System.EventHandler(this.numRadius2_ValueChanged);
+            // 
+            // label8
+            // 
+            resources.ApplyResources(this.label8, "label8");
+            this.label8.Name = "label8";
+            // 
+            // numRadius
+            // 
+            resources.ApplyResources(this.numRadius, "numRadius");
+            this.numRadius.Name = "numRadius";
+            this.numRadius.ValueChanged += new System.EventHandler(this.numRadius_ValueChanged);
+            // 
+            // label7
+            // 
+            resources.ApplyResources(this.label7, "label7");
+            this.label7.Name = "label7";
+            // 
+            // pbFilterMask
+            // 
+            this.pbFilterMask.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            resources.ApplyResources(this.pbFilterMask, "pbFilterMask");
+            this.pbFilterMask.Name = "pbFilterMask";
+            this.pbFilterMask.TabStop = false;
+            // 
+            // btnIDFT
+            // 
+            resources.ApplyResources(this.btnIDFT, "btnIDFT");
+            this.btnIDFT.Name = "btnIDFT";
+            this.btnIDFT.UseVisualStyleBackColor = true;
+            this.btnIDFT.Click += new System.EventHandler(this.btnIDFT_Click);
             // 
             // pbDFT
             // 
@@ -541,39 +610,35 @@
             this.btnDFT.UseVisualStyleBackColor = true;
             this.btnDFT.Click += new System.EventHandler(this.btnDFT_Click);
             // 
-            // btnIDFT
+            // numL
             // 
-            resources.ApplyResources(this.btnIDFT, "btnIDFT");
-            this.btnIDFT.Name = "btnIDFT";
-            this.btnIDFT.UseVisualStyleBackColor = true;
-            this.btnIDFT.Click += new System.EventHandler(this.btnIDFT_Click);
+            resources.ApplyResources(this.numL, "numL");
+            this.numL.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numL.Name = "numL";
             // 
-            // pbFilterMask
+            // label10
             // 
-            this.pbFilterMask.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            resources.ApplyResources(this.pbFilterMask, "pbFilterMask");
-            this.pbFilterMask.Name = "pbFilterMask";
-            this.pbFilterMask.TabStop = false;
+            resources.ApplyResources(this.label10, "label10");
+            this.label10.Name = "label10";
             // 
-            // label7
+            // numK
             // 
-            resources.ApplyResources(this.label7, "label7");
-            this.label7.Name = "label7";
+            resources.ApplyResources(this.numK, "numK");
+            this.numK.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
+            this.numK.Name = "numK";
             // 
-            // numRadius
+            // label11
             // 
-            resources.ApplyResources(this.numRadius, "numRadius");
-            this.numRadius.Name = "numRadius";
-            // 
-            // numRadius2
-            // 
-            resources.ApplyResources(this.numRadius2, "numRadius2");
-            this.numRadius2.Name = "numRadius2";
-            // 
-            // label8
-            // 
-            resources.ApplyResources(this.label8, "label8");
-            this.label8.Name = "label8";
+            resources.ApplyResources(this.label11, "label11");
+            this.label11.Name = "label11";
             // 
             // Form1
             // 
@@ -615,10 +680,12 @@
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numRadius)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numRadius2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numK)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -681,6 +748,12 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.NumericUpDown numRadius2;
         private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.ComboBox cmbFilter;
+        private System.Windows.Forms.NumericUpDown numL;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.NumericUpDown numK;
+        private System.Windows.Forms.Label label11;
     }
 }
 

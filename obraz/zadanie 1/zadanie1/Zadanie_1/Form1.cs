@@ -69,7 +69,7 @@ namespace Zadanie_1
                 originalImage = new Bitmap(fileDialog.FileName);
                 loadedImage = originalImage.Clone() as Bitmap;
                 pbImage.Image = originalImage;
-                
+
                 Reset();
             }
         }
@@ -424,16 +424,15 @@ namespace Zadanie_1
         {
             if (pbImage.Image != null)
             {
-               Tuple<Image,Image,Complex[,]> result =  FourierProcessingMethods.CalculateFFT(pbImage.Image);
-              
-                   
+                Tuple<Image, Image, Complex[,]> result = FourierProcessingMethods.CalculateFFT(pbImage.Image);
+
+
                 pbDFT.Image = result.Item1;
-               
+
                 fourierTAB = result.Item3;
-                numRadius.Maximum = Math.Min(pbDFT.Width, pbDFT.Height);
-                numRadius.Minimum = 1;
-                numRadius.Enabled = true;
-                numRadius.Value = 10;
+                cmbFilter.Enabled = true;
+
+           
             }
         }
 
@@ -445,22 +444,86 @@ namespace Zadanie_1
         private void btnIDFT_Click(object sender, EventArgs e)
         {
             pbResultImage.Image = null;
-           
+
             pbFilterMask.Image = null;
 
             pbFilterMask.Refresh();
             pbResultImage.Refresh();
-            if (pbImage.Image != null && pbDFT.Image != null)
+            if (pbImage.Image != null && pbDFT.Image != null && cmbFilter.SelectedIndex >=0)
             {
-                Complex[,] tmp = fourierTAB;
-                Tuple<Image,Image>  result = FourierProcessingMethods.ApplyFilter(pbImage.Image,fourierTAB,1,(int)numRadius.Value,(int)numRadius2.Value);
+                Complex[,] tmpp = new Complex[fourierTAB.GetLength(0), fourierTAB.GetLength(1)];
+
+                for (int i = 0; i < tmpp.GetLength(0); i++)
+                {
+                    for (int j = 0; j < tmpp.GetLength(1); j++)
+                    {
+                        tmpp[i, j] = fourierTAB[i, j];
+                    }
+                }
+                Tuple<Image, Image> result = FourierProcessingMethods.ApplyFilter(pbImage.Image, tmpp, cmbFilter.SelectedIndex, (int)numRadius.Value, (int)numRadius2.Value,(int)numK.Value,(int)numL.Value);
 
 
                 pbResultImage.Image = result.Item1;
-               
+
                 pbFilterMask.Image = result.Item2;
                 pbFilterMask.Refresh();
                 pbResultImage.Refresh();
+
+            }
+        }
+
+        private void cmbFilter_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            numRadius.Maximum = Math.Min(pbDFT.Width, pbDFT.Height);
+            numRadius.Minimum = 1;
+            numRadius.Enabled = true;
+            numRadius.Value = 10;
+
+            numRadius2.Maximum = Math.Min(pbDFT.Width, pbDFT.Height);
+            numRadius2.Minimum = 1;
+            numRadius2.Value = 20;
+
+
+            if(cmbFilter.SelectedIndex == 2 || cmbFilter.SelectedIndex == 3)
+            {
+                numRadius2.Enabled = true;
+            }
+            else
+            {
+                numRadius2.Enabled = false;
+            }
+
+            if(cmbFilter.SelectedIndex == 5)
+            {
+                numK.Enabled = true;
+                numK.Value = 100;
+                numL.Enabled = true;
+                numL.Value = 200;
+            }
+            else
+            {
+                numK.Enabled = false;
+                numL.Enabled = false;
+            }
+
+        }
+
+        private void numRadius_ValueChanged(object sender, EventArgs e)
+        {
+            if(numRadius.Value >= numRadius2.Value)
+            {
+                numRadius2.Value += 1;
+
+            }
+
+        }
+
+        private void numRadius2_ValueChanged(object sender, EventArgs e)
+        {
+
+            if (numRadius.Value >= numRadius2.Value)
+            {
+                numRadius2.Value += 1;
 
             }
         }
