@@ -81,9 +81,6 @@ namespace Zadanie_1
                 pbImage.Image = originalImage;
 
                 Reset();
-
-                var seg = new Segmentation();
-                pbResultImage.Image = seg.Process(loadedImage);
                 SetSegmentation();
             }
         }
@@ -641,6 +638,34 @@ namespace Zadanie_1
         private void segMaskButton_Click(object sender, EventArgs e)
         {
             pbResultImage.Image = _segmentation.Process(originalImage, false);
+        }
+        
+        private void fourierSaveFFT_Click(object sender, EventArgs e)
+        {
+            if (pbDFT.Image != null)
+            {
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.DefaultExt = ".jpg";
+                saveFileDialog.Filter = "Obrazy(*.bmp;*.jpg;*.gif)|*.bmp;*.jpg;*.gif|Wszystkie pliki (*.*)|*.*";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbDFT.Image.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                }
+            }
+        }
+        
+        private void fourierSaveIFFT_Click(object sender, EventArgs e)
+        {
+            if (pbFilterMask.Image != null)
+            {
+                saveFileDialog.AddExtension = true;
+                saveFileDialog.DefaultExt = ".jpg";
+                saveFileDialog.Filter = "Obrazy(*.bmp;*.jpg;*.gif)|*.bmp;*.jpg;*.gif|Wszystkie pliki (*.*)|*.*";
+                if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                {
+                    pbFilterMask.Image.Save(saveFileDialog.FileName, ImageFormat.Jpeg);
+                }
+            }
         }
     }
 }

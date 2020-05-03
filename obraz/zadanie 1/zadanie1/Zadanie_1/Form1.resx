@@ -1305,6 +1305,57 @@
   <data name="&gt;&gt;tabPage1.ZOrder" xml:space="preserve">
     <value>0</value>
   </data>
+  <data name="fourierSaveIFFT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
+    <value>NoControl</value>
+  </data>
+  <data name="fourierSaveIFFT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1079, 47</value>
+  </data>
+  <data name="fourierSaveIFFT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 35</value>
+  </data>
+  <data name="fourierSaveIFFT.TabIndex" type="System.Int32, mscorlib">
+    <value>23</value>
+  </data>
+  <data name="fourierSaveIFFT.Text" xml:space="preserve">
+    <value>Zapisz IFFT</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveIFFT.Name" xml:space="preserve">
+    <value>fourierSaveIFFT</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveIFFT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveIFFT.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveIFFT.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="fourierSaveFFT.Location" type="System.Drawing.Point, System.Drawing">
+    <value>1079, 6</value>
+  </data>
+  <data name="fourierSaveFFT.Size" type="System.Drawing.Size, System.Drawing">
+    <value>213, 35</value>
+  </data>
+  <data name="fourierSaveFFT.TabIndex" type="System.Int32, mscorlib">
+    <value>22</value>
+  </data>
+  <data name="fourierSaveFFT.Text" xml:space="preserve">
+    <value>Zapisz FFT</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveFFT.Name" xml:space="preserve">
+    <value>fourierSaveFFT</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveFFT.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveFFT.Parent" xml:space="preserve">
+    <value>tabPage2</value>
+  </data>
+  <data name="&gt;&gt;fourierSaveFFT.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
   <data name="numPhiOffset.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
   </data>
@@ -1327,7 +1378,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;numPhiOffset.ZOrder" xml:space="preserve">
-    <value>0</value>
+    <value>2</value>
   </data>
   <data name="label17.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1357,7 +1408,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label17.ZOrder" xml:space="preserve">
-    <value>1</value>
+    <value>3</value>
   </data>
   <data name="numAngle.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1381,7 +1432,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;numAngle.ZOrder" xml:space="preserve">
-    <value>2</value>
+    <value>4</value>
   </data>
   <data name="label16.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1411,7 +1462,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label16.ZOrder" xml:space="preserve">
-    <value>3</value>
+    <value>5</value>
   </data>
   <data name="label15.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1441,7 +1492,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label15.ZOrder" xml:space="preserve">
-    <value>4</value>
+    <value>6</value>
   </data>
   <data name="label14.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1471,7 +1522,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label14.ZOrder" xml:space="preserve">
-    <value>5</value>
+    <value>7</value>
   </data>
   <data name="label13.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1501,7 +1552,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label13.ZOrder" xml:space="preserve">
-    <value>6</value>
+    <value>8</value>
   </data>
   <data name="label12.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1528,7 +1579,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label12.ZOrder" xml:space="preserve">
-    <value>7</value>
+    <value>9</value>
   </data>
   <data name="numL.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1552,7 +1603,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;numL.ZOrder" xml:space="preserve">
-    <value>8</value>
+    <value>10</value>
   </data>
   <data name="label10.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1579,7 +1630,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label10.ZOrder" xml:space="preserve">
-    <value>9</value>
+    <value>11</value>
   </data>
   <data name="numK.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1603,7 +1654,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;numK.ZOrder" xml:space="preserve">
-    <value>10</value>
+    <value>12</value>
   </data>
   <data name="label11.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1630,7 +1681,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label11.ZOrder" xml:space="preserve">
-    <value>11</value>
+    <value>13</value>
   </data>
   <data name="label9.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1657,7 +1708,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label9.ZOrder" xml:space="preserve">
-    <value>12</value>
+    <value>14</value>
   </data>
   <data name="cmbFilter.Items" xml:space="preserve">
     <value>dolnoprzepustowy</value>
@@ -1696,7 +1747,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;cmbFilter.ZOrder" xml:space="preserve">
-    <value>13</value>
+    <value>15</value>
   </data>
   <data name="numRadius2.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1720,7 +1771,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;numRadius2.ZOrder" xml:space="preserve">
-    <value>14</value>
+    <value>16</value>
   </data>
   <data name="label8.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1747,7 +1798,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label8.ZOrder" xml:space="preserve">
-    <value>15</value>
+    <value>17</value>
   </data>
   <data name="numRadius.Enabled" type="System.Boolean, mscorlib">
     <value>False</value>
@@ -1771,7 +1822,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;numRadius.ZOrder" xml:space="preserve">
-    <value>16</value>
+    <value>18</value>
   </data>
   <data name="label7.AutoSize" type="System.Boolean, mscorlib">
     <value>True</value>
@@ -1798,7 +1849,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;label7.ZOrder" xml:space="preserve">
-    <value>17</value>
+    <value>19</value>
   </data>
   <data name="pbFilterMask.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1825,7 +1876,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;pbFilterMask.ZOrder" xml:space="preserve">
-    <value>18</value>
+    <value>20</value>
   </data>
   <data name="btnIDFT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1852,7 +1903,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;btnIDFT.ZOrder" xml:space="preserve">
-    <value>19</value>
+    <value>21</value>
   </data>
   <data name="pbDFT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1879,7 +1930,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;pbDFT.ZOrder" xml:space="preserve">
-    <value>20</value>
+    <value>22</value>
   </data>
   <data name="btnDFT.ImeMode" type="System.Windows.Forms.ImeMode, System.Windows.Forms">
     <value>NoControl</value>
@@ -1906,7 +1957,7 @@
     <value>tabPage2</value>
   </data>
   <data name="&gt;&gt;btnDFT.ZOrder" xml:space="preserve">
-    <value>21</value>
+    <value>23</value>
   </data>
   <data name="tabPage2.Location" type="System.Drawing.Point, System.Drawing">
     <value>4, 22</value>
