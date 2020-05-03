@@ -83,6 +83,14 @@
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.numPhiOffset = new System.Windows.Forms.NumericUpDown();
+            this.label17 = new System.Windows.Forms.Label();
+            this.numAngle = new System.Windows.Forms.NumericUpDown();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.label12 = new System.Windows.Forms.Label();
             this.numL = new System.Windows.Forms.NumericUpDown();
             this.label10 = new System.Windows.Forms.Label();
             this.numK = new System.Windows.Forms.NumericUpDown();
@@ -98,6 +106,7 @@
             this.pbDFT = new System.Windows.Forms.PictureBox();
             this.btnDFT = new System.Windows.Forms.Button();
             this.tabPage3 = new System.Windows.Forms.TabPage();
+            this.segColorsList = new System.Windows.Forms.FlowLayoutPanel();
             this.segMaskButton = new System.Windows.Forms.Button();
             this.segCurrentColorLabel = new System.Windows.Forms.Label();
             this.segColorsLabel = new System.Windows.Forms.Label();
@@ -112,34 +121,35 @@
             this.segWidthLabel = new System.Windows.Forms.Label();
             this.segStartButton = new System.Windows.Forms.Button();
             this.segThresholdLabel = new System.Windows.Forms.Label();
-            this.segColorsList = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbImage)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbResultImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbResultImage)).BeginInit();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.brightnessValue)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessValue)).BeginInit();
             this.groupBox2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.chartLUT)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBarContrast)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLUT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).BeginInit();
             this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.groupBox5.SuspendLayout();
             this.groupBox6.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.maximalBrightnessHistogram)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.minimalBrightnessHistogram)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.chartHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximalBrightnessHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalBrightnessHistogram)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).BeginInit();
             this.groupBox7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.valueRosenfeld)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRosenfeld)).BeginInit();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tabPage2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.numL)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numK)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numRadius2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numRadius)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbFilterMask)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbDFT)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPhiOffset)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAngle)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numL)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numK)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).BeginInit();
             this.tabPage3.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -209,10 +219,22 @@
             // 
             this.brightnessValue.BorderStyle = System.Windows.Forms.BorderStyle.None;
             resources.ApplyResources(this.brightnessValue, "brightnessValue");
-            this.brightnessValue.Maximum = new decimal(new int[] {255, 0, 0, 0});
-            this.brightnessValue.Minimum = new decimal(new int[] {1, 0, 0, 0});
+            this.brightnessValue.Maximum = new decimal(new int[] {
+            255,
+            0,
+            0,
+            0});
+            this.brightnessValue.Minimum = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             this.brightnessValue.Name = "brightnessValue";
-            this.brightnessValue.Value = new decimal(new int[] {1, 0, 0, 0});
+            this.brightnessValue.Value = new decimal(new int[] {
+            1,
+            0,
+            0,
+            0});
             // 
             // groupBox2
             // 
@@ -310,7 +332,13 @@
             // cmbMaskSize
             // 
             this.cmbMaskSize.FormattingEnabled = true;
-            this.cmbMaskSize.Items.AddRange(new object[] {resources.GetString("cmbMaskSize.Items"), resources.GetString("cmbMaskSize.Items1"), resources.GetString("cmbMaskSize.Items2"), resources.GetString("cmbMaskSize.Items3"), resources.GetString("cmbMaskSize.Items4"), resources.GetString("cmbMaskSize.Items5")});
+            this.cmbMaskSize.Items.AddRange(new object[] {
+            resources.GetString("cmbMaskSize.Items"),
+            resources.GetString("cmbMaskSize.Items1"),
+            resources.GetString("cmbMaskSize.Items2"),
+            resources.GetString("cmbMaskSize.Items3"),
+            resources.GetString("cmbMaskSize.Items4"),
+            resources.GetString("cmbMaskSize.Items5")});
             resources.ApplyResources(this.cmbMaskSize, "cmbMaskSize");
             this.cmbMaskSize.Name = "cmbMaskSize";
             this.cmbMaskSize.SelectedIndexChanged += new System.EventHandler(this.cmbRozmiarMaski_SelectedIndexChanged);
@@ -342,7 +370,15 @@
             // cmbTypeLinearMask
             // 
             this.cmbTypeLinearMask.FormattingEnabled = true;
-            this.cmbTypeLinearMask.Items.AddRange(new object[] {resources.GetString("cmbTypeLinearMask.Items"), resources.GetString("cmbTypeLinearMask.Items1"), resources.GetString("cmbTypeLinearMask.Items2"), resources.GetString("cmbTypeLinearMask.Items3"), resources.GetString("cmbTypeLinearMask.Items4"), resources.GetString("cmbTypeLinearMask.Items5"), resources.GetString("cmbTypeLinearMask.Items6"), resources.GetString("cmbTypeLinearMask.Items7")});
+            this.cmbTypeLinearMask.Items.AddRange(new object[] {
+            resources.GetString("cmbTypeLinearMask.Items"),
+            resources.GetString("cmbTypeLinearMask.Items1"),
+            resources.GetString("cmbTypeLinearMask.Items2"),
+            resources.GetString("cmbTypeLinearMask.Items3"),
+            resources.GetString("cmbTypeLinearMask.Items4"),
+            resources.GetString("cmbTypeLinearMask.Items5"),
+            resources.GetString("cmbTypeLinearMask.Items6"),
+            resources.GetString("cmbTypeLinearMask.Items7")});
             resources.ApplyResources(this.cmbTypeLinearMask, "cmbTypeLinearMask");
             this.cmbTypeLinearMask.Name = "cmbTypeLinearMask";
             this.cmbTypeLinearMask.SelectedIndexChanged += new System.EventHandler(this.cmbTypeLinearMask_SelectedIndexChanged);
@@ -367,7 +403,11 @@
             // cmbMaskSizeLinear
             // 
             this.cmbMaskSizeLinear.FormattingEnabled = true;
-            this.cmbMaskSizeLinear.Items.AddRange(new object[] {resources.GetString("cmbMaskSizeLinear.Items"), resources.GetString("cmbMaskSizeLinear.Items1"), resources.GetString("cmbMaskSizeLinear.Items2"), resources.GetString("cmbMaskSizeLinear.Items3")});
+            this.cmbMaskSizeLinear.Items.AddRange(new object[] {
+            resources.GetString("cmbMaskSizeLinear.Items"),
+            resources.GetString("cmbMaskSizeLinear.Items1"),
+            resources.GetString("cmbMaskSizeLinear.Items2"),
+            resources.GetString("cmbMaskSizeLinear.Items3")});
             resources.ApplyResources(this.cmbMaskSizeLinear, "cmbMaskSizeLinear");
             this.cmbMaskSizeLinear.Name = "cmbMaskSizeLinear";
             this.cmbMaskSizeLinear.SelectedIndexChanged += new System.EventHandler(this.cmbMaskSizeLinear_SelectedIndexChanged);
@@ -411,14 +451,26 @@
             // maximalBrightnessHistogram
             // 
             resources.ApplyResources(this.maximalBrightnessHistogram, "maximalBrightnessHistogram");
-            this.maximalBrightnessHistogram.Maximum = new decimal(new int[] {1000, 0, 0, 0});
+            this.maximalBrightnessHistogram.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.maximalBrightnessHistogram.Name = "maximalBrightnessHistogram";
-            this.maximalBrightnessHistogram.Value = new decimal(new int[] {100, 0, 0, 0});
+            this.maximalBrightnessHistogram.Value = new decimal(new int[] {
+            100,
+            0,
+            0,
+            0});
             // 
             // minimalBrightnessHistogram
             // 
             resources.ApplyResources(this.minimalBrightnessHistogram, "minimalBrightnessHistogram");
-            this.minimalBrightnessHistogram.Maximum = new decimal(new int[] {1000, 0, 0, 0});
+            this.minimalBrightnessHistogram.Maximum = new decimal(new int[] {
+            1000,
+            0,
+            0,
+            0});
             this.minimalBrightnessHistogram.Name = "minimalBrightnessHistogram";
             // 
             // btnHistogramModify
@@ -467,9 +519,17 @@
             // valueRosenfeld
             // 
             resources.ApplyResources(this.valueRosenfeld, "valueRosenfeld");
-            this.valueRosenfeld.Maximum = new decimal(new int[] {256, 0, 0, 0});
+            this.valueRosenfeld.Maximum = new decimal(new int[] {
+            256,
+            0,
+            0,
+            0});
             this.valueRosenfeld.Name = "valueRosenfeld";
-            this.valueRosenfeld.Value = new decimal(new int[] {16, 0, 0, 0});
+            this.valueRosenfeld.Value = new decimal(new int[] {
+            16,
+            0,
+            0,
+            0});
             // 
             // label6
             // 
@@ -500,6 +560,14 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.numPhiOffset);
+            this.tabPage2.Controls.Add(this.label17);
+            this.tabPage2.Controls.Add(this.numAngle);
+            this.tabPage2.Controls.Add(this.label16);
+            this.tabPage2.Controls.Add(this.label15);
+            this.tabPage2.Controls.Add(this.label14);
+            this.tabPage2.Controls.Add(this.label13);
+            this.tabPage2.Controls.Add(this.label12);
             this.tabPage2.Controls.Add(this.numL);
             this.tabPage2.Controls.Add(this.label10);
             this.tabPage2.Controls.Add(this.numK);
@@ -518,10 +586,70 @@
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.UseVisualStyleBackColor = true;
             // 
+            // numPhiOffset
+            // 
+            this.numPhiOffset.DecimalPlaces = 2;
+            resources.ApplyResources(this.numPhiOffset, "numPhiOffset");
+            this.numPhiOffset.Increment = new decimal(new int[] {
+            1,
+            0,
+            0,
+            131072});
+            this.numPhiOffset.Maximum = new decimal(new int[] {
+            5,
+            0,
+            0,
+            0});
+            this.numPhiOffset.Name = "numPhiOffset";
+            // 
+            // label17
+            // 
+            resources.ApplyResources(this.label17, "label17");
+            this.label17.Name = "label17";
+            // 
+            // numAngle
+            // 
+            resources.ApplyResources(this.numAngle, "numAngle");
+            this.numAngle.Maximum = new decimal(new int[] {
+            360,
+            0,
+            0,
+            0});
+            this.numAngle.Name = "numAngle";
+            // 
+            // label16
+            // 
+            resources.ApplyResources(this.label16, "label16");
+            this.label16.Name = "label16";
+            // 
+            // label15
+            // 
+            resources.ApplyResources(this.label15, "label15");
+            this.label15.Name = "label15";
+            // 
+            // label14
+            // 
+            resources.ApplyResources(this.label14, "label14");
+            this.label14.Name = "label14";
+            // 
+            // label13
+            // 
+            resources.ApplyResources(this.label13, "label13");
+            this.label13.Name = "label13";
+            // 
+            // label12
+            // 
+            resources.ApplyResources(this.label12, "label12");
+            this.label12.Name = "label12";
+            // 
             // numL
             // 
             resources.ApplyResources(this.numL, "numL");
-            this.numL.Maximum = new decimal(new int[] {300, 0, 0, 0});
+            this.numL.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numL.Name = "numL";
             // 
             // label10
@@ -532,7 +660,11 @@
             // numK
             // 
             resources.ApplyResources(this.numK, "numK");
-            this.numK.Maximum = new decimal(new int[] {300, 0, 0, 0});
+            this.numK.Maximum = new decimal(new int[] {
+            300,
+            0,
+            0,
+            0});
             this.numK.Name = "numK";
             // 
             // label11
@@ -548,7 +680,13 @@
             // cmbFilter
             // 
             this.cmbFilter.FormattingEnabled = true;
-            this.cmbFilter.Items.AddRange(new object[] {resources.GetString("cmbFilter.Items"), resources.GetString("cmbFilter.Items1"), resources.GetString("cmbFilter.Items2"), resources.GetString("cmbFilter.Items3"), resources.GetString("cmbFilter.Items4"), resources.GetString("cmbFilter.Items5"), resources.GetString("cmbFilter.Items6"), resources.GetString("cmbFilter.Items7"), resources.GetString("cmbFilter.Items8"), resources.GetString("cmbFilter.Items9"), resources.GetString("cmbFilter.Items10"), resources.GetString("cmbFilter.Items11")});
+            this.cmbFilter.Items.AddRange(new object[] {
+            resources.GetString("cmbFilter.Items"),
+            resources.GetString("cmbFilter.Items1"),
+            resources.GetString("cmbFilter.Items2"),
+            resources.GetString("cmbFilter.Items3"),
+            resources.GetString("cmbFilter.Items4"),
+            resources.GetString("cmbFilter.Items5")});
             resources.ApplyResources(this.cmbFilter, "cmbFilter");
             this.cmbFilter.Name = "cmbFilter";
             this.cmbFilter.SelectedIndexChanged += new System.EventHandler(this.cmbFilter_SelectedIndexChanged);
@@ -623,6 +761,11 @@
             resources.ApplyResources(this.tabPage3, "tabPage3");
             this.tabPage3.Name = "tabPage3";
             this.tabPage3.UseVisualStyleBackColor = true;
+            // 
+            // segColorsList
+            // 
+            resources.ApplyResources(this.segColorsList, "segColorsList");
+            this.segColorsList.Name = "segColorsList";
             // 
             // segMaskButton
             // 
@@ -703,11 +846,6 @@
             resources.ApplyResources(this.segThresholdLabel, "segThresholdLabel");
             this.segThresholdLabel.Name = "segThresholdLabel";
             // 
-            // segColorsList
-            // 
-            resources.ApplyResources(this.segColorsList, "segColorsList");
-            this.segColorsList.Name = "segColorsList";
-            // 
             // Form1
             // 
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.None;
@@ -723,14 +861,14 @@
             this.panel1.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.pbImage)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbResultImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbImage)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbResultImage)).EndInit();
             this.groupBox1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.brightnessValue)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.brightnessValue)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.chartLUT)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.trackBarContrast)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartLUT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.trackBarContrast)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
@@ -738,25 +876,28 @@
             this.groupBox5.PerformLayout();
             this.groupBox6.ResumeLayout(false);
             this.groupBox6.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.maximalBrightnessHistogram)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.minimalBrightnessHistogram)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.chartHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.maximalBrightnessHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.minimalBrightnessHistogram)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartHistogram)).EndInit();
             this.groupBox7.ResumeLayout(false);
             this.groupBox7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.valueRosenfeld)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.valueRosenfeld)).EndInit();
             this.tabControl1.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.numL)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numK)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numRadius2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numRadius)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbFilterMask)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.pbDFT)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numPhiOffset)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numAngle)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numL)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numK)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numRadius)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbFilterMask)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pbDFT)).EndInit();
             this.tabPage3.ResumeLayout(false);
             this.tabPage3.PerformLayout();
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.NumericUpDown brightnessValue;
@@ -839,6 +980,15 @@
         private System.Windows.Forms.NumericUpDown valueRosenfeld;
 
         #endregion
+
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown numAngle;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.NumericUpDown numPhiOffset;
+        private System.Windows.Forms.Label label17;
     }
 }
 

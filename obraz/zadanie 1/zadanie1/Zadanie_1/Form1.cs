@@ -467,7 +467,7 @@ namespace Zadanie_1
 
                 Tuple<Image, Image> result = FourierProcessingMethods.ApplyFilter(pbImage.Image, tmpp,
                     cmbFilter.SelectedIndex, (int) numRadius.Value, (int) numRadius2.Value, (int) numK.Value,
-                    (int) numL.Value);
+                    (int) numL.Value,(double)numAngle.Value, (double)numPhiOffset.Value);
 
 
                 pbResultImage.Image = result.Item1;
@@ -510,6 +510,19 @@ namespace Zadanie_1
             {
                 numK.Enabled = false;
                 numL.Enabled = false;
+            }
+
+            if(cmbFilter.SelectedIndex == 4)
+            {
+                numAngle.Enabled = true;
+                numAngle.Value = 90;
+                numPhiOffset.Enabled = true;
+                numPhiOffset.Value = (decimal)0.05;
+            }
+            else
+            {
+                numAngle.Enabled = false;
+                numPhiOffset.Enabled = false;
             }
         }
 

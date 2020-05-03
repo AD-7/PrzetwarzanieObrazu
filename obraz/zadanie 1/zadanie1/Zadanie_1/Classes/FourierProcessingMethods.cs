@@ -11,7 +11,7 @@ namespace Zadanie_1.Classes
     public static class FourierProcessingMethods
     {
 
-        public static Tuple<Image,Image> ApplyFilter(Image source, Complex[,] fourierTAB, int filtr, int radius,int radius2,int K, int L)
+        public static Tuple<Image,Image> ApplyFilter(Image source, Complex[,] fourierTAB, int filtr, int radius,int radius2,int K, int L,double angle,double phiOffset)
         {
             Bitmap result = new Bitmap(source);
             Bitmap resultMask = new Bitmap(source);
@@ -29,6 +29,7 @@ namespace Zadanie_1.Classes
                 case 1: fourierTAB = HighpassFilter(fourierTAB, radius); break;
                 case 2: fourierTAB = BandWithFilter(fourierTAB, radius, radius2); break;
                 case 3: fourierTAB = BandPassFilter(fourierTAB, radius, radius2); break;
+                case 4: fourierTAB = EdgeDetection.createEdgeDetectionFilter(fourierTAB, fourierTAB.GetLength(0), fourierTAB.GetLength(1),angle, phiOffset, radius); break;
                 case 5: fourierTAB = ModifyFourierPnm(fourierTAB, K, L); break;
 
             }
