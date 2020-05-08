@@ -245,30 +245,6 @@ namespace Zadanie_1.Classes
             Complex[,] fourierTAB = new Complex[fourier.GetLength(0),fourier.GetLength(1)];
             fourierTAB = fourier;
 
-            //fourier = ShiftComplex(fourier);
-
-            //fourier = ifft2(fourier);
-
-
-            //for (int x = 0; x < fourier.GetLength(0); x++)
-            //{
-            //    for (int y = 0; y < fourier.GetLength(1); y++)
-            //    {
-            //        modulus[x, y] = Modulus(fourier[x, y].Real, fourier[x, y].Imaginary);
-
-            //    }
-            //}
-
-
-            //for (int x = 0; x < source.Width; x++)
-            //{
-            //    for (int y = 0; y < source.Height; y++)
-            //    {
-            //        byte color = Convert.ToByte(modulus[x, y]);
-            //        fasterBitmapResult.SetPixel(x, y, Color.FromArgb(color, color, color));
-            //    }
-            //}
-
 
             fasterBitmapAmplitude.UnlockBits();
             fasterBitmapSrc.UnlockBits();
@@ -295,7 +271,7 @@ namespace Zadanie_1.Classes
                 for (int x = 0; x < w; x++)
                     row[x] = a[x, y];
 
-                Complex[] frow = fft(row);
+                Complex[] frow = FFT(row);
 
                 for (int x = 0; x < w; x++)
                     result[x, y] = frow[x];
@@ -308,7 +284,7 @@ namespace Zadanie_1.Classes
                 for (int y = 0; y < h; y++)
                     col[y] = result[x, y];
 
-                Complex[] fcol = fft(col);
+                Complex[] fcol = FFT(col);
 
                 for (int y = 0; y < h; y++)
                     result[x, y] = fcol[y];
@@ -318,7 +294,7 @@ namespace Zadanie_1.Classes
         }
 
 
-        public static Complex[] fft(Complex[] a_ar, int a_length = -1)
+        public static Complex[] dft(Complex[] a_ar, int a_length = -1)
         {
             if (a_length == -1)
                 a_length = a_ar.Length;
@@ -337,6 +313,91 @@ namespace Zadanie_1.Classes
 
             return result;
         }
+
+
+
+        public static Complex[] FFT(Complex[] buffer)
+        {
+
+            int bits = (int)Math.Log(buffer.Length, 2);
+            for (int j = 1; j < buffer.Length; j++)
+            {
+                int swapPos = BitReverse(j, bits);
+                if (swapPos <= j)
+                {
+                    continue;
+                }
+                var temp = buffer[j];
+                buffer[j] = buffer[swapPos];
+                buffer[swapPos] = temp;
+            }
+
+        
+            for (int N = 2; N <= buffer.Length; N <<= 1)
+            {
+                for (int i = 0; i < buffer.Length; i += N)
+                {
+                    for (int k = 0; k < N / 2; k++)
+                    {
+
+                        int evenIndex = i + k;
+                        int oddIndex = i + k + (N / 2);
+                        var even = buffer[evenIndex];
+                        var odd = buffer[oddIndex];
+
+                        double term = -2 * Math.PI * k / (double)N;
+                        Complex exp = new Complex(Math.Cos(term), Math.Sin(term)) * odd;
+
+                        buffer[evenIndex] = even + exp;
+                        buffer[oddIndex] = even - exp;
+
+                    }
+                }
+            }
+            return buffer;
+        }
+        public static Complex[] IFFT(Complex[] buffer)
+        {
+
+            int bits = (int)Math.Log(buffer.Length, 2);
+            for (int j = 1; j < buffer.Length; j++)
+            {
+                int swapPos = BitReverse(j, bits);
+                if (swapPos <= j)
+                {
+                    continue;
+                }
+                var temp = buffer[j];
+                buffer[j] = buffer[swapPos];
+                buffer[swapPos] = temp;
+            }
+
+
+            for (int N = 2; N <= buffer.Length; N <<= 1)
+            {
+                for (int i = 0; i < buffer.Length; i += N)
+                {
+                    for (int k = 0; k < N / 2; k++)
+                    {
+
+                        int evenIndex = i + k;
+                        int oddIndex = i + k + (N / 2);
+                        var even = buffer[evenIndex];
+                        var odd = buffer[oddIndex];
+
+                        double term = 2 * Math.PI * k / (double)N;
+                        Complex exp = new Complex(Math.Cos(term), Math.Sin(term)) * odd;
+
+                        buffer[evenIndex] = even + exp ;
+                        buffer[oddIndex] = even - exp ;
+
+                    }
+                }
+            }
+            return buffer;
+        }
+
+
         public static Complex[,] ifft2(Complex[,] a)
         {
             int w = a.GetLength(0);
@@ -351,7 +412,7 @@ namespace Zadanie_1.Classes
                 for (int x = 0; x < w; x++)
                     row[x] = a[x, y];
 
-                Complex[] frow = ifft(row);
+                Complex[] frow = IFFT(row);
 
                 for (int x = 0; x < w; x++)
                     result[x, y] = frow[x] / w;
@@ -364,7 +425,7 @@ namespace Zadanie_1.Classes
                 for (int y = 0; y < h; y++)
                     col[y] = result[x, y];
 
-                Complex[] fcol = ifft(col);
+                Complex[] fcol = IFFT(col);
 
                 for (int y = 0; y < h; y++)
                     result[x, y] = fcol[y] / h;
@@ -372,7 +433,7 @@ namespace Zadanie_1.Classes
 
             return result;
         }
-        public static Complex[] ifft(Complex[] a_ar, int a_length = -1)
+        public static Complex[] idft(Complex[] a_ar, int a_length = -1)
         {
             if (a_length == -1)
                 a_length = a_ar.Length;
@@ -561,6 +622,21 @@ namespace Zadanie_1.Classes
 
 
 
+        }
+        public static int BitReverse(int n, int bits)
+        {
+            int reversedN = n;
+            int count = bits - 1;
+
+            n >>= 1;
+            while (n > 0)
+            {
+                reversedN = (reversedN << 1) | (n & 1);
+                count--;
+                n >>= 1;
+            }
+
+            return ((reversedN << count) & ((1 << bits) - 1));
         }
 
     }
