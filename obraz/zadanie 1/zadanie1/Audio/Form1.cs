@@ -46,10 +46,10 @@ namespace Audio
 
             for (int i = 0; i < result.Count()/2; i++)
             {
-                value[i] = result[i] / sampleRate;
+                value[i] = AudioHelper.LinearToDecibels(result[i] / sampleRate);
                 time[i] = i / sampleRate;
                 freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
-                Signal.Series["Value"].Points.AddXY(freq[i], AudioHelper.LinearToDecibels(value[i]));
+                Signal.Series["Value"].Points.AddXY(freq[i], value[i]);
 
                 //if (value[i] > 0.03)
                 //{
