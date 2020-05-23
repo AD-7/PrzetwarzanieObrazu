@@ -41,7 +41,7 @@
             this.Signal.ChartAreas.Add(chartArea1);
             this.Signal.Location = new System.Drawing.Point(53, 64);
             this.Signal.Name = "Signal";
-            this.Signal.Size = new System.Drawing.Size(525, 300);
+            this.Signal.Size = new System.Drawing.Size(1123, 610);
             this.Signal.TabIndex = 0;
             this.Signal.Text = "chart1";
             // 
@@ -59,11 +59,13 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
+            this.ClientSize = new System.Drawing.Size(1200, 686);
             this.Controls.Add(this.btnWczytaj);
             this.Controls.Add(this.Signal);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             ((System.ComponentModel.ISupportInitialize)(this.Signal)).EndInit();
             this.ResumeLayout(false);
 
