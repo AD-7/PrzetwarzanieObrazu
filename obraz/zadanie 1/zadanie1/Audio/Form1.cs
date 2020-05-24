@@ -135,7 +135,7 @@ namespace Audio
 
         private void btnProg_Click(object sender, EventArgs e)
         {
-           
+
             SignalAmplitude.Series["Prog"].Points.Clear();
 
             double[] freq = new double[currentSignal.amplitude.Length / 2];
@@ -151,6 +151,7 @@ namespace Audio
 
         private void button1_Click(object sender, EventArgs e)
         {
+            button2_Click(new object(), new EventArgs());
             double sampleRate = Convert.ToDouble(currentSignal.sampleRate);
             int itr = 0;
             foreach (double[] frame in currentSignal.signal)
@@ -173,7 +174,7 @@ namespace Audio
                 }
 
                 // znajdujemy maksima powyżej progu:
-                List<PointF> maximas = new List<PointF>();
+
                 for (int i = 1; i < values.Count - 2; i++)
                 {
                     if (values[i].Y > values[i - 1].Y && values[i].Y > values[i + 1].Y && values[i].Y > (float)numProg.Value)
@@ -181,22 +182,80 @@ namespace Audio
                         currentSignal.maksima[itr].Add(new PointF(values[i].X, values[i].Y));
                     }
                 }
-
+                if(currentSignal.maksima[itr].Count == 0)
+                {
+                    currentSignal.maksima.RemoveAt(itr);
+                    itr--;
+                }
                 itr++;
             }
+            if(currentSignal.maksima.Count == 0)
+            {
+                MessageBox.Show("Nie znaleziono żadnego maksimum lokalnego - zmień próg");
+                return;
+            }
+            double[] fhz = new double[currentSignal.maksima.Count];
+            for (int f = 0; f < currentSignal.maksima.Count; f++)
+            {
+                double[] tmp_fhz = new double[currentSignal.maksima[f].Count ];
+                tmp_fhz[0] = currentSignal.maksima[f][0].X;
+                for (int i = 1; i < currentSignal.maksima[f].Count; i++)
+                {
+                    tmp_fhz[i] = currentSignal.maksima[f][i].X - currentSignal.maksima[f][i - 1].X;
+                }
 
+                Sort(tmp_fhz);
 
+                fhz[f] = Mediana(tmp_fhz); 
+            }
 
+            Sort(fhz);
 
+            double F = Mediana(fhz);
+            textBox1.Text = F + " Hz";
             currentSignal.isCalculated = true;
             RefreshSignal((int)numFrame.Value);
+        }
+        private double Mediana(double[] tab)
+        {
+            double result = 0;
+            if(tab.Length % 2 != 0)
+            {
+                result = tab[tab.Length / 2];
+            }
+            else
+            {
+                result = (tab[tab.Length / 2] + tab[tab.Length / 2 - 1]) /2;
+            }
+            
+            return result;
+        }
+        private void Sort(double[] tab)
+        {
+            int n = tab.Length;
+            do
+            {
+                for (int i = 0; i < tab.Length-1; i++)
+                {
+                    if (tab[i] > tab[i + 1])
+                    {
+                        double tmp = tab[i];
+                        tab[i] = tab[i + 1];
+                        tab[i + 1] = tmp;
+                    }
+                }
+                n--;
+            } while (n > 1);
+
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             currentSignal.isCalculated = false;
             currentSignal.maksima.Clear();
+            textBox1.Text = "";
             RefreshSignal((int)numFrame.Value);
+        
         }
     }
 }

@@ -29,8 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -50,6 +50,7 @@
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -131,8 +132,8 @@
             // 
             this.SignalAmplitude.BorderlineColor = System.Drawing.Color.Black;
             this.SignalAmplitude.BorderlineWidth = 2;
-            chartArea1.Name = "ChartArea1";
-            this.SignalAmplitude.ChartAreas.Add(chartArea1);
+            chartArea3.Name = "ChartArea1";
+            this.SignalAmplitude.ChartAreas.Add(chartArea3);
             this.SignalAmplitude.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SignalAmplitude.Location = new System.Drawing.Point(690, 89);
             this.SignalAmplitude.Name = "SignalAmplitude";
@@ -144,8 +145,8 @@
             // 
             this.Signal.BorderlineColor = System.Drawing.Color.Black;
             this.Signal.BorderlineWidth = 2;
-            chartArea2.Name = "ChartArea1";
-            this.Signal.ChartAreas.Add(chartArea2);
+            chartArea4.Name = "ChartArea1";
+            this.Signal.ChartAreas.Add(chartArea4);
             this.Signal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Signal.Location = new System.Drawing.Point(3, 89);
             this.Signal.Name = "Signal";
@@ -231,14 +232,16 @@
             // 
             // tableLayoutPanel4
             // 
-            this.tableLayoutPanel4.ColumnCount = 4;
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.569424F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.92217F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 8.957416F));
-            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 68.72247F));
+            this.tableLayoutPanel4.ColumnCount = 5;
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 10.42584F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 12.62849F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.251101F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.06902F));
+            this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.06608F));
             this.tableLayoutPanel4.Controls.Add(this.btnProg, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button1, 1, 0);
             this.tableLayoutPanel4.Controls.Add(this.button2, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.textBox1, 4, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(690, 3);
             this.tableLayoutPanel4.Name = "tableLayoutPanel4";
@@ -249,9 +252,10 @@
             // 
             // btnProg
             // 
+            this.btnProg.Dock = System.Windows.Forms.DockStyle.Fill;
             this.btnProg.Location = new System.Drawing.Point(3, 3);
             this.btnProg.Name = "btnProg";
-            this.btnProg.Size = new System.Drawing.Size(59, 43);
+            this.btnProg.Size = new System.Drawing.Size(64, 43);
             this.btnProg.TabIndex = 6;
             this.btnProg.Text = "zaznacz próg";
             this.btnProg.UseVisualStyleBackColor = true;
@@ -260,9 +264,9 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(68, 3);
+            this.button1.Location = new System.Drawing.Point(73, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(81, 43);
+            this.button1.Size = new System.Drawing.Size(79, 43);
             this.button1.TabIndex = 7;
             this.button1.Text = "oblicz częstotliwość";
             this.button1.UseVisualStyleBackColor = true;
@@ -297,13 +301,23 @@
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(155, 3);
+            this.button2.Location = new System.Drawing.Point(158, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(54, 43);
+            this.button2.Size = new System.Drawing.Size(56, 43);
             this.button2.TabIndex = 8;
             this.button2.Text = "zeruj";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(308, 3);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 43);
+            this.textBox1.TabIndex = 9;
             // 
             // Form1
             // 
@@ -326,6 +340,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.numFrame)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numProg)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
+            this.tableLayoutPanel4.PerformLayout();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -351,5 +366,6 @@
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
