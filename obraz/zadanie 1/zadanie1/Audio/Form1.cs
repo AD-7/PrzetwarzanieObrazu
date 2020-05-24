@@ -36,6 +36,7 @@ namespace Audio
         public Form1()
         {
             InitializeComponent();
+            comboBox1.SelectedIndex = 2;
 
         }
 
@@ -44,15 +45,38 @@ namespace Audio
             AudioHelper audioHelper = new AudioHelper();
 
             short[] sample1;
+            int windowSize = 512;
+            if(comboBox1.SelectedIndex == 1)
+            {
+                windowSize = 1024;
+            }
+            else if (comboBox1.SelectedIndex == 2)
+            {
+                windowSize = 2048;
+            }
 
-            Tuple<List<double[]>, int, TimeSpan> wave = audioHelper.openWav(Path.GetSoundPath(), out sample1, 2048);
+            else if (comboBox1.SelectedIndex == 3)
+            {
+                windowSize = 4096;
+            }
+            else if (comboBox1.SelectedIndex == 4)
+            {
+                windowSize = 8192;
+            }
+            else if (comboBox1.SelectedIndex == 5)
+            {
+                windowSize = 16384;
+            }
 
-            currentSignal = new CurrentSignal(wave.Item2, wave.Item1, wave.Item3);
-            numFrame.Minimum = 0;
-            numFrame.Maximum = currentSignal.signal.Count - 1;
-            lbramki.Text = "Nr ramki: (max. " + numFrame.Maximum + ")";
-            RefreshSignal(0);
-
+            Tuple<List<double[]>, int, TimeSpan> wave = audioHelper.openWav(Path.GetSoundPath(), out sample1, windowSize);
+            if (wave != null)
+            {
+                currentSignal = new CurrentSignal(wave.Item2, wave.Item1, wave.Item3);
+                numFrame.Minimum = 0;
+                numFrame.Maximum = currentSignal.signal.Count - 1;
+                lbramki.Text = "Nr ramki: (max. " + numFrame.Maximum + ")";
+                RefreshSignal(0);
+            }
         }
 
         public void RefreshSignal(int frame)

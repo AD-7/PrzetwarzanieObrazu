@@ -1,6 +1,7 @@
 ﻿using NAudio.Wave;
 using System;
 using System.Collections.Generic;
+using System.IO;
 using System.Numerics;
 
 namespace Audio.Classes
@@ -15,56 +16,64 @@ namespace Audio.Classes
         public Tuple<List<double[]>, int, TimeSpan> openWav(string filename, out short[] sampleBuffer, int WindowSize)
         {
 
-
-
-            TimeSpan time = new TimeSpan();
-            using (WaveFileReader reader = new WaveFileReader(filename))
-            {
-                sampleRate = reader.WaveFormat.SampleRate;
-                time = reader.TotalTime;
-
-                byte[] buffer = new byte[reader.Length];
-                int read = reader.Read(buffer, 0, buffer.Length);
-                sampleBuffer = new short[read / 2];
-                Buffer.BlockCopy(buffer, 0, sampleBuffer, 0, read);
-            }
-
-
-            List<double[]> result = new List<double[]>();
-            result.Add(new double[WindowSize]);
-            int i = 0;
-            int j = 0;
-            int r = 0;
-            foreach (short tmp in sampleBuffer)
+            if (File.Exists(filename))
             {
 
-                result[r][i] = sampleBuffer[j];
-                i++;
-                j++;
-                if (i == WindowSize)
+
+
+                TimeSpan time = new TimeSpan();
+                using (WaveFileReader reader = new WaveFileReader(filename))
                 {
-                    i = 0;
-                    r++;
-                    result.Add(new double[WindowSize]);
+                    sampleRate = reader.WaveFormat.SampleRate;
+                    time = reader.TotalTime;
+
+                    byte[] buffer = new byte[reader.Length];
+                    int read = reader.Read(buffer, 0, buffer.Length);
+                    sampleBuffer = new short[read / 2];
+                    Buffer.BlockCopy(buffer, 0, sampleBuffer, 0, read);
                 }
 
+
+                List<double[]> result = new List<double[]>();
+                result.Add(new double[WindowSize]);
+                int i = 0;
+                int j = 0;
+                int r = 0;
+                foreach (short tmp in sampleBuffer)
+                {
+
+                    result[r][i] = sampleBuffer[j];
+                    i++;
+                    j++;
+                    if (i == WindowSize)
+                    {
+                        i = 0;
+                        r++;
+                        result.Add(new double[WindowSize]);
+                    }
+
+                }
+                result.RemoveAt(result.Count - 1);
+                //  result = TriangleWindow(result);
+                //Complex[] resultComplex = new Complex[result.Length];
+                //for (int z = 0; z < result.Length; z++)
+                //{
+                //    resultComplex[z] = result[z];
+                //}
+
+                //resultComplex = FFT(resultComplex);
+                //for (int z = 0; z < result.Length; z++)
+                //{
+                //    result[z] = 2 * Modulus(resultComplex[z].Real, resultComplex[z].Imaginary) / result.Length;
+                //}
+
+                return new Tuple<List<double[]>, int, TimeSpan>(result, sampleRate, time);
             }
-            result.RemoveAt(result.Count - 1);
-            //  result = TriangleWindow(result);
-            //Complex[] resultComplex = new Complex[result.Length];
-            //for (int z = 0; z < result.Length; z++)
-            //{
-            //    resultComplex[z] = result[z];
-            //}
-
-            //resultComplex = FFT(resultComplex);
-            //for (int z = 0; z < result.Length; z++)
-            //{
-            //    result[z] = 2 * Modulus(resultComplex[z].Real, resultComplex[z].Imaginary) / result.Length;
-            //}
-
-            return new Tuple<List<double[]>, int, TimeSpan>(result, sampleRate, time);
-
+            else
+            {
+                sampleBuffer = new short[1];
+                return null;
+            }
         }
 
 
