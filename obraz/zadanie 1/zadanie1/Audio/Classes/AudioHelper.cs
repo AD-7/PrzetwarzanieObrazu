@@ -5,9 +5,13 @@ using System.Numerics;
 
 namespace Audio.Classes
 {
+
+
     public class AudioHelper
     {
         int sampleRate = 0;
+        
+
         public Tuple<List<double[]>, int, TimeSpan> openWav(string filename, out short[] sampleBuffer, int WindowSize)
         {
 
@@ -84,7 +88,7 @@ namespace Audio.Classes
             return result;
         }
        
-        public double[] PreEmFaza(double[] data)
+        public static  double[] PreEmFaza(double[] data)
         {
             double[] result = new double[data.Length];
             for (int i = 1; i < data.Length; i++)

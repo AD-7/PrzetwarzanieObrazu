@@ -8,9 +8,26 @@ namespace Audio
 {
     public partial class Form1 : Form
     {
+        public struct CurrentSignal
+        {
+            public int sampleRate;
+            public List<double[]> signal;
+            public TimeSpan seconds;
+            public CurrentSignal(int sampleRate, List<double[]> signal,TimeSpan seconds)
+            {
+                this.sampleRate = sampleRate;
+                this.seconds = seconds;
+                this.signal = signal;
+            }
+
+        }
+
+
+        CurrentSignal currentSignal;
         public Form1()
         {
             InitializeComponent();
+           
         }
 
         private void btnWczytaj_Click(object sender, EventArgs e)
@@ -19,44 +36,55 @@ namespace Audio
 
             short[] sample1;
 
-            double tmp = AudioHelper.LinearToDecibels(1000);
-
             Tuple<List<double[]>, int, TimeSpan> wave = audioHelper.openWav(Path.GetSoundPath(), out sample1, 2048);
-            double[] result = wave.Item1[5];
-             result = audioHelper.PreEmFaza(result);
-          
 
-            result = AudioHelper.toDouble(AudioHelper.FFT(AudioHelper.toComplex(result)));
+            currentSignal = new CurrentSignal(wave.Item2, wave.Item1, wave.Item3);
 
-            double sampleRate = Convert.ToDouble(wave.Item2);
-            int seconds = wave.Item3.Seconds;
+            RefreshSignal();
+
+        }
+
+        public void RefreshSignal()
+        {
+            double[] result = currentSignal.signal[0];
             Signal.Series.Clear();
             Signal.Series.Add("Value");
             Signal.Series["Value"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             Signal.Series["Value"].MarkerSize = 10;
 
-            //  Signal.ChartAreas[0].AxisX.Maximum = seconds;
-            //  Signal.ChartAreas[0].AxisX.Minimum = 0;
-            // Signal.ChartAreas[0].AxisY.Maximum = 0.1;
-            // Signal.ChartAreas[0].AxisY.Minimum = -0.1;
+            double sampleRate = Convert.ToDouble(currentSignal.sampleRate);
+            int seconds = currentSignal.seconds.Seconds;
 
             double[] time = new double[result.Length];
             double[] value = new double[result.Length];
             double[] freq = new double[result.Length];
 
-            for (int i = 0; i < result.Count()/2; i++)
+
+            for (int i = 0; i < result.Count(); i++)
+            {
+                value[i] = result[i] / sampleRate;
+                time[i] = i / sampleRate;
+                //   freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
+                Signal.Series["Value"].Points.AddXY(time[i], value[i]);
+
+            }
+
+            SignalAmplitude.Series.Clear();
+            SignalAmplitude.Series.Add("Value");
+            SignalAmplitude.Series["Value"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            SignalAmplitude.Series["Value"].MarkerSize = 10;
+
+            result = AudioHelper.PreEmFaza(result);
+            result = AudioHelper.toDouble(AudioHelper.FFT(AudioHelper.toComplex(result)));
+
+
+            for (int i = 0; i < result.Count() / 2; i++)
             {
                 value[i] = AudioHelper.LinearToDecibels(result[i] / sampleRate);
                 time[i] = i / sampleRate;
                 freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
-                Signal.Series["Value"].Points.AddXY(freq[i], value[i]);
-
-                //if (value[i] > 0.03)
-                //{
-                //    double tmp = freq[i];
-                //}
+                SignalAmplitude.Series["Value"].Points.AddXY(freq[i], value[i]);
             }
-
         }
     }
 }

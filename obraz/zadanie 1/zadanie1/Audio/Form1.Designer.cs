@@ -30,29 +30,24 @@
         private void InitializeComponent()
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            this.Signal = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
-            this.tabPage1 = new System.Windows.Forms.TabPage();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            ((System.ComponentModel.ISupportInitialize)(this.Signal)).BeginInit();
+            this.SignalAmplitude = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.tabPage1 = new System.Windows.Forms.TabPage();
+            this.Signal = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.tableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
-            this.tabPage1.SuspendLayout();
             this.tableLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.SignalAmplitude)).BeginInit();
+            this.tabPage1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Signal)).BeginInit();
+            this.tableLayoutPanel2.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // Signal
-            // 
-            this.Signal.BorderlineColor = System.Drawing.Color.Black;
-            this.Signal.BorderlineWidth = 2;
-            chartArea1.Name = "ChartArea1";
-            this.Signal.ChartAreas.Add(chartArea1);
-            this.Signal.Location = new System.Drawing.Point(6, 6);
-            this.Signal.Name = "Signal";
-            this.Signal.Size = new System.Drawing.Size(613, 304);
-            this.Signal.TabIndex = 0;
-            this.Signal.Text = "chart1";
             // 
             // btnWczytaj
             // 
@@ -72,26 +67,15 @@
             this.tabControl1.Location = new System.Drawing.Point(3, 51);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(1194, 632);
+            this.tabControl1.Size = new System.Drawing.Size(1388, 632);
             this.tabControl1.TabIndex = 2;
-            // 
-            // tabPage1
-            // 
-            this.tabPage1.Controls.Add(this.Signal);
-            this.tabPage1.Location = new System.Drawing.Point(4, 22);
-            this.tabPage1.Name = "tabPage1";
-            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage1.Size = new System.Drawing.Size(1186, 606);
-            this.tabPage1.TabIndex = 0;
-            this.tabPage1.Text = "Widmo amplitudowe";
-            this.tabPage1.UseVisualStyleBackColor = true;
             // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
-            this.tabPage2.Size = new System.Drawing.Size(1186, 606);
+            this.tabPage2.Size = new System.Drawing.Size(1338, 606);
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "czas";
             this.tabPage2.UseVisualStyleBackColor = true;
@@ -109,34 +93,116 @@
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 7.142857F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 92.85714F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1200, 686);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1394, 686);
             this.tableLayoutPanel1.TabIndex = 3;
+            // 
+            // SignalAmplitude
+            // 
+            this.SignalAmplitude.BorderlineColor = System.Drawing.Color.Black;
+            this.SignalAmplitude.BorderlineWidth = 2;
+            chartArea1.Name = "ChartArea1";
+            this.SignalAmplitude.ChartAreas.Add(chartArea1);
+            this.SignalAmplitude.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.SignalAmplitude.Location = new System.Drawing.Point(690, 87);
+            this.SignalAmplitude.Name = "SignalAmplitude";
+            this.SignalAmplitude.Size = new System.Drawing.Size(681, 241);
+            this.SignalAmplitude.TabIndex = 0;
+            this.SignalAmplitude.Text = "chart1";
+            // 
+            // tabPage1
+            // 
+            this.tabPage1.Controls.Add(this.tableLayoutPanel2);
+            this.tabPage1.Location = new System.Drawing.Point(4, 22);
+            this.tabPage1.Name = "tabPage1";
+            this.tabPage1.Padding = new System.Windows.Forms.Padding(3);
+            this.tabPage1.Size = new System.Drawing.Size(1380, 606);
+            this.tabPage1.TabIndex = 0;
+            this.tabPage1.Text = "Widmo amplitudowe";
+            this.tabPage1.UseVisualStyleBackColor = true;
+            // 
+            // Signal
+            // 
+            this.Signal.BorderlineColor = System.Drawing.Color.Black;
+            this.Signal.BorderlineWidth = 2;
+            chartArea2.Name = "ChartArea1";
+            this.Signal.ChartAreas.Add(chartArea2);
+            this.Signal.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.Signal.Location = new System.Drawing.Point(3, 87);
+            this.Signal.Name = "Signal";
+            this.Signal.Size = new System.Drawing.Size(681, 241);
+            this.Signal.TabIndex = 2;
+            this.Signal.Text = "chart1";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Location = new System.Drawing.Point(3, 64);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(44, 13);
+            this.label1.TabIndex = 3;
+            this.label1.Text = "Sygnał:";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(690, 64);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(105, 13);
+            this.label2.TabIndex = 4;
+            this.label2.Text = "Widmo amplitudowe:";
+            // 
+            // tableLayoutPanel2
+            // 
+            this.tableLayoutPanel2.ColumnCount = 2;
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel2.Controls.Add(this.label1, 0, 1);
+            this.tableLayoutPanel2.Controls.Add(this.SignalAmplitude, 1, 2);
+            this.tableLayoutPanel2.Controls.Add(this.Signal, 0, 2);
+            this.tableLayoutPanel2.Controls.Add(this.label2, 1, 1);
+            this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel2.Name = "tableLayoutPanel2";
+            this.tableLayoutPanel2.RowCount = 5;
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10.69706F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.381416F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.27005F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.381416F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 41.27006F));
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(1374, 600);
+            this.tableLayoutPanel2.TabIndex = 5;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1200, 686);
+            this.ClientSize = new System.Drawing.Size(1394, 686);
             this.Controls.Add(this.tableLayoutPanel1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "Form1";
             this.Text = "Form1";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
-            ((System.ComponentModel.ISupportInitialize)(this.Signal)).EndInit();
             this.tabControl1.ResumeLayout(false);
-            this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.SignalAmplitude)).EndInit();
+            this.tabPage1.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.Signal)).EndInit();
+            this.tableLayoutPanel2.ResumeLayout(false);
+            this.tableLayoutPanel2.PerformLayout();
             this.ResumeLayout(false);
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataVisualization.Charting.Chart Signal;
         private System.Windows.Forms.Button btnWczytaj;
         private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage1;
         private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.DataVisualization.Charting.Chart Signal;
+        private System.Windows.Forms.DataVisualization.Charting.Chart SignalAmplitude;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
     }
 }
