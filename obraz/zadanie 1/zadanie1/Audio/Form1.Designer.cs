@@ -29,8 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -114,9 +114,9 @@
             this.tableLayoutPanel2.RowCount = 5;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 8.870968F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 5F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 61.29032F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 2.741935F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 21.93548F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 67.58064F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 3.225806F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 15.16129F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(1374, 620);
             this.tableLayoutPanel2.TabIndex = 5;
             this.tableLayoutPanel2.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel2_Paint);
@@ -134,12 +134,12 @@
             // 
             this.SignalAmplitude.BorderlineColor = System.Drawing.Color.Black;
             this.SignalAmplitude.BorderlineWidth = 2;
-            chartArea7.Name = "ChartArea1";
-            this.SignalAmplitude.ChartAreas.Add(chartArea7);
+            chartArea3.Name = "ChartArea1";
+            this.SignalAmplitude.ChartAreas.Add(chartArea3);
             this.SignalAmplitude.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SignalAmplitude.Location = new System.Drawing.Point(690, 89);
             this.SignalAmplitude.Name = "SignalAmplitude";
-            this.SignalAmplitude.Size = new System.Drawing.Size(681, 374);
+            this.SignalAmplitude.Size = new System.Drawing.Size(681, 413);
             this.SignalAmplitude.TabIndex = 0;
             this.SignalAmplitude.Text = "chart1";
             // 
@@ -147,12 +147,12 @@
             // 
             this.Signal.BorderlineColor = System.Drawing.Color.Black;
             this.Signal.BorderlineWidth = 2;
-            chartArea8.Name = "ChartArea1";
-            this.Signal.ChartAreas.Add(chartArea8);
+            chartArea4.Name = "ChartArea1";
+            this.Signal.ChartAreas.Add(chartArea4);
             this.Signal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Signal.Location = new System.Drawing.Point(3, 89);
             this.Signal.Name = "Signal";
-            this.Signal.Size = new System.Drawing.Size(681, 374);
+            this.Signal.Size = new System.Drawing.Size(681, 413);
             this.Signal.TabIndex = 2;
             this.Signal.Text = "chart1";
             // 
@@ -321,7 +321,7 @@
             this.textBox1.Location = new System.Drawing.Point(308, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 43);
+            this.textBox1.Size = new System.Drawing.Size(155, 43);
             this.textBox1.TabIndex = 9;
             // 
             // label4
@@ -329,9 +329,9 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(89, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(44, 13);
+            this.label4.Size = new System.Drawing.Size(76, 13);
             this.label4.TabIndex = 4;
-            this.label4.Text = "nr ramki";
+            this.label4.Text = "wielkość ramki";
             // 
             // comboBox1
             // 
