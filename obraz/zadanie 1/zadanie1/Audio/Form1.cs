@@ -13,11 +13,14 @@ namespace Audio
             public int sampleRate;
             public List<double[]> signal;
             public TimeSpan seconds;
+            public double[] amplitude;
+
             public CurrentSignal(int sampleRate, List<double[]> signal,TimeSpan seconds)
             {
                 this.sampleRate = sampleRate;
                 this.seconds = seconds;
                 this.signal = signal;
+                this.amplitude = new double[signal[0].Length];
             }
 
         }
@@ -39,14 +42,16 @@ namespace Audio
             Tuple<List<double[]>, int, TimeSpan> wave = audioHelper.openWav(Path.GetSoundPath(), out sample1, 2048);
 
             currentSignal = new CurrentSignal(wave.Item2, wave.Item1, wave.Item3);
-
-            RefreshSignal();
+            numFrame.Minimum = 0;
+            numFrame.Maximum = currentSignal.signal.Count - 1;
+            lbramki.Text = "Nr ramki: (max. " + numFrame.Maximum + ")";
+            RefreshSignal(0);
 
         }
 
-        public void RefreshSignal()
+        public void RefreshSignal(int frame)
         {
-            double[] result = currentSignal.signal[0];
+            double[] result = currentSignal.signal[frame];
             Signal.Series.Clear();
             Signal.Series.Add("Value");
             Signal.Series["Value"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
@@ -77,6 +82,7 @@ namespace Audio
             result = AudioHelper.PreEmFaza(result);
             result = AudioHelper.toDouble(AudioHelper.FFT(AudioHelper.toComplex(result)));
 
+            currentSignal.amplitude = result;
 
             for (int i = 0; i < result.Count() / 2; i++)
             {
@@ -85,6 +91,16 @@ namespace Audio
                 freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
                 SignalAmplitude.Series["Value"].Points.AddXY(freq[i], value[i]);
             }
+        }
+
+        private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void numFrame_ValueChanged(object sender, EventArgs e)
+        {
+            RefreshSignal((int)numFrame.Value);
         }
     }
 }
