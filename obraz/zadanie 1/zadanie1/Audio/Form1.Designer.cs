@@ -29,8 +29,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -44,15 +44,15 @@
             this.lbramki = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.numProg = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
             this.btnProg = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.tabPage2 = new System.Windows.Forms.TabPage();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.button2 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -134,8 +134,8 @@
             // 
             this.SignalAmplitude.BorderlineColor = System.Drawing.Color.Black;
             this.SignalAmplitude.BorderlineWidth = 2;
-            chartArea3.Name = "ChartArea1";
-            this.SignalAmplitude.ChartAreas.Add(chartArea3);
+            chartArea1.Name = "ChartArea1";
+            this.SignalAmplitude.ChartAreas.Add(chartArea1);
             this.SignalAmplitude.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SignalAmplitude.Location = new System.Drawing.Point(690, 89);
             this.SignalAmplitude.Name = "SignalAmplitude";
@@ -147,8 +147,8 @@
             // 
             this.Signal.BorderlineColor = System.Drawing.Color.Black;
             this.Signal.BorderlineWidth = 2;
-            chartArea4.Name = "ChartArea1";
-            this.Signal.ChartAreas.Add(chartArea4);
+            chartArea2.Name = "ChartArea1";
+            this.Signal.ChartAreas.Add(chartArea2);
             this.Signal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Signal.Location = new System.Drawing.Point(3, 89);
             this.Signal.Name = "Signal";
@@ -235,6 +235,30 @@
             0,
             -2147483648});
             // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(89, 0);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(76, 13);
+            this.label4.TabIndex = 4;
+            this.label4.Text = "wielkość ramki";
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Items.AddRange(new object[] {
+            "512",
+            "1024",
+            "2048",
+            "4096",
+            "8192",
+            "16384"});
+            this.comboBox1.Location = new System.Drawing.Point(89, 26);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(90, 21);
+            this.comboBox1.TabIndex = 5;
+            // 
             // tableLayoutPanel4
             // 
             this.tableLayoutPanel4.ColumnCount = 5;
@@ -277,6 +301,27 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(158, 3);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(56, 43);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "zeruj";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // textBox1
+            // 
+            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(308, 3);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(155, 43);
+            this.textBox1.TabIndex = 9;
+            // 
             // tabPage2
             // 
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
@@ -302,51 +347,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.7726F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1394, 686);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // button2
-            // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(158, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 43);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "zeruj";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
-            // 
-            // textBox1
-            // 
-            this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(308, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 43);
-            this.textBox1.TabIndex = 9;
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(89, 0);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(76, 13);
-            this.label4.TabIndex = 4;
-            this.label4.Text = "wielkość ramki";
-            // 
-            // comboBox1
-            // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "512",
-            "1024",
-            "2048",
-            "4096",
-            "8192",
-            "16384"});
-            this.comboBox1.Location = new System.Drawing.Point(89, 26);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(90, 21);
-            this.comboBox1.TabIndex = 5;
             // 
             // Form1
             // 
