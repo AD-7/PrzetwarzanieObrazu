@@ -66,6 +66,8 @@
             this.kTextBox = new System.Windows.Forms.TextBox();
             this.sizeLabel = new System.Windows.Forms.Label();
             this.sizeTextBox = new System.Windows.Forms.TextBox();
+            this.label6 = new System.Windows.Forms.Label();
+            this.phaseSpaceComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.precisionTextBox = new System.Windows.Forms.TextBox();
             this.refreshSpaceButton = new System.Windows.Forms.Button();
@@ -408,6 +410,8 @@
             this.flowLayoutPanel1.Controls.Add(this.kTextBox);
             this.flowLayoutPanel1.Controls.Add(this.sizeLabel);
             this.flowLayoutPanel1.Controls.Add(this.sizeTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.label6);
+            this.flowLayoutPanel1.Controls.Add(this.phaseSpaceComboBox);
             this.flowLayoutPanel1.Controls.Add(this.label5);
             this.flowLayoutPanel1.Controls.Add(this.precisionTextBox);
             this.flowLayoutPanel1.Controls.Add(this.refreshSpaceButton);
@@ -474,11 +478,32 @@
             this.sizeTextBox.TabIndex = 5;
             this.sizeTextBox.Text = "10000";
             // 
+            // label6
+            // 
+            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(417, 8);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(47, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Wymiary";
+            this.label6.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // phaseSpaceComboBox
+            // 
+            this.phaseSpaceComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.phaseSpaceComboBox.FormattingEnabled = true;
+            this.phaseSpaceComboBox.Items.AddRange(new object[] {"2", "3", "4"});
+            this.phaseSpaceComboBox.Location = new System.Drawing.Point(470, 4);
+            this.phaseSpaceComboBox.Name = "phaseSpaceComboBox";
+            this.phaseSpaceComboBox.Size = new System.Drawing.Size(50, 21);
+            this.phaseSpaceComboBox.TabIndex = 11;
+            // 
             // label5
             // 
             this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(417, 8);
+            this.label5.Location = new System.Drawing.Point(526, 8);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(47, 13);
             this.label5.TabIndex = 8;
@@ -487,7 +512,7 @@
             // 
             // precisionTextBox
             // 
-            this.precisionTextBox.Location = new System.Drawing.Point(470, 3);
+            this.precisionTextBox.Location = new System.Drawing.Point(579, 3);
             this.precisionTextBox.Name = "precisionTextBox";
             this.precisionTextBox.Size = new System.Drawing.Size(97, 20);
             this.precisionTextBox.TabIndex = 9;
@@ -495,7 +520,7 @@
             // 
             // refreshSpaceButton
             // 
-            this.refreshSpaceButton.Location = new System.Drawing.Point(573, 3);
+            this.refreshSpaceButton.Location = new System.Drawing.Point(682, 3);
             this.refreshSpaceButton.Name = "refreshSpaceButton";
             this.refreshSpaceButton.Size = new System.Drawing.Size(75, 23);
             this.refreshSpaceButton.TabIndex = 6;
@@ -507,7 +532,7 @@
             // 
             this.frequencyLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.frequencyLabel.AutoSize = true;
-            this.frequencyLabel.Location = new System.Drawing.Point(654, 8);
+            this.frequencyLabel.Location = new System.Drawing.Point(763, 8);
             this.frequencyLabel.Name = "frequencyLabel";
             this.frequencyLabel.Size = new System.Drawing.Size(71, 13);
             this.frequencyLabel.TabIndex = 7;
@@ -516,7 +541,7 @@
             // 
             // playTimeButton
             // 
-            this.playTimeButton.Location = new System.Drawing.Point(731, 3);
+            this.playTimeButton.Location = new System.Drawing.Point(840, 3);
             this.playTimeButton.Name = "playTimeButton";
             this.playTimeButton.Size = new System.Drawing.Size(75, 23);
             this.playTimeButton.TabIndex = 10;
@@ -603,10 +628,12 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label lbramki;
         private System.Windows.Forms.NumericUpDown numFrame;
         private System.Windows.Forms.NumericUpDown numProg;
         private System.Windows.Forms.DataVisualization.Charting.Chart phaseSpaceChart;
+        private System.Windows.Forms.ComboBox phaseSpaceComboBox;
         private System.Windows.Forms.Button playFreqButton;
         private System.Windows.Forms.Button playTimeButton;
         private System.Windows.Forms.TextBox precisionTextBox;

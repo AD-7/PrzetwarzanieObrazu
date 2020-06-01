@@ -34,21 +34,22 @@ namespace Audio.Classes
             public double Time;
         }
 
-        public double CalculateFrequency(int step, int k, int size, float precision)
+        public double CalculateFrequency(int step, int k, int size, float precision, int dimensions)
         {
-            var valuesToTest = new List<(SoundPoint x, SoundPoint y, SoundPoint z)>();
-            for (var i = 2 * k; i < size; i += step)
+            var valuesToTest = new List<(SoundPoint x, SoundPoint y, SoundPoint z, SoundPoint w)>();
+            for (var i = 4 * k; i < size; i += step)
             {
-                valuesToTest.Add((Values[i], Values[i - k], Values[i - 2 * k]));
+                valuesToTest.Add((Values[i], Values[i - k], Values[i - 2 * k], Values[i - 4 * k]));
             }
 
-            for (var i = 0; i < 2 * k; i += step)
+            for (var i = 0; i < 4 * k; i += step)
             {
                 valuesToTest.Add((Values[i], Values[Values.Count - k],
-                    Values[Values.Count - 2 * k]));
+                    Values[Values.Count - 2 * k],
+                    Values[Values.Count - 4 * k]));
             }
-            var comparer = new SoundPointComparer(precision);
-            var list = valuesToTest.GroupBy(g => (g.x.Value, g.y.Value, g.z.Value), g => g, comparer)
+            var comparer = new SoundPointComparer(precision, dimensions);
+            var list = valuesToTest.GroupBy(g => (g.x.Value, g.y.Value, g.z.Value, g.w.Value), g => g, comparer)
                 .Where(g => g.Count() > 1)
                 .Select(g => g.ToList()).ToList();
 
@@ -58,9 +59,24 @@ namespace Audio.Classes
                 var sum = new List<double>();
                 for (var i = 0; i < group.Count - 1; i++)
                 {
-                    sum.Add(Math.Abs(group[i + 1].x.Time - group[i].x.Time));
-                    sum.Add(Math.Abs(group[i + 1].y.Time - group[i].y.Time));
-                    sum.Add(Math.Abs(group[i + 1].z.Time - group[i].z.Time));
+                    switch (dimensions)
+                    {
+                        case 2:
+                            sum.Add(Math.Abs(group[i + 1].x.Time - group[i].x.Time));
+                            sum.Add(Math.Abs(group[i + 1].y.Time - group[i].y.Time));
+                            break;
+                        case 3:
+                            sum.Add(Math.Abs(group[i + 1].x.Time - group[i].x.Time));
+                            sum.Add(Math.Abs(group[i + 1].y.Time - group[i].y.Time));
+                            sum.Add(Math.Abs(group[i + 1].z.Time - group[i].z.Time));
+                            break;
+                        case 4:
+                            sum.Add(Math.Abs(group[i + 1].x.Time - group[i].x.Time));
+                            sum.Add(Math.Abs(group[i + 1].y.Time - group[i].y.Time));
+                            sum.Add(Math.Abs(group[i + 1].z.Time - group[i].z.Time));
+                            sum.Add(Math.Abs(group[i + 1].w.Time - group[i].w.Time));
+                            break;
+                    }
                 }
                 sumOfSum.Add(sum.Average());
             }

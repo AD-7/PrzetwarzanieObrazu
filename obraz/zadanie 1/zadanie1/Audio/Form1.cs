@@ -61,6 +61,7 @@ namespace Audio
             phaseSpaceChart.Series[0].Color = Color.Blue;
             phaseSpaceChart.Series[0].ChartType = SeriesChartType.Point;
             phaseSpaceChart.Series[0].BorderWidth = 2;
+            phaseSpaceComboBox.SelectedIndex = 0;
 
         }
 
@@ -135,7 +136,7 @@ namespace Audio
             phaseSpaceChart.Series[0].Points[0].MarkerSize = 10;
             phaseSpaceChart.Series[0].Points.Last().Color = Color.Green;
             phaseSpaceChart.Series[0].Points.Last().MarkerSize = 10;
-            _frequencyTime = _soundValues.CalculateFrequency(step, k, size, precision);
+            _frequencyTime = _soundValues.CalculateFrequency(step, k, size, precision, phaseSpaceComboBox.SelectedIndex + 2);
             frequencyLabel.Text = "Częstotliwość: " + _frequencyTime.ToString(CultureInfo.InvariantCulture);
         }
 
