@@ -33,6 +33,14 @@ namespace Audio.Classes
             public float Value;
             public double Time;
         }
+        
+        //TODO: Pominąć pierwszych kilkanaście/kilkadziesiąt wartości,
+        //TODO: zatrzymać po pierwszym powtórzeniu,
+        //TODO: wyciągnąć medianę,
+        //TODO: dodać wymiary,
+        //TODO: podział na ramki,
+        //TODO: jeżeli pierwsza odległość jest za mała to przerwać,
+        //TODO: startowanie z kilku miejsc
 
         public double CalculateFrequency(int step, int k, int size, float precision, int dimensions)
         {
