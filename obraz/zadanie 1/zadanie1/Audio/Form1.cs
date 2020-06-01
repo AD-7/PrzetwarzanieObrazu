@@ -2,8 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
+using System.Threading;
+using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
+using NAudio.Wave;
+using NAudio.Wave.SampleProviders;
 
 namespace Audio
 {
@@ -37,8 +43,28 @@ namespace Audio
         {
             InitializeComponent();
             comboBox1.SelectedIndex = 2;
+            basicAudioChart.ChartAreas[0].CursorX.AutoScroll = true;
+            basicAudioChart.ChartAreas[0].CursorX.IsUserSelectionEnabled = true;
+            basicAudioChart.ChartAreas[0].AxisX.ScaleView.Zoomable = true;
+            basicAudioChart.ChartAreas[0].AxisX.ScaleView.SizeType = DateTimeIntervalType.Milliseconds;
+            basicAudioChart.ChartAreas[0].AxisX.ScaleView.Zoom(0, 10);
+            basicAudioChart.ChartAreas[0].AxisX.ScaleView.SmallScrollSize = 500;
+            basicAudioChart.ChartAreas[0].AxisX.ScaleView.Size = 500;
+            basicAudioChart.ChartAreas[0].AxisX.Interval = 50;
+            basicAudioChart.ChartAreas[0].AxisX.IntervalAutoMode = IntervalAutoMode.VariableCount;
+            basicAudioChart.Series.Add(new Series("Fale"));
+            basicAudioChart.Series[0].Points.Clear();
+            basicAudioChart.Series[0].Color = Color.Blue;
+            basicAudioChart.Series[0].ChartType = SeriesChartType.Line;
+            basicAudioChart.Series[0].BorderWidth = 2;
+            phaseSpaceChart.Series.Add(new Series("Punkty"));
+            phaseSpaceChart.Series[0].Color = Color.Blue;
+            phaseSpaceChart.Series[0].ChartType = SeriesChartType.Point;
+            phaseSpaceChart.Series[0].BorderWidth = 2;
 
         }
+
+        private SoundValues _soundValues;
 
         private void btnWczytaj_Click(object sender, EventArgs e)
         {
@@ -68,7 +94,8 @@ namespace Audio
                 windowSize = 16384;
             }
 
-            Tuple<List<double[]>, int, TimeSpan> wave = audioHelper.openWav(Path.GetSoundPath(), out sample1, windowSize);
+            var path = Path.GetSoundPath();
+            Tuple<List<double[]>, int, TimeSpan> wave = audioHelper.openWav(path, out sample1, windowSize);
             if (wave != null)
             {
                 currentSignal = new CurrentSignal(wave.Item2, wave.Item1, wave.Item3);
@@ -77,6 +104,39 @@ namespace Audio
                 lbramki.Text = "Nr ramki: (max. " + numFrame.Maximum + ")";
                 RefreshSignal(0);
             }
+            _soundValues = new SoundValues(path);
+            basicAudioChart.Series[0].Points.Clear();
+            for (var i = 0; i < _soundValues.Values.Count; i += 1)
+            {
+                basicAudioChart.Series[0].Points
+                    .Add(new DataPoint(i + 1, _soundValues.Values[i].Value));
+            }
+
+            CalculatePhaseSpace();
+        }
+
+        private void CalculatePhaseSpace()
+        {
+            var step = int.Parse(stepTextBox.Text);
+            var k = int.Parse(kTextBox.Text);
+            var size = Math.Min(int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
+            var precision = float.Parse(precisionTextBox.Text);
+            phaseSpaceChart.Series[0].Points.Clear();
+
+            for (var i = k; i < size; i += step)
+            {
+                var v = _soundValues.Values[i].Value;
+                var vk = _soundValues.Values[i - k].Value;
+                phaseSpaceChart.Series[0].Points
+                    .Add(new DataPoint(v, vk));
+            }
+
+            phaseSpaceChart.Series[0].Points[0].Color = Color.Red;
+            phaseSpaceChart.Series[0].Points[0].MarkerSize = 10;
+            phaseSpaceChart.Series[0].Points.Last().Color = Color.Green;
+            phaseSpaceChart.Series[0].Points.Last().MarkerSize = 10;
+            _frequencyTime = _soundValues.CalculateFrequency(step, k, size, precision);
+            frequencyLabel.Text = "Częstotliwość: " + _frequencyTime.ToString(CultureInfo.InvariantCulture);
         }
 
         public void RefreshSignal(int frame)
@@ -236,6 +296,7 @@ namespace Audio
             Sort(fhz);
 
             double F = Mediana(fhz);
+            _frequencyFrequency = F;
             textBox1.Text = F + " Hz";
             currentSignal.isCalculated = true;
             RefreshSignal((int)numFrame.Value);
@@ -280,6 +341,76 @@ namespace Audio
             textBox1.Text = "";
             RefreshSignal((int)numFrame.Value);
         
+        }
+
+        private void refreshSpaceButton_Click(object sender, EventArgs e)
+        {
+            CalculatePhaseSpace();
+        }
+
+        private Point? _prevPosition;
+        private readonly ToolTip _tooltip = new ToolTip();
+
+        private void phaseSpaceChart_MouseMove(object sender, MouseEventArgs e)
+        {
+            var pos = e.Location;
+            if (_prevPosition.HasValue && pos == _prevPosition.Value)
+                return;
+            _tooltip.RemoveAll();
+            _prevPosition = pos;
+            var results = basicAudioChart.HitTest(pos.X, pos.Y, false,
+                ChartElementType.DataPoint);
+            foreach (var result in results)
+            {
+                if (result.ChartElementType == ChartElementType.DataPoint)
+                {
+                    if (result.Object is DataPoint prop)
+                    {
+                        var pointXPixel = result.ChartArea.AxisX.ValueToPixelPosition(prop.XValue);
+                        var pointYPixel = result.ChartArea.AxisY.ValueToPixelPosition(prop.YValues[0]);
+
+                        // check if the cursor is really close to the point (2 pixels around the point)
+                        if (Math.Abs(pos.X - pointXPixel) < 2 &&
+                            Math.Abs(pos.Y - pointYPixel) < 2)
+                        {
+                            _tooltip.Show("X=" + prop.XValue + ", Y=" + prop.YValues[0], basicAudioChart,
+                                pos.X, pos.Y - 15);
+                        }
+                    }
+                }
+            }
+        }
+
+        private double _frequencyTime;
+        private double _frequencyFrequency;
+        private static void PlaySound(double frequency)
+        {
+            var sine20Seconds = new SignalGenerator
+                { 
+                    Gain = 0.2, 
+                    Frequency = frequency,
+                    Type = SignalGeneratorType.Sin}
+                .Take(TimeSpan.FromSeconds(1));
+            
+            Task.Run(() =>
+            {
+                using var wo = new WaveOutEvent();
+                wo.Init(sine20Seconds);
+                wo.Play();
+                while (wo.PlaybackState == PlaybackState.Playing)
+                {
+                }
+            });
+        }
+
+        private void playFreqButton_Click(object sender, EventArgs e)
+        {
+            PlaySound(_frequencyFrequency);
+        }
+
+        private void playTimeButton_Click(object sender, EventArgs e)
+        {
+            PlaySound(_frequencyTime);
         }
     }
 }

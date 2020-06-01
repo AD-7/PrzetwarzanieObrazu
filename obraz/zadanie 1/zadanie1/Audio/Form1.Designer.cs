@@ -31,6 +31,9 @@
         {
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -47,21 +50,44 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.button3 = new System.Windows.Forms.Button();
             this.btnProg = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
-            this.button2 = new System.Windows.Forms.Button();
+            this.playFreqButton = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
+            this.tableLayoutPanel5 = new System.Windows.Forms.TableLayoutPanel();
+            this.basicAudioChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.phaseSpaceChart = new System.Windows.Forms.DataVisualization.Charting.Chart();
+            this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
+            this.stepLabel = new System.Windows.Forms.Label();
+            this.stepTextBox = new System.Windows.Forms.TextBox();
+            this.kLabel = new System.Windows.Forms.Label();
+            this.kTextBox = new System.Windows.Forms.TextBox();
+            this.sizeLabel = new System.Windows.Forms.Label();
+            this.sizeTextBox = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.precisionTextBox = new System.Windows.Forms.TextBox();
+            this.refreshSpaceButton = new System.Windows.Forms.Button();
+            this.frequencyLabel = new System.Windows.Forms.Label();
+            this.playTimeButton = new System.Windows.Forms.Button();
+            this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SignalAmplitude)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Signal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.SignalAmplitude)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.Signal)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numFrame)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numProg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numFrame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numProg)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
+            this.tabPage2.SuspendLayout();
+            this.tableLayoutPanel5.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.basicAudioChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize) (this.phaseSpaceChart)).BeginInit();
+            this.flowLayoutPanel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.chart1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -216,24 +242,12 @@
             // numProg
             // 
             this.numProg.Location = new System.Drawing.Point(185, 26);
-            this.numProg.Maximum = new decimal(new int[] {
-            0,
-            0,
-            0,
-            0});
-            this.numProg.Minimum = new decimal(new int[] {
-            80,
-            0,
-            0,
-            -2147483648});
+            this.numProg.Maximum = new decimal(new int[] {0, 0, 0, 0});
+            this.numProg.Minimum = new decimal(new int[] {80, 0, 0, -2147483648});
             this.numProg.Name = "numProg";
             this.numProg.Size = new System.Drawing.Size(80, 20);
             this.numProg.TabIndex = 1;
-            this.numProg.Value = new decimal(new int[] {
-            40,
-            0,
-            0,
-            -2147483648});
+            this.numProg.Value = new decimal(new int[] {40, 0, 0, -2147483648});
             // 
             // label4
             // 
@@ -247,13 +261,7 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
-            "512",
-            "1024",
-            "2048",
-            "4096",
-            "8192",
-            "16384"});
+            this.comboBox1.Items.AddRange(new object[] {"512", "1024", "2048", "4096", "8192", "16384"});
             this.comboBox1.Location = new System.Drawing.Point(89, 26);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(90, 21);
@@ -267,9 +275,10 @@
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 9.251101F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 13.06902F));
             this.tableLayoutPanel4.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 55.06608F));
+            this.tableLayoutPanel4.Controls.Add(this.button3, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.btnProg, 0, 0);
             this.tableLayoutPanel4.Controls.Add(this.button1, 1, 0);
-            this.tableLayoutPanel4.Controls.Add(this.button2, 2, 0);
+            this.tableLayoutPanel4.Controls.Add(this.playFreqButton, 2, 0);
             this.tableLayoutPanel4.Controls.Add(this.textBox1, 4, 0);
             this.tableLayoutPanel4.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel4.Location = new System.Drawing.Point(690, 3);
@@ -278,6 +287,17 @@
             this.tableLayoutPanel4.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel4.Size = new System.Drawing.Size(681, 49);
             this.tableLayoutPanel4.TabIndex = 6;
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(73, 3);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(79, 43);
+            this.button3.TabIndex = 10;
+            this.button3.Text = "zeruj";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button2_Click);
             // 
             // btnProg
             // 
@@ -293,29 +313,29 @@
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(73, 3);
+            this.button1.Location = new System.Drawing.Point(158, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(79, 43);
+            this.button1.Size = new System.Drawing.Size(56, 43);
             this.button1.TabIndex = 7;
             this.button1.Text = "oblicz częstotliwość";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // button2
+            // playFreqButton
             // 
-            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(158, 3);
-            this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(56, 43);
-            this.button2.TabIndex = 8;
-            this.button2.Text = "zeruj";
-            this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button2_Click);
+            this.playFreqButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.playFreqButton.Location = new System.Drawing.Point(220, 3);
+            this.playFreqButton.Name = "playFreqButton";
+            this.playFreqButton.Size = new System.Drawing.Size(82, 43);
+            this.playFreqButton.TabIndex = 8;
+            this.playFreqButton.Text = "graj";
+            this.playFreqButton.UseVisualStyleBackColor = true;
+            this.playFreqButton.Click += new System.EventHandler(this.playFreqButton_Click);
             // 
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
             this.textBox1.Location = new System.Drawing.Point(308, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -324,6 +344,8 @@
             // 
             // tabPage2
             // 
+            this.tabPage2.Controls.Add(this.tableLayoutPanel5);
+            this.tabPage2.Controls.Add(this.chart1);
             this.tabPage2.Location = new System.Drawing.Point(4, 22);
             this.tabPage2.Name = "tabPage2";
             this.tabPage2.Padding = new System.Windows.Forms.Padding(3);
@@ -331,6 +353,189 @@
             this.tabPage2.TabIndex = 1;
             this.tabPage2.Text = "czas";
             this.tabPage2.UseVisualStyleBackColor = true;
+            // 
+            // tableLayoutPanel5
+            // 
+            this.tableLayoutPanel5.AutoSize = true;
+            this.tableLayoutPanel5.ColumnCount = 2;
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
+            this.tableLayoutPanel5.Controls.Add(this.basicAudioChart, 0, 1);
+            this.tableLayoutPanel5.Controls.Add(this.phaseSpaceChart, 1, 1);
+            this.tableLayoutPanel5.Controls.Add(this.flowLayoutPanel1, 0, 0);
+            this.tableLayoutPanel5.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.tableLayoutPanel5.Location = new System.Drawing.Point(3, 3);
+            this.tableLayoutPanel5.Name = "tableLayoutPanel5";
+            this.tableLayoutPanel5.RowCount = 2;
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 4.823151F));
+            this.tableLayoutPanel5.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 95.17685F));
+            this.tableLayoutPanel5.Size = new System.Drawing.Size(1374, 620);
+            this.tableLayoutPanel5.TabIndex = 4;
+            // 
+            // basicAudioChart
+            // 
+            this.basicAudioChart.BorderlineColor = System.Drawing.Color.Black;
+            this.basicAudioChart.BorderlineWidth = 2;
+            chartArea3.Name = "ChartArea1";
+            this.basicAudioChart.ChartAreas.Add(chartArea3);
+            this.basicAudioChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.basicAudioChart.Location = new System.Drawing.Point(3, 32);
+            this.basicAudioChart.Name = "basicAudioChart";
+            this.basicAudioChart.Size = new System.Drawing.Size(681, 585);
+            this.basicAudioChart.TabIndex = 6;
+            this.basicAudioChart.Text = "chart1";
+            // 
+            // phaseSpaceChart
+            // 
+            this.phaseSpaceChart.BorderlineColor = System.Drawing.Color.Black;
+            this.phaseSpaceChart.BorderlineWidth = 2;
+            chartArea4.Name = "ChartArea1";
+            this.phaseSpaceChart.ChartAreas.Add(chartArea4);
+            this.phaseSpaceChart.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.phaseSpaceChart.Location = new System.Drawing.Point(690, 32);
+            this.phaseSpaceChart.Name = "phaseSpaceChart";
+            this.phaseSpaceChart.Size = new System.Drawing.Size(681, 585);
+            this.phaseSpaceChart.TabIndex = 4;
+            this.phaseSpaceChart.Text = "chart1";
+            this.phaseSpaceChart.MouseMove += new System.Windows.Forms.MouseEventHandler(this.phaseSpaceChart_MouseMove);
+            // 
+            // flowLayoutPanel1
+            // 
+            this.tableLayoutPanel5.SetColumnSpan(this.flowLayoutPanel1, 2);
+            this.flowLayoutPanel1.Controls.Add(this.stepLabel);
+            this.flowLayoutPanel1.Controls.Add(this.stepTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.kLabel);
+            this.flowLayoutPanel1.Controls.Add(this.kTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.sizeLabel);
+            this.flowLayoutPanel1.Controls.Add(this.sizeTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.label5);
+            this.flowLayoutPanel1.Controls.Add(this.precisionTextBox);
+            this.flowLayoutPanel1.Controls.Add(this.refreshSpaceButton);
+            this.flowLayoutPanel1.Controls.Add(this.frequencyLabel);
+            this.flowLayoutPanel1.Controls.Add(this.playTimeButton);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel1.Name = "flowLayoutPanel1";
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1368, 23);
+            this.flowLayoutPanel1.TabIndex = 5;
+            // 
+            // stepLabel
+            // 
+            this.stepLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.stepLabel.AutoSize = true;
+            this.stepLabel.Location = new System.Drawing.Point(3, 8);
+            this.stepLabel.Name = "stepLabel";
+            this.stepLabel.Size = new System.Drawing.Size(29, 13);
+            this.stepLabel.TabIndex = 0;
+            this.stepLabel.Text = "Krok";
+            // 
+            // stepTextBox
+            // 
+            this.stepTextBox.Location = new System.Drawing.Point(38, 3);
+            this.stepTextBox.Name = "stepTextBox";
+            this.stepTextBox.Size = new System.Drawing.Size(97, 20);
+            this.stepTextBox.TabIndex = 1;
+            this.stepTextBox.Text = "1";
+            // 
+            // kLabel
+            // 
+            this.kLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.kLabel.AutoSize = true;
+            this.kLabel.Location = new System.Drawing.Point(141, 8);
+            this.kLabel.Name = "kLabel";
+            this.kLabel.Size = new System.Drawing.Size(13, 13);
+            this.kLabel.TabIndex = 2;
+            this.kLabel.Text = "k";
+            this.kLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // kTextBox
+            // 
+            this.kTextBox.Location = new System.Drawing.Point(160, 3);
+            this.kTextBox.Name = "kTextBox";
+            this.kTextBox.Size = new System.Drawing.Size(97, 20);
+            this.kTextBox.TabIndex = 3;
+            this.kTextBox.Text = "100";
+            // 
+            // sizeLabel
+            // 
+            this.sizeLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.sizeLabel.AutoSize = true;
+            this.sizeLabel.Location = new System.Drawing.Point(263, 8);
+            this.sizeLabel.Name = "sizeLabel";
+            this.sizeLabel.Size = new System.Drawing.Size(45, 13);
+            this.sizeLabel.TabIndex = 4;
+            this.sizeLabel.Text = "Rozmiar";
+            this.sizeLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // sizeTextBox
+            // 
+            this.sizeTextBox.Location = new System.Drawing.Point(314, 3);
+            this.sizeTextBox.Name = "sizeTextBox";
+            this.sizeTextBox.Size = new System.Drawing.Size(97, 20);
+            this.sizeTextBox.TabIndex = 5;
+            this.sizeTextBox.Text = "10000";
+            // 
+            // label5
+            // 
+            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(417, 8);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(47, 13);
+            this.label5.TabIndex = 8;
+            this.label5.Text = "Precyzja";
+            this.label5.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // precisionTextBox
+            // 
+            this.precisionTextBox.Location = new System.Drawing.Point(470, 3);
+            this.precisionTextBox.Name = "precisionTextBox";
+            this.precisionTextBox.Size = new System.Drawing.Size(97, 20);
+            this.precisionTextBox.TabIndex = 9;
+            this.precisionTextBox.Text = "0,000000001";
+            // 
+            // refreshSpaceButton
+            // 
+            this.refreshSpaceButton.Location = new System.Drawing.Point(573, 3);
+            this.refreshSpaceButton.Name = "refreshSpaceButton";
+            this.refreshSpaceButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshSpaceButton.TabIndex = 6;
+            this.refreshSpaceButton.Text = "Odśwież";
+            this.refreshSpaceButton.UseVisualStyleBackColor = true;
+            this.refreshSpaceButton.Click += new System.EventHandler(this.refreshSpaceButton_Click);
+            // 
+            // frequencyLabel
+            // 
+            this.frequencyLabel.Anchor = System.Windows.Forms.AnchorStyles.Left;
+            this.frequencyLabel.AutoSize = true;
+            this.frequencyLabel.Location = new System.Drawing.Point(654, 8);
+            this.frequencyLabel.Name = "frequencyLabel";
+            this.frequencyLabel.Size = new System.Drawing.Size(71, 13);
+            this.frequencyLabel.TabIndex = 7;
+            this.frequencyLabel.Text = "Częstotliwość";
+            this.frequencyLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // playTimeButton
+            // 
+            this.playTimeButton.Location = new System.Drawing.Point(731, 3);
+            this.playTimeButton.Name = "playTimeButton";
+            this.playTimeButton.Size = new System.Drawing.Size(75, 23);
+            this.playTimeButton.TabIndex = 10;
+            this.playTimeButton.Text = "Graj";
+            this.playTimeButton.UseVisualStyleBackColor = true;
+            this.playTimeButton.Click += new System.EventHandler(this.playTimeButton_Click);
+            // 
+            // chart1
+            // 
+            this.chart1.BorderlineColor = System.Drawing.Color.Black;
+            this.chart1.BorderlineWidth = 2;
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
+            this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.chart1.Location = new System.Drawing.Point(3, 3);
+            this.chart1.Name = "chart1";
+            this.chart1.Size = new System.Drawing.Size(1374, 620);
+            this.chart1.TabIndex = 3;
+            this.chart1.Text = "chart1";
             // 
             // tableLayoutPanel1
             // 
@@ -362,41 +567,66 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.SignalAmplitude)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.Signal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.SignalAmplitude)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.Signal)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.numFrame)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numProg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numFrame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.numProg)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
+            this.tabPage2.ResumeLayout(false);
+            this.tabPage2.PerformLayout();
+            this.tableLayoutPanel5.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize) (this.basicAudioChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize) (this.phaseSpaceChart)).EndInit();
+            this.flowLayoutPanel1.ResumeLayout(false);
+            this.flowLayoutPanel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize) (this.chart1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
-
         }
 
-        #endregion
+        private System.Windows.Forms.DataVisualization.Charting.Chart basicAudioChart;
+        private System.Windows.Forms.Button btnProg;
         private System.Windows.Forms.Button btnWczytaj;
-        private System.Windows.Forms.TabControl tabControl1;
-        private System.Windows.Forms.TabPage tabPage2;
-        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
-        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button3;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chart1;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel1;
+        private System.Windows.Forms.Label frequencyLabel;
+        private System.Windows.Forms.Label kLabel;
+        private System.Windows.Forms.TextBox kTextBox;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label lbramki;
+        private System.Windows.Forms.NumericUpDown numFrame;
+        private System.Windows.Forms.NumericUpDown numProg;
+        private System.Windows.Forms.DataVisualization.Charting.Chart phaseSpaceChart;
+        private System.Windows.Forms.Button playFreqButton;
+        private System.Windows.Forms.Button playTimeButton;
+        private System.Windows.Forms.TextBox precisionTextBox;
+        private System.Windows.Forms.Button refreshSpaceButton;
         private System.Windows.Forms.DataVisualization.Charting.Chart Signal;
         private System.Windows.Forms.DataVisualization.Charting.Chart SignalAmplitude;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label sizeLabel;
+        private System.Windows.Forms.TextBox sizeTextBox;
+        private System.Windows.Forms.Label stepLabel;
+        private System.Windows.Forms.TextBox stepTextBox;
+        private System.Windows.Forms.TabControl tabControl1;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel2;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel3;
-        private System.Windows.Forms.Label lbramki;
-        private System.Windows.Forms.NumericUpDown numProg;
-        private System.Windows.Forms.NumericUpDown numFrame;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Button btnProg;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel4;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.TableLayoutPanel tableLayoutPanel5;
+        private System.Windows.Forms.TabPage tabPage1;
+        private System.Windows.Forms.TabPage tabPage2;
         private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.ComboBox comboBox1;
+
+        #endregion
     }
 }

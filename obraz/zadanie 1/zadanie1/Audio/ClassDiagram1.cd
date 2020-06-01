@@ -1,0 +1,64 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Audio.Classes.AudioHelper">
+    <Position X="2" Y="4.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>EAAAAAUQAAAAIBAAAAAEABAQAhAAAAAAAACAAAAQAAA=</HashCode>
+      <FileName>Classes\AudioHelper.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Audio.Classes.Extensions">
+    <Position X="8.25" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAgAA=</HashCode>
+      <FileName>Classes\Extensions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Audio.Classes.Path">
+    <Position X="8.25" Y="5.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Classes\Path.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Audio.Form1">
+    <Position X="6.5" Y="4" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Fields" Collapsed="true" />
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="Audio.Form1.CurrentSignal" Collapsed="true">
+        <TypeIdentifier>
+          <NewMemberFileName>Form1.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AgSgABCUECADQBAUAASQAYAiioIaAAIJkGAAICQhBiA=</HashCode>
+      <FileName>Form1.cs</FileName>
+    </TypeIdentifier>
+    <ShowAsAssociation>
+      <Property Name="SoundValues" />
+      <Property Name="AudioHelper" />
+    </ShowAsAssociation>
+  </Class>
+  <Class Name="Audio.Classes.SoundValues">
+    <Position X="3.75" Y="4.75" Width="1.5" />
+    <Compartments>
+      <Compartment Name="Nested Types" Collapsed="false" />
+    </Compartments>
+    <NestedTypes>
+      <Struct Name="Audio.Classes.SoundValues.SoundPoint">
+        <TypeIdentifier>
+          <NewMemberFileName>Classes\SoundValues.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Struct>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAAAAgAAAAAAA=</HashCode>
+      <FileName>Classes\SoundValues.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
