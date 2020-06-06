@@ -29,11 +29,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -78,18 +78,18 @@
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.SignalAmplitude)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.Signal)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SignalAmplitude)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Signal)).BeginInit();
             this.tableLayoutPanel3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.numFrame)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numProg)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFrame)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numProg)).BeginInit();
             this.tableLayoutPanel4.SuspendLayout();
             this.tabPage2.SuspendLayout();
             this.tableLayoutPanel5.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.basicAudioChart)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize) (this.phaseSpaceChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basicAudioChart)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phaseSpaceChart)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.chart1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -162,8 +162,8 @@
             // 
             this.SignalAmplitude.BorderlineColor = System.Drawing.Color.Black;
             this.SignalAmplitude.BorderlineWidth = 2;
-            chartArea1.Name = "ChartArea1";
-            this.SignalAmplitude.ChartAreas.Add(chartArea1);
+            chartArea6.Name = "ChartArea1";
+            this.SignalAmplitude.ChartAreas.Add(chartArea6);
             this.SignalAmplitude.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SignalAmplitude.Location = new System.Drawing.Point(690, 89);
             this.SignalAmplitude.Name = "SignalAmplitude";
@@ -175,8 +175,8 @@
             // 
             this.Signal.BorderlineColor = System.Drawing.Color.Black;
             this.Signal.BorderlineWidth = 2;
-            chartArea2.Name = "ChartArea1";
-            this.Signal.ChartAreas.Add(chartArea2);
+            chartArea7.Name = "ChartArea1";
+            this.Signal.ChartAreas.Add(chartArea7);
             this.Signal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Signal.Location = new System.Drawing.Point(3, 89);
             this.Signal.Name = "Signal";
@@ -244,12 +244,24 @@
             // numProg
             // 
             this.numProg.Location = new System.Drawing.Point(185, 26);
-            this.numProg.Maximum = new decimal(new int[] {0, 0, 0, 0});
-            this.numProg.Minimum = new decimal(new int[] {80, 0, 0, -2147483648});
+            this.numProg.Maximum = new decimal(new int[] {
+            0,
+            0,
+            0,
+            0});
+            this.numProg.Minimum = new decimal(new int[] {
+            80,
+            0,
+            0,
+            -2147483648});
             this.numProg.Name = "numProg";
             this.numProg.Size = new System.Drawing.Size(80, 20);
             this.numProg.TabIndex = 1;
-            this.numProg.Value = new decimal(new int[] {40, 0, 0, -2147483648});
+            this.numProg.Value = new decimal(new int[] {
+            40,
+            0,
+            0,
+            -2147483648});
             // 
             // label4
             // 
@@ -263,7 +275,13 @@
             // comboBox1
             // 
             this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {"512", "1024", "2048", "4096", "8192", "16384"});
+            this.comboBox1.Items.AddRange(new object[] {
+            "512",
+            "1024",
+            "2048",
+            "4096",
+            "8192",
+            "16384"});
             this.comboBox1.Location = new System.Drawing.Point(89, 26);
             this.comboBox1.Name = "comboBox1";
             this.comboBox1.Size = new System.Drawing.Size(90, 21);
@@ -337,7 +355,7 @@
             // textBox1
             // 
             this.textBox1.Dock = System.Windows.Forms.DockStyle.Left;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte) (0)));
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBox1.Location = new System.Drawing.Point(308, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
@@ -378,8 +396,8 @@
             // 
             this.basicAudioChart.BorderlineColor = System.Drawing.Color.Black;
             this.basicAudioChart.BorderlineWidth = 2;
-            chartArea3.Name = "ChartArea1";
-            this.basicAudioChart.ChartAreas.Add(chartArea3);
+            chartArea8.Name = "ChartArea1";
+            this.basicAudioChart.ChartAreas.Add(chartArea8);
             this.basicAudioChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.basicAudioChart.Location = new System.Drawing.Point(3, 32);
             this.basicAudioChart.Name = "basicAudioChart";
@@ -391,8 +409,8 @@
             // 
             this.phaseSpaceChart.BorderlineColor = System.Drawing.Color.Black;
             this.phaseSpaceChart.BorderlineWidth = 2;
-            chartArea4.Name = "ChartArea1";
-            this.phaseSpaceChart.ChartAreas.Add(chartArea4);
+            chartArea9.Name = "ChartArea1";
+            this.phaseSpaceChart.ChartAreas.Add(chartArea9);
             this.phaseSpaceChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.phaseSpaceChart.Location = new System.Drawing.Point(690, 32);
             this.phaseSpaceChart.Name = "phaseSpaceChart";
@@ -493,7 +511,10 @@
             // 
             this.phaseSpaceComboBox.Anchor = System.Windows.Forms.AnchorStyles.Left;
             this.phaseSpaceComboBox.FormattingEnabled = true;
-            this.phaseSpaceComboBox.Items.AddRange(new object[] {"2", "3", "4"});
+            this.phaseSpaceComboBox.Items.AddRange(new object[] {
+            "2",
+            "3",
+            "4"});
             this.phaseSpaceComboBox.Location = new System.Drawing.Point(470, 4);
             this.phaseSpaceComboBox.Name = "phaseSpaceComboBox";
             this.phaseSpaceComboBox.Size = new System.Drawing.Size(50, 21);
@@ -553,8 +574,8 @@
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
             this.chart1.BorderlineWidth = 2;
-            chartArea5.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea5);
+            chartArea10.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea10);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
@@ -592,24 +613,25 @@
             this.tabPage1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.SignalAmplitude)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.Signal)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.SignalAmplitude)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Signal)).EndInit();
             this.tableLayoutPanel3.ResumeLayout(false);
             this.tableLayoutPanel3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.numFrame)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.numProg)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numFrame)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numProg)).EndInit();
             this.tableLayoutPanel4.ResumeLayout(false);
             this.tableLayoutPanel4.PerformLayout();
             this.tabPage2.ResumeLayout(false);
             this.tabPage2.PerformLayout();
             this.tableLayoutPanel5.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize) (this.basicAudioChart)).EndInit();
-            ((System.ComponentModel.ISupportInitialize) (this.phaseSpaceChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.basicAudioChart)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.phaseSpaceChart)).EndInit();
             this.flowLayoutPanel1.ResumeLayout(false);
             this.flowLayoutPanel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize) (this.chart1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
+
         }
 
         private System.Windows.Forms.DataVisualization.Charting.Chart basicAudioChart;

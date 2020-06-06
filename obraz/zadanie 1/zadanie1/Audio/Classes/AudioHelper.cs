@@ -31,6 +31,7 @@ namespace Audio.Classes
                     int read = reader.Read(buffer, 0, buffer.Length);
                     sampleBuffer = new short[read / 2];
                     Buffer.BlockCopy(buffer, 0, sampleBuffer, 0, read);
+                   
                 }
 
 

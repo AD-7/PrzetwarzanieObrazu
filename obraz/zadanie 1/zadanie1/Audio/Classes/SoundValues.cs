@@ -12,8 +12,8 @@ namespace Audio.Classes
 
         public SoundValues(string filename)
         {
-            using var reader = new WaveFileReader(filename);
-            using var channelStream = new WaveChannel32(reader);
+             var reader = new WaveFileReader(filename);
+          var channelStream = new WaveChannel32(reader);
             SampleRate = reader.WaveFormat.SampleRate;
             Values = new List<SoundPoint>();
             var temp = new List<SoundPoint>();

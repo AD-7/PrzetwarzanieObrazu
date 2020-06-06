@@ -66,14 +66,14 @@ namespace Audio
         }
 
         private SoundValues _soundValues;
-
+        int windowSize = 0;
         private void btnWczytaj_Click(object sender, EventArgs e)
         {
             AudioHelper audioHelper = new AudioHelper();
 
             short[] sample1;
-            int windowSize = 512;
-            if(comboBox1.SelectedIndex == 1)
+            windowSize = 512;
+            if (comboBox1.SelectedIndex == 1)
             {
                 windowSize = 1024;
             }
@@ -267,14 +267,14 @@ namespace Audio
                         currentSignal.maksima[itr].Add(new PointF(values[i].X, values[i].Y));
                     }
                 }
-                if(currentSignal.maksima[itr].Count == 0)
+                if (currentSignal.maksima[itr].Count == 0)
                 {
                     currentSignal.maksima.RemoveAt(itr);
                     itr--;
                 }
                 itr++;
             }
-            if(currentSignal.maksima.Count == 0)
+            if (currentSignal.maksima.Count == 0)
             {
                 MessageBox.Show("Nie znaleziono żadnego maksimum lokalnego - zmień próg");
                 return;
@@ -282,7 +282,7 @@ namespace Audio
             double[] fhz = new double[currentSignal.maksima.Count];
             for (int f = 0; f < currentSignal.maksima.Count; f++)
             {
-                double[] tmp_fhz = new double[currentSignal.maksima[f].Count ];
+                double[] tmp_fhz = new double[currentSignal.maksima[f].Count];
                 tmp_fhz[0] = currentSignal.maksima[f][0].X;
                 for (int i = 1; i < currentSignal.maksima[f].Count; i++)
                 {
@@ -291,29 +291,37 @@ namespace Audio
 
                 Sort(tmp_fhz);
 
-                fhz[f] = Mediana(tmp_fhz); 
+                fhz[f] = Mediana(tmp_fhz);
             }
 
-            Sort(fhz);
 
+            _freqPerFrame = fhz;
+            foreach (double freq in fhz)
+            {
+                textBox1.Text += freq + " Hz" + Environment.NewLine;
+            }
+
+
+            Sort(fhz);
             double F = Mediana(fhz);
             _frequencyFrequency = F;
-            textBox1.Text = F + " Hz";
+
+
             currentSignal.isCalculated = true;
             RefreshSignal((int)numFrame.Value);
         }
         private double Mediana(double[] tab)
         {
             double result = 0;
-            if(tab.Length % 2 != 0)
+            if (tab.Length % 2 != 0)
             {
                 result = tab[tab.Length / 2];
             }
             else
             {
-                result = (tab[tab.Length / 2] + tab[tab.Length / 2 - 1]) /2;
+                result = (tab[tab.Length / 2] + tab[tab.Length / 2 - 1]) / 2;
             }
-            
+
             return result;
         }
         private void Sort(double[] tab)
@@ -321,7 +329,7 @@ namespace Audio
             int n = tab.Length;
             do
             {
-                for (int i = 0; i < tab.Length-1; i++)
+                for (int i = 0; i < tab.Length - 1; i++)
                 {
                     if (tab[i] > tab[i + 1])
                     {
@@ -341,7 +349,7 @@ namespace Audio
             currentSignal.maksima.Clear();
             textBox1.Text = "";
             RefreshSignal((int)numFrame.Value);
-        
+
         }
 
         private void refreshSpaceButton_Click(object sender, EventArgs e)
@@ -384,24 +392,41 @@ namespace Audio
 
         private double _frequencyTime;
         private double _frequencyFrequency;
-        private static void PlaySound(double frequency)
+        private double[] _freqPerFrame;
+        private void PlaySound(double frequency)
         {
-            var sine20Seconds = new SignalGenerator
-                { 
-                    Gain = 0.2, 
-                    Frequency = frequency,
-                    Type = SignalGeneratorType.Sin}
-                .Take(TimeSpan.FromSeconds(1));
-            
-            Task.Run(() =>
+
+
+            //Task.Run(() =>
+            //{
+            //    using (var wo = new WaveOutEvent())
+            //    {
+
+            //        wo.Init(sine20Seconds);
+            //        wo.Play();
+            //        while (wo.PlaybackState == PlaybackState.Playing)
+            //        {
+            //        }
+            //    }
+
+            //});
+            using (WaveFileWriter writer = new WaveFileWriter("test.wav", new WaveFormat(44100, 1)))
             {
-                using var wo = new WaveOutEvent();
-                wo.Init(sine20Seconds);
-                wo.Play();
-                while (wo.PlaybackState == PlaybackState.Playing)
+
+                float amplitude = 0.25f;
+                foreach (double FREQ in _freqPerFrame)
                 {
+
+                    for (int n = 0; n < windowSize; n++)
+                    {
+                        float sample = (float)(amplitude * Math.Sin((2 * Math.PI * n * FREQ) / writer.WaveFormat.SampleRate));
+                        writer.WriteSample(sample);
+                    }
                 }
-            });
+
+            }
+
+
         }
 
         private void playFreqButton_Click(object sender, EventArgs e)
