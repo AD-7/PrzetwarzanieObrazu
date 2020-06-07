@@ -34,11 +34,11 @@ namespace Audio
                 isCalculated = false;
                 maksima = new List<List<PointF>>();
             }
-
         }
 
 
         CurrentSignal currentSignal;
+
         public Form1()
         {
             InitializeComponent();
@@ -62,11 +62,11 @@ namespace Audio
             phaseSpaceChart.Series[0].ChartType = SeriesChartType.Point;
             phaseSpaceChart.Series[0].BorderWidth = 2;
             phaseSpaceComboBox.SelectedIndex = 0;
-
         }
 
         private SoundValues _soundValues;
         int windowSize = 0;
+
         private void btnWczytaj_Click(object sender, EventArgs e)
         {
             AudioHelper audioHelper = new AudioHelper();
@@ -105,26 +105,36 @@ namespace Audio
                 lbramki.Text = "Nr ramki: (max. " + numFrame.Maximum + ")";
                 RefreshSignal(0);
             }
+
             _soundValues = new SoundValues(path);
+
+            RefreshBasicAudioChart();
+            CalculatePhaseSpace();
+        }
+
+        private void RefreshBasicAudioChart()
+        {
             basicAudioChart.Series[0].Points.Clear();
-            for (var i = 0; i < _soundValues.Values.Count; i += 1)
+            var start = int.Parse(startTextBox.Text);
+            var size = Math.Min(start + int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
+            for (var i = start; i < size; i++)
             {
                 basicAudioChart.Series[0].Points
                     .Add(new DataPoint(i + 1, _soundValues.Values[i].Value));
             }
-
-            CalculatePhaseSpace();
         }
 
         private void CalculatePhaseSpace()
         {
             var step = int.Parse(stepTextBox.Text);
             var k = int.Parse(kTextBox.Text);
-            var size = Math.Min(int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
+            var start = int.Parse(startTextBox.Text);
+            var size = Math.Min(start + int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
             var precision = float.Parse(precisionTextBox.Text);
+            RefreshBasicAudioChart();
             phaseSpaceChart.Series[0].Points.Clear();
 
-            for (var i = k; i < size; i += step)
+            for (var i = k + start; i < size; i += step)
             {
                 var v = _soundValues.Values[i].Value;
                 var vk = _soundValues.Values[i - k].Value;
@@ -136,7 +146,8 @@ namespace Audio
             phaseSpaceChart.Series[0].Points[0].MarkerSize = 10;
             phaseSpaceChart.Series[0].Points.Last().Color = Color.Green;
             phaseSpaceChart.Series[0].Points.Last().MarkerSize = 10;
-            _frequencyTime = _soundValues.CalculateFrequency(step, k, size, precision, phaseSpaceComboBox.SelectedIndex + 2);
+            _frequencyTime =
+                _soundValues.CalculateFrequency(step, start, k, size, precision, phaseSpaceComboBox.SelectedIndex + 2);
             frequencyLabel.Text = "Częstotliwość: " + _frequencyTime.ToString(CultureInfo.InvariantCulture);
         }
 
@@ -162,20 +173,22 @@ namespace Audio
                 time[i] = i / sampleRate;
                 //   freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
                 Signal.Series["Value"].Points.AddXY(time[i], value[i]);
-
             }
 
             SignalAmplitude.Series.Clear();
             SignalAmplitude.Series.Add("Value");
-            SignalAmplitude.Series["Value"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            SignalAmplitude.Series["Value"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             SignalAmplitude.Series["Value"].MarkerSize = 10;
             SignalAmplitude.Series.Add("Prog");
             SignalAmplitude.Series["Prog"].Color = Color.Red;
-            SignalAmplitude.Series["Prog"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            SignalAmplitude.Series["Prog"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
             SignalAmplitude.Series["Prog"].MarkerSize = 10;
             SignalAmplitude.Series.Add("Max");
             SignalAmplitude.Series["Max"].Color = Color.Green;
-            SignalAmplitude.Series["Max"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
+            SignalAmplitude.Series["Max"].ChartType =
+                System.Windows.Forms.DataVisualization.Charting.SeriesChartType.Point;
             SignalAmplitude.Series["Max"].MarkerSize = 5;
 
             result = AudioHelper.PreEmFaza(result);
@@ -189,7 +202,7 @@ namespace Audio
             {
                 value[i] = AudioHelper.LinearToDecibels(result[i] / sampleRate);
 
-                freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
+                freq[i] = (int) (i * sampleRate / result.Length); // to jest do widma amplitudowego
                 SignalAmplitude.Series["Value"].Points.AddXY(freq[i], value[i]);
             }
 
@@ -204,34 +217,29 @@ namespace Audio
             }
             else
             {
-
             }
         }
 
         private void tableLayoutPanel2_Paint(object sender, PaintEventArgs e)
         {
-
         }
 
         private void numFrame_ValueChanged(object sender, EventArgs e)
         {
-            RefreshSignal((int)numFrame.Value);
+            RefreshSignal((int) numFrame.Value);
         }
 
         private void btnProg_Click(object sender, EventArgs e)
         {
-
             SignalAmplitude.Series["Prog"].Points.Clear();
 
             double[] freq = new double[currentSignal.amplitude.Length / 2];
             for (int i = 0; i < currentSignal.amplitude.Count() / 2; i++)
             {
-
-
-                freq[i] = (int)(i * currentSignal.sampleRate / currentSignal.amplitude.Length);           // to jest do widma amplitudowego
-                SignalAmplitude.Series["Prog"].Points.AddXY(freq[i], (int)numProg.Value);
+                freq[i] = (int) (i * currentSignal.sampleRate /
+                                 currentSignal.amplitude.Length); // to jest do widma amplitudowego
+                SignalAmplitude.Series["Prog"].Points.AddXY(freq[i], (int) numProg.Value);
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -253,32 +261,37 @@ namespace Audio
                 {
                     value[i] = AudioHelper.LinearToDecibels(result[i] / sampleRate);
 
-                    freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
+                    freq[i] = (int) (i * sampleRate / result.Length); // to jest do widma amplitudowego
 
-                    values.Add(new PointF((float)freq[i], (float)value[i]));
+                    values.Add(new PointF((float) freq[i], (float) value[i]));
                 }
 
                 // znajdujemy maksima powyżej progu:
 
                 for (int i = 1; i < values.Count - 2; i++)
                 {
-                    if (values[i].Y > values[i - 1].Y && values[i].Y > values[i + 1].Y && values[i].Y > (float)numProg.Value)
+                    if (values[i].Y > values[i - 1].Y && values[i].Y > values[i + 1].Y &&
+                        values[i].Y > (float) numProg.Value)
                     {
                         currentSignal.maksima[itr].Add(new PointF(values[i].X, values[i].Y));
                     }
                 }
+
                 if (currentSignal.maksima[itr].Count == 0)
                 {
                     currentSignal.maksima.RemoveAt(itr);
                     itr--;
                 }
+
                 itr++;
             }
+
             if (currentSignal.maksima.Count == 0)
             {
                 MessageBox.Show("Nie znaleziono żadnego maksimum lokalnego - zmień próg");
                 return;
             }
+
             double[] fhz = new double[currentSignal.maksima.Count];
             for (int f = 0; f < currentSignal.maksima.Count; f++)
             {
@@ -308,8 +321,9 @@ namespace Audio
 
 
             currentSignal.isCalculated = true;
-            RefreshSignal((int)numFrame.Value);
+            RefreshSignal((int) numFrame.Value);
         }
+
         private double Mediana(double[] tab)
         {
             double result = 0;
@@ -324,6 +338,7 @@ namespace Audio
 
             return result;
         }
+
         private void Sort(double[] tab)
         {
             int n = tab.Length;
@@ -338,9 +353,9 @@ namespace Audio
                         tab[i + 1] = tmp;
                     }
                 }
+
                 n--;
             } while (n > 1);
-
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -348,8 +363,7 @@ namespace Audio
             currentSignal.isCalculated = false;
             currentSignal.maksima.Clear();
             textBox1.Text = "";
-            RefreshSignal((int)numFrame.Value);
-
+            RefreshSignal((int) numFrame.Value);
         }
 
         private void refreshSpaceButton_Click(object sender, EventArgs e)
@@ -393,50 +407,54 @@ namespace Audio
         private double _frequencyTime;
         private double _frequencyFrequency;
         private double[] _freqPerFrame;
-        private void PlaySound(double frequency)
+
+
+        private void SaveSound()
         {
-
-
-            //Task.Run(() =>
-            //{
-            //    using (var wo = new WaveOutEvent())
-            //    {
-
-            //        wo.Init(sine20Seconds);
-            //        wo.Play();
-            //        while (wo.PlaybackState == PlaybackState.Playing)
-            //        {
-            //        }
-            //    }
-
-            //});
             using (WaveFileWriter writer = new WaveFileWriter("test.wav", new WaveFormat(44100, 1)))
             {
-
                 float amplitude = 0.25f;
                 foreach (double FREQ in _freqPerFrame)
                 {
-
                     for (int n = 0; n < windowSize; n++)
                     {
-                        float sample = (float)(amplitude * Math.Sin((2 * Math.PI * n * FREQ) / writer.WaveFormat.SampleRate));
+                        float sample =
+                            (float) (amplitude * Math.Sin((2 * Math.PI * n * FREQ) / writer.WaveFormat.SampleRate));
                         writer.WriteSample(sample);
                     }
                 }
-
             }
 
 
+            Task.Run(() =>
+            {
+                using (var reader = new WaveFileReader("test.wav"))
+                {
+                    using (var wo = new WaveOutEvent())
+                    {
+                        wo.Init(reader.ToSampleProvider());
+                        wo.Play();
+                        while (wo.PlaybackState == PlaybackState.Playing)
+                        {
+                        }
+                    }
+                }
+            });
+        }
+
+        private void PlaySound()
+        {
+            SaveSound();
         }
 
         private void playFreqButton_Click(object sender, EventArgs e)
         {
-            PlaySound(_frequencyFrequency);
+            PlaySound();
         }
 
         private void playTimeButton_Click(object sender, EventArgs e)
         {
-            PlaySound(_frequencyTime);
+            PlaySound();
         }
     }
 }

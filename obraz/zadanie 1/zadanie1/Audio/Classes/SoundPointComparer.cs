@@ -3,39 +3,21 @@ using System.Collections.Generic;
 
 namespace Audio.Classes
 {
-    public class SoundPointComparer : IEqualityComparer<(float x, float y, float z, float w)>
+    public class SoundPointComparer : IEqualityComparer<SoundValues.SoundPoint>
     {
-        public SoundPointComparer(float precision, int dimensions)
+        public SoundPointComparer(float precision)
         {
-            Precision = precision;
-            Dimensions = dimensions;
+            _precision = precision;
         }
 
-        public float Precision;
-        public int Dimensions;
+        private readonly float _precision;
 
-        public bool Equals((float x, float y, float z, float w) first, (float x, float y, float z, float w) second)
+        public bool Equals(SoundValues.SoundPoint first, SoundValues.SoundPoint second)
         {
-            switch (Dimensions)
-            {
-                case 2:
-                    return Math.Abs(first.x - second.x) < Precision &&
-                           Math.Abs(first.y - second.y) < Precision;
-                case 3:
-                    return Math.Abs(first.x - second.x) < Precision &&
-                           Math.Abs(first.y - second.y) < Precision &&
-                           Math.Abs(first.w - second.w) < Precision;
-                case 4:
-                    return Math.Abs(first.x - second.x) < Precision &&
-                           Math.Abs(first.y - second.y) < Precision &&
-                           Math.Abs(first.w - second.w) < Precision &&
-                           Math.Abs(first.z - second.z) < Precision;
-            }
-
-            return false;
+            return Math.Abs(first.Value - second.Value) < _precision && Math.Abs(first.Value - second.Value) < _precision;
         }
 
-        public int GetHashCode((float x, float y, float z, float w) obj)
+        public int GetHashCode(SoundValues.SoundPoint obj)
         {
             return 0;
         }
