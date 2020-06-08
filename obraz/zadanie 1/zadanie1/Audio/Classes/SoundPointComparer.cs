@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Audio.Classes
 {
-    public class SoundPointComparer : IEqualityComparer<SoundValues.SoundPoint>
+    public class SoundPointComparer : IEqualityComparer<SoundPoint>
     {
         public SoundPointComparer(float precision)
         {
@@ -12,12 +12,12 @@ namespace Audio.Classes
 
         private readonly float _precision;
 
-        public bool Equals(SoundValues.SoundPoint first, SoundValues.SoundPoint second)
+        public bool Equals(SoundPoint first, SoundPoint second)
         {
             return Math.Abs(first.Value - second.Value) < _precision && Math.Abs(first.Value - second.Value) < _precision;
         }
 
-        public int GetHashCode(SoundValues.SoundPoint obj)
+        public int GetHashCode(SoundPoint obj)
         {
             return 0;
         }

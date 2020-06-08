@@ -108,33 +108,43 @@ namespace Audio
 
             _soundValues = new SoundValues(path);
 
-            RefreshBasicAudioChart();
             CalculatePhaseSpace();
+            frameTrackLabel.Text = $@"{framesTrack.Value + 1}/{_timeFrequencies.Count}";
+
         }
 
         private void RefreshBasicAudioChart()
         {
             basicAudioChart.Series[0].Points.Clear();
-            var start = int.Parse(startTextBox.Text);
-            var size = Math.Min(start + int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
+            var frameSize = Math.Min(int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
+            var start = framesTrack.Value * frameSize;
+            var size = Math.Min(start + frameSize, _soundValues.Values.Count - 1);
+
             for (var i = start; i < size; i++)
             {
                 basicAudioChart.Series[0].Points
                     .Add(new DataPoint(i + 1, _soundValues.Values[i].Value));
             }
+
+            basicAudioChart.Invalidate();
+            basicAudioChart.Update();
+            basicAudioChart.Refresh();
+            basicAudioChart.ResetAutoValues();
         }
 
-        private void CalculatePhaseSpace()
+        private List<double> _timeFrequencies;
+
+        private void DrawPhaseSpace()
         {
-            var step = int.Parse(stepTextBox.Text);
             var k = int.Parse(kTextBox.Text);
-            var start = int.Parse(startTextBox.Text);
-            var size = Math.Min(start + int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
-            var precision = float.Parse(precisionTextBox.Text);
+            var frameSize = Math.Min(int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
+            var start = framesTrack.Value * frameSize;
+            var size = Math.Min(start + frameSize, _soundValues.Values.Count - 1);
+
             RefreshBasicAudioChart();
             phaseSpaceChart.Series[0].Points.Clear();
 
-            for (var i = k + start; i < size; i += step)
+            for (var i = k + start; i < size; i++)
             {
                 var v = _soundValues.Values[i].Value;
                 var vk = _soundValues.Values[i - k].Value;
@@ -146,9 +156,37 @@ namespace Audio
             phaseSpaceChart.Series[0].Points[0].MarkerSize = 10;
             phaseSpaceChart.Series[0].Points.Last().Color = Color.Green;
             phaseSpaceChart.Series[0].Points.Last().MarkerSize = 10;
-            _frequencyTime =
-                _soundValues.CalculateFrequency(step, start, k, size, precision, phaseSpaceComboBox.SelectedIndex + 2);
-            frequencyLabel.Text = "Częstotliwość: " + _frequencyTime.ToString(CultureInfo.InvariantCulture);
+            phaseSpaceChart.Invalidate();
+        }
+
+        private void CalculatePhaseSpace()
+        {
+            DrawPhaseSpace();
+            var k = int.Parse(kTextBox.Text);
+            var size = Math.Min(int.Parse(sizeTextBox.Text), _soundValues.Values.Count);
+            var precision = float.Parse(precisionTextBox.Text);
+
+            var frequencies = _timeFrequencies = _soundValues.GetFrequenciesForFrames(
+                size, k, precision, phaseSpaceComboBox.SelectedIndex + 2,
+                frameFrequenciesMediana.Checked, useRandomCheckBox.Checked);
+            framesTrack.Maximum = frequencies.Count;
+            string frequencyString;
+            phaseFrequencies.Items.Clear();
+            if (frequencies.Count > 0)
+            {
+                _frequencyTime = useMedianCheckBox.Checked ? SoundValues.GetMedian(frequencies) : frequencies.Average();
+                frequencyString = _frequencyTime.ToString("##.000");
+                frameFrequency.Text = "Częstotliwość ramki: " + frequencies[framesTrack.Value].ToString("##.000");
+                phaseFrequencies.Items.AddRange(frequencies.Cast<object>().ToArray());
+                phaseFrequencies.SelectedIndex = 0;
+            }
+            else
+            {
+                frequencyString = "-";
+                frameFrequency.Text = "-";
+            }
+
+            frequencyLabel.Text = "Częstotliwość całości: " + frequencyString;
         }
 
         public void RefreshSignal(int frame)
@@ -202,7 +240,7 @@ namespace Audio
             {
                 value[i] = AudioHelper.LinearToDecibels(result[i] / sampleRate);
 
-                freq[i] = (int) (i * sampleRate / result.Length); // to jest do widma amplitudowego
+                freq[i] = (int)(i * sampleRate / result.Length); // to jest do widma amplitudowego
                 SignalAmplitude.Series["Value"].Points.AddXY(freq[i], value[i]);
             }
 
@@ -226,7 +264,7 @@ namespace Audio
 
         private void numFrame_ValueChanged(object sender, EventArgs e)
         {
-            RefreshSignal((int) numFrame.Value);
+            RefreshSignal((int)numFrame.Value);
         }
 
         private void btnProg_Click(object sender, EventArgs e)
@@ -236,9 +274,9 @@ namespace Audio
             double[] freq = new double[currentSignal.amplitude.Length / 2];
             for (int i = 0; i < currentSignal.amplitude.Count() / 2; i++)
             {
-                freq[i] = (int) (i * currentSignal.sampleRate /
+                freq[i] = (int)(i * currentSignal.sampleRate /
                                  currentSignal.amplitude.Length); // to jest do widma amplitudowego
-                SignalAmplitude.Series["Prog"].Points.AddXY(freq[i], (int) numProg.Value);
+                SignalAmplitude.Series["Prog"].Points.AddXY(freq[i], (int)numProg.Value);
             }
         }
 
@@ -261,9 +299,9 @@ namespace Audio
                 {
                     value[i] = AudioHelper.LinearToDecibels(result[i] / sampleRate);
 
-                    freq[i] = (int) (i * sampleRate / result.Length); // to jest do widma amplitudowego
+                    freq[i] = (int)(i * sampleRate / result.Length); // to jest do widma amplitudowego
 
-                    values.Add(new PointF((float) freq[i], (float) value[i]));
+                    values.Add(new PointF((float)freq[i], (float)value[i]));
                 }
 
                 // znajdujemy maksima powyżej progu:
@@ -271,7 +309,7 @@ namespace Audio
                 for (int i = 1; i < values.Count - 2; i++)
                 {
                     if (values[i].Y > values[i - 1].Y && values[i].Y > values[i + 1].Y &&
-                        values[i].Y > (float) numProg.Value)
+                        values[i].Y > (float)numProg.Value)
                     {
                         currentSignal.maksima[itr].Add(new PointF(values[i].X, values[i].Y));
                     }
@@ -317,11 +355,10 @@ namespace Audio
 
             Sort(fhz);
             double F = Mediana(fhz);
-            _frequencyFrequency = F;
 
 
             currentSignal.isCalculated = true;
-            RefreshSignal((int) numFrame.Value);
+            RefreshSignal((int)numFrame.Value);
         }
 
         private double Mediana(double[] tab)
@@ -363,11 +400,12 @@ namespace Audio
             currentSignal.isCalculated = false;
             currentSignal.maksima.Clear();
             textBox1.Text = "";
-            RefreshSignal((int) numFrame.Value);
+            RefreshSignal((int)numFrame.Value);
         }
 
         private void refreshSpaceButton_Click(object sender, EventArgs e)
         {
+            frameTrackLabel.Text = $@"{framesTrack.Value+1}/{_timeFrequencies.Count}";
             CalculatePhaseSpace();
         }
 
@@ -405,30 +443,30 @@ namespace Audio
         }
 
         private double _frequencyTime;
-        private double _frequencyFrequency;
         private double[] _freqPerFrame;
 
 
-        private void SaveSound()
+        private void SaveSound(IList<double> frequencies, int soundWindowSize, bool shouldPlay)
         {
-            using (WaveFileWriter writer = new WaveFileWriter("test.wav", new WaveFormat(44100, 1)))
+            var filename = DateTime.Now.ToString("yyyy-MM-ddTHH-mm-ss") + ".wav";
+            using (WaveFileWriter writer = new WaveFileWriter(filename, new WaveFormat(44100, 1)))
             {
                 float amplitude = 0.25f;
-                foreach (double FREQ in _freqPerFrame)
+                foreach (double FREQ in frequencies)
                 {
-                    for (int n = 0; n < windowSize; n++)
+                    for (int n = 0; n < soundWindowSize; n++)
                     {
-                        float sample =
-                            (float) (amplitude * Math.Sin((2 * Math.PI * n * FREQ) / writer.WaveFormat.SampleRate));
+                        float sample = (float)(amplitude * Math.Sin((2 * Math.PI * n * FREQ) / writer.WaveFormat.SampleRate));
                         writer.WriteSample(sample);
                     }
                 }
             }
 
+            if(!shouldPlay) return;
 
             Task.Run(() =>
             {
-                using (var reader = new WaveFileReader("test.wav"))
+                using (var reader = new WaveFileReader(filename))
                 {
                     using (var wo = new WaveOutEvent())
                     {
@@ -442,19 +480,35 @@ namespace Audio
             });
         }
 
-        private void PlaySound()
-        {
-            SaveSound();
-        }
 
         private void playFreqButton_Click(object sender, EventArgs e)
         {
-            PlaySound();
+            SaveSound(_freqPerFrame, windowSize, true);
         }
 
         private void playTimeButton_Click(object sender, EventArgs e)
         {
-            PlaySound();
+            SaveSound(_timeFrequencies, Math.Min(int.Parse(sizeTextBox.Text), _soundValues.Values.Count), true);
+        }
+
+        private void framesTrack_ValueChanged(object sender, EventArgs e)
+        {
+            frameTrackLabel.Text = $@"{framesTrack.Value+1}/{_timeFrequencies.Count}";
+        }
+
+        private void framesDrawButton_Click(object sender, EventArgs e)
+        {
+            DrawPhaseSpace();
+        }
+
+        private void saveAudioButton_Click(object sender, EventArgs e)
+        {
+            SaveSound(_freqPerFrame, windowSize, false);
+        }
+
+        private void saveTimeButton_Click(object sender, EventArgs e)
+        {
+            SaveSound(_timeFrequencies, Math.Min(int.Parse(sizeTextBox.Text), _soundValues.Values.Count), false);
         }
     }
 }
