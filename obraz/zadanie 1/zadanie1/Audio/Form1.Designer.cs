@@ -29,11 +29,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea9 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea10 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea6 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea7 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea8 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -50,6 +50,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.tableLayoutPanel4 = new System.Windows.Forms.TableLayoutPanel();
+            this.saveAudioButton = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.btnProg = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -68,23 +69,22 @@
             this.phaseSpaceComboBox = new System.Windows.Forms.ComboBox();
             this.label5 = new System.Windows.Forms.Label();
             this.precisionTextBox = new System.Windows.Forms.TextBox();
-            this.useMedianCheckBox = new System.Windows.Forms.CheckBox();
             this.useRandomCheckBox = new System.Windows.Forms.CheckBox();
-            this.refreshSpaceButton = new System.Windows.Forms.Button();
             this.frameFrequency = new System.Windows.Forms.Label();
-            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.useMedianCheckBox = new System.Windows.Forms.CheckBox();
             this.phaseFrequencies = new System.Windows.Forms.ComboBox();
             this.frameFrequenciesMediana = new System.Windows.Forms.CheckBox();
-            this.playTimeButton = new System.Windows.Forms.Button();
+            this.refreshSpaceButton = new System.Windows.Forms.Button();
             this.frequencyLabel = new System.Windows.Forms.Label();
+            this.playTimeButton = new System.Windows.Forms.Button();
+            this.saveTimeButton = new System.Windows.Forms.Button();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.framesTrack = new System.Windows.Forms.TrackBar();
             this.frameTrackLabel = new System.Windows.Forms.Label();
             this.framesDrawButton = new System.Windows.Forms.Button();
             this.chart1 = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.saveAudioButton = new System.Windows.Forms.Button();
-            this.saveTimeButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.tabPage1.SuspendLayout();
             this.tableLayoutPanel2.SuspendLayout();
@@ -174,8 +174,8 @@
             // 
             this.SignalAmplitude.BorderlineColor = System.Drawing.Color.Black;
             this.SignalAmplitude.BorderlineWidth = 2;
-            chartArea9.Name = "ChartArea1";
-            this.SignalAmplitude.ChartAreas.Add(chartArea9);
+            chartArea11.Name = "ChartArea1";
+            this.SignalAmplitude.ChartAreas.Add(chartArea11);
             this.SignalAmplitude.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SignalAmplitude.Location = new System.Drawing.Point(690, 89);
             this.SignalAmplitude.Name = "SignalAmplitude";
@@ -187,8 +187,8 @@
             // 
             this.Signal.BorderlineColor = System.Drawing.Color.Black;
             this.Signal.BorderlineWidth = 2;
-            chartArea10.Name = "ChartArea1";
-            this.Signal.ChartAreas.Add(chartArea10);
+            chartArea12.Name = "ChartArea1";
+            this.Signal.ChartAreas.Add(chartArea12);
             this.Signal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Signal.Location = new System.Drawing.Point(3, 89);
             this.Signal.Name = "Signal";
@@ -322,6 +322,17 @@
             this.tableLayoutPanel4.Size = new System.Drawing.Size(681, 49);
             this.tableLayoutPanel4.TabIndex = 6;
             // 
+            // saveAudioButton
+            // 
+            this.saveAudioButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.saveAudioButton.Location = new System.Drawing.Point(258, 3);
+            this.saveAudioButton.Name = "saveAudioButton";
+            this.saveAudioButton.Size = new System.Drawing.Size(79, 43);
+            this.saveAudioButton.TabIndex = 11;
+            this.saveAudioButton.Text = "zapisz";
+            this.saveAudioButton.UseVisualStyleBackColor = true;
+            this.saveAudioButton.Click += new System.EventHandler(this.saveAudioButton_Click);
+            // 
             // button3
             // 
             this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -413,8 +424,8 @@
             // 
             this.basicAudioChart.BorderlineColor = System.Drawing.Color.Black;
             this.basicAudioChart.BorderlineWidth = 2;
-            chartArea6.Name = "ChartArea1";
-            this.basicAudioChart.ChartAreas.Add(chartArea6);
+            chartArea13.Name = "ChartArea1";
+            this.basicAudioChart.ChartAreas.Add(chartArea13);
             this.basicAudioChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.basicAudioChart.Location = new System.Drawing.Point(3, 62);
             this.basicAudioChart.Name = "basicAudioChart";
@@ -426,8 +437,8 @@
             // 
             this.phaseSpaceChart.BorderlineColor = System.Drawing.Color.Black;
             this.phaseSpaceChart.BorderlineWidth = 2;
-            chartArea7.Name = "ChartArea1";
-            this.phaseSpaceChart.ChartAreas.Add(chartArea7);
+            chartArea14.Name = "ChartArea1";
+            this.phaseSpaceChart.ChartAreas.Add(chartArea14);
             this.phaseSpaceChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.phaseSpaceChart.Location = new System.Drawing.Point(690, 62);
             this.phaseSpaceChart.Name = "phaseSpaceChart";
@@ -562,15 +573,6 @@
             this.precisionTextBox.TabIndex = 9;
             this.precisionTextBox.Text = "0,01";
             // 
-            // useMedianCheckBox
-            // 
-            this.useMedianCheckBox.Location = new System.Drawing.Point(736, 3);
-            this.useMedianCheckBox.Name = "useMedianCheckBox";
-            this.useMedianCheckBox.Size = new System.Drawing.Size(81, 50);
-            this.useMedianCheckBox.TabIndex = 16;
-            this.useMedianCheckBox.Text = "Mediana dla framek";
-            this.useMedianCheckBox.UseVisualStyleBackColor = true;
-            // 
             // useRandomCheckBox
             // 
             this.useRandomCheckBox.Location = new System.Drawing.Point(544, 3);
@@ -579,16 +581,6 @@
             this.useRandomCheckBox.TabIndex = 17;
             this.useRandomCheckBox.Text = "Losowe";
             this.useRandomCheckBox.UseVisualStyleBackColor = true;
-            // 
-            // refreshSpaceButton
-            // 
-            this.refreshSpaceButton.Location = new System.Drawing.Point(1019, 3);
-            this.refreshSpaceButton.Name = "refreshSpaceButton";
-            this.refreshSpaceButton.Size = new System.Drawing.Size(75, 50);
-            this.refreshSpaceButton.TabIndex = 6;
-            this.refreshSpaceButton.Text = "Odśwież";
-            this.refreshSpaceButton.UseVisualStyleBackColor = true;
-            this.refreshSpaceButton.Click += new System.EventHandler(this.refreshSpaceButton_Click);
             // 
             // frameFrequency
             // 
@@ -601,13 +593,14 @@
             this.frameFrequency.Text = "Częstotliwość ramki";
             this.frameFrequency.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
             // 
-            // flowLayoutPanel2
+            // useMedianCheckBox
             // 
-            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.flowLayoutPanel2.Location = new System.Drawing.Point(690, 593);
-            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
-            this.flowLayoutPanel2.Size = new System.Drawing.Size(681, 24);
-            this.flowLayoutPanel2.TabIndex = 16;
+            this.useMedianCheckBox.Location = new System.Drawing.Point(736, 3);
+            this.useMedianCheckBox.Name = "useMedianCheckBox";
+            this.useMedianCheckBox.Size = new System.Drawing.Size(81, 50);
+            this.useMedianCheckBox.TabIndex = 16;
+            this.useMedianCheckBox.Text = "Mediana dla framek";
+            this.useMedianCheckBox.UseVisualStyleBackColor = true;
             // 
             // phaseFrequencies
             // 
@@ -627,15 +620,15 @@
             this.frameFrequenciesMediana.Text = "Mediana dla całości";
             this.frameFrequenciesMediana.UseVisualStyleBackColor = true;
             // 
-            // playTimeButton
+            // refreshSpaceButton
             // 
-            this.playTimeButton.Location = new System.Drawing.Point(1215, 3);
-            this.playTimeButton.Name = "playTimeButton";
-            this.playTimeButton.Size = new System.Drawing.Size(59, 50);
-            this.playTimeButton.TabIndex = 10;
-            this.playTimeButton.Text = "Graj";
-            this.playTimeButton.UseVisualStyleBackColor = true;
-            this.playTimeButton.Click += new System.EventHandler(this.playTimeButton_Click);
+            this.refreshSpaceButton.Location = new System.Drawing.Point(1019, 3);
+            this.refreshSpaceButton.Name = "refreshSpaceButton";
+            this.refreshSpaceButton.Size = new System.Drawing.Size(75, 50);
+            this.refreshSpaceButton.TabIndex = 6;
+            this.refreshSpaceButton.Text = "Odśwież";
+            this.refreshSpaceButton.UseVisualStyleBackColor = true;
+            this.refreshSpaceButton.Click += new System.EventHandler(this.refreshSpaceButton_Click);
             // 
             // frequencyLabel
             // 
@@ -647,6 +640,34 @@
             this.frequencyLabel.TabIndex = 7;
             this.frequencyLabel.Text = "Częstotliwość całości";
             this.frequencyLabel.TextAlign = System.Drawing.ContentAlignment.BottomLeft;
+            // 
+            // playTimeButton
+            // 
+            this.playTimeButton.Location = new System.Drawing.Point(1215, 3);
+            this.playTimeButton.Name = "playTimeButton";
+            this.playTimeButton.Size = new System.Drawing.Size(59, 50);
+            this.playTimeButton.TabIndex = 10;
+            this.playTimeButton.Text = "Graj";
+            this.playTimeButton.UseVisualStyleBackColor = true;
+            this.playTimeButton.Click += new System.EventHandler(this.playTimeButton_Click);
+            // 
+            // saveTimeButton
+            // 
+            this.saveTimeButton.Location = new System.Drawing.Point(1280, 3);
+            this.saveTimeButton.Name = "saveTimeButton";
+            this.saveTimeButton.Size = new System.Drawing.Size(63, 50);
+            this.saveTimeButton.TabIndex = 19;
+            this.saveTimeButton.Text = "Zapisz";
+            this.saveTimeButton.UseVisualStyleBackColor = true;
+            this.saveTimeButton.Click += new System.EventHandler(this.saveTimeButton_Click);
+            // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(690, 593);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(681, 24);
+            this.flowLayoutPanel2.TabIndex = 16;
             // 
             // flowLayoutPanel3
             // 
@@ -689,8 +710,8 @@
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
             this.chart1.BorderlineWidth = 2;
-            chartArea8.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea8);
+            chartArea15.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea15);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
@@ -714,27 +735,6 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.tableLayoutPanel1.Size = new System.Drawing.Size(1394, 686);
             this.tableLayoutPanel1.TabIndex = 3;
-            // 
-            // saveAudioButton
-            // 
-            this.saveAudioButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.saveAudioButton.Location = new System.Drawing.Point(258, 3);
-            this.saveAudioButton.Name = "saveAudioButton";
-            this.saveAudioButton.Size = new System.Drawing.Size(79, 43);
-            this.saveAudioButton.TabIndex = 11;
-            this.saveAudioButton.Text = "zapisz";
-            this.saveAudioButton.UseVisualStyleBackColor = true;
-            this.saveAudioButton.Click += new System.EventHandler(this.saveAudioButton_Click);
-            // 
-            // saveTimeButton
-            // 
-            this.saveTimeButton.Location = new System.Drawing.Point(1280, 3);
-            this.saveTimeButton.Name = "saveTimeButton";
-            this.saveTimeButton.Size = new System.Drawing.Size(63, 50);
-            this.saveTimeButton.TabIndex = 19;
-            this.saveTimeButton.Text = "Zapisz";
-            this.saveTimeButton.UseVisualStyleBackColor = true;
-            this.saveTimeButton.Click += new System.EventHandler(this.saveTimeButton_Click);
             // 
             // Form1
             // 

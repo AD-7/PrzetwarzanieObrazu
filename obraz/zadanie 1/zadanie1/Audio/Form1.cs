@@ -346,7 +346,7 @@ namespace Audio
             }
 
 
-            _freqPerFrame = fhz;
+            _freqPerFrame = fhz.ToList();
             foreach (double freq in fhz)
             {
                 textBox1.Text += freq + " Hz" + Environment.NewLine;
@@ -443,7 +443,7 @@ namespace Audio
         }
 
         private double _frequencyTime;
-        private double[] _freqPerFrame;
+        private List<double> _freqPerFrame;
 
 
         private void SaveSound(IList<double> frequencies, int soundWindowSize, bool shouldPlay)
