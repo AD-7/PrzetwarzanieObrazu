@@ -1,11 +1,13 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28307.271
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.30204.135
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Zadanie_1", "Zadanie_1\Zadanie_1.csproj", "{51D6E7F8-6C32-46C8-ACE3-CAF6D29DE335}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Audio", "Audio\Audio.csproj", "{BAB9A1C9-2A8C-4D94-B2EB-605BC24BA359}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AudioFiltering", "AudioFiltering\AudioFiltering.csproj", "{F700937D-86C0-49F4-BBF9-AF72A9AC2EE1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{BAB9A1C9-2A8C-4D94-B2EB-605BC24BA359}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BAB9A1C9-2A8C-4D94-B2EB-605BC24BA359}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BAB9A1C9-2A8C-4D94-B2EB-605BC24BA359}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F700937D-86C0-49F4-BBF9-AF72A9AC2EE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F700937D-86C0-49F4-BBF9-AF72A9AC2EE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F700937D-86C0-49F4-BBF9-AF72A9AC2EE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F700937D-86C0-49F4-BBF9-AF72A9AC2EE1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

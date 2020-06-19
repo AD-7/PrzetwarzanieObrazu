@@ -29,11 +29,11 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea11 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea12 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea13 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea14 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
-            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea15 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea2 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea3 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea4 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea5 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
             this.btnWczytaj = new System.Windows.Forms.Button();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.tabPage1 = new System.Windows.Forms.TabPage();
@@ -174,8 +174,8 @@
             // 
             this.SignalAmplitude.BorderlineColor = System.Drawing.Color.Black;
             this.SignalAmplitude.BorderlineWidth = 2;
-            chartArea11.Name = "ChartArea1";
-            this.SignalAmplitude.ChartAreas.Add(chartArea11);
+            chartArea1.Name = "ChartArea1";
+            this.SignalAmplitude.ChartAreas.Add(chartArea1);
             this.SignalAmplitude.Dock = System.Windows.Forms.DockStyle.Fill;
             this.SignalAmplitude.Location = new System.Drawing.Point(690, 89);
             this.SignalAmplitude.Name = "SignalAmplitude";
@@ -187,8 +187,8 @@
             // 
             this.Signal.BorderlineColor = System.Drawing.Color.Black;
             this.Signal.BorderlineWidth = 2;
-            chartArea12.Name = "ChartArea1";
-            this.Signal.ChartAreas.Add(chartArea12);
+            chartArea2.Name = "ChartArea1";
+            this.Signal.ChartAreas.Add(chartArea2);
             this.Signal.Dock = System.Windows.Forms.DockStyle.Fill;
             this.Signal.Location = new System.Drawing.Point(3, 89);
             this.Signal.Name = "Signal";
@@ -424,8 +424,8 @@
             // 
             this.basicAudioChart.BorderlineColor = System.Drawing.Color.Black;
             this.basicAudioChart.BorderlineWidth = 2;
-            chartArea13.Name = "ChartArea1";
-            this.basicAudioChart.ChartAreas.Add(chartArea13);
+            chartArea3.Name = "ChartArea1";
+            this.basicAudioChart.ChartAreas.Add(chartArea3);
             this.basicAudioChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.basicAudioChart.Location = new System.Drawing.Point(3, 62);
             this.basicAudioChart.Name = "basicAudioChart";
@@ -437,8 +437,8 @@
             // 
             this.phaseSpaceChart.BorderlineColor = System.Drawing.Color.Black;
             this.phaseSpaceChart.BorderlineWidth = 2;
-            chartArea14.Name = "ChartArea1";
-            this.phaseSpaceChart.ChartAreas.Add(chartArea14);
+            chartArea4.Name = "ChartArea1";
+            this.phaseSpaceChart.ChartAreas.Add(chartArea4);
             this.phaseSpaceChart.Dock = System.Windows.Forms.DockStyle.Fill;
             this.phaseSpaceChart.Location = new System.Drawing.Point(690, 62);
             this.phaseSpaceChart.Name = "phaseSpaceChart";
@@ -710,8 +710,8 @@
             // 
             this.chart1.BorderlineColor = System.Drawing.Color.Black;
             this.chart1.BorderlineWidth = 2;
-            chartArea15.Name = "ChartArea1";
-            this.chart1.ChartAreas.Add(chartArea15);
+            chartArea5.Name = "ChartArea1";
+            this.chart1.ChartAreas.Add(chartArea5);
             this.chart1.Dock = System.Windows.Forms.DockStyle.Fill;
             this.chart1.Location = new System.Drawing.Point(3, 3);
             this.chart1.Name = "chart1";
