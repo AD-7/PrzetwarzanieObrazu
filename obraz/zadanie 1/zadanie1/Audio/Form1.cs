@@ -230,7 +230,7 @@ namespace Audio
             SignalAmplitude.Series["Max"].MarkerSize = 5;
 
             result = AudioHelper.PreEmFaza(result);
-            result = AudioHelper.toDouble(AudioHelper.FFT(AudioHelper.toComplex(result)));
+            result = AudioHelper.toDouble(AudioHelper.FFT(AudioHelper.toComplex(result),true));
 
             currentSignal.amplitude = result;
             value = new double[result.Length / 2];
@@ -292,7 +292,7 @@ namespace Audio
                 double[] freq = new double[frame.Length / 2];
                 double[] result = new double[frame.Length];
                 result = AudioHelper.PreEmFaza(frame);
-                result = AudioHelper.toDouble(AudioHelper.FFT(AudioHelper.toComplex(result)));
+                result = AudioHelper.toDouble(AudioHelper.FFT(AudioHelper.toComplex(result),true));
 
                 List<PointF> values = new List<PointF>();
                 for (int i = 0; i < result.Count() / 2; i++)

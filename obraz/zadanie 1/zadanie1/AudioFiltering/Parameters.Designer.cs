@@ -69,7 +69,7 @@
             this.edFrameSize.Name = "edFrameSize";
             this.edFrameSize.Size = new System.Drawing.Size(100, 20);
             this.edFrameSize.TabIndex = 2;
-            this.edFrameSize.Text = "512";
+            this.edFrameSize.Text = "1024";
             // 
             // edHopSize
             // 
@@ -77,7 +77,7 @@
             this.edHopSize.Name = "edHopSize";
             this.edHopSize.Size = new System.Drawing.Size(100, 20);
             this.edHopSize.TabIndex = 4;
-            this.edHopSize.Text = "256";
+            this.edHopSize.Text = "511";
             // 
             // label2
             // 
@@ -94,7 +94,7 @@
             this.edFilterSize.Name = "edFilterSize";
             this.edFilterSize.Size = new System.Drawing.Size(100, 20);
             this.edFilterSize.TabIndex = 6;
-            this.edFilterSize.Text = "511";
+            this.edFilterSize.Text = "921";
             // 
             // label3
             // 
@@ -111,7 +111,7 @@
             this.edCutOffFilter.Name = "edCutOffFilter";
             this.edCutOffFilter.Size = new System.Drawing.Size(100, 20);
             this.edCutOffFilter.TabIndex = 8;
-            this.edCutOffFilter.Text = "321";
+            this.edCutOffFilter.Text = "433";
             // 
             // label4
             // 

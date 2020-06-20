@@ -1,7 +1,9 @@
-﻿using NAudio.Wave;
+﻿
+using NAudio.Wave;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Numerics;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -94,6 +96,24 @@ namespace AudioFiltering
             return result;
         }
 
+        public static float[] FilterPerFrameFreq(float[] frame, Complex[] filterAfterFFT)
+        {
+            Complex[] dataFFT = frame.Select(v => new Complex(v, 0)).ToArray();
+            dataFFT = Audio.Classes.AudioHelper.FFT(dataFFT, true);
+            Complex[] result = new Complex[frame.Length];
+
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] = dataFFT[i] * filterAfterFFT[i];
+            }
+
+            result = Audio.Classes.AudioHelper.FFT(result, false);
+
+            float[] resultF = result.Select(r => (float)r.Real).ToArray();
+
+            return resultF;
+        }
+
 
         public static float[] SignalFilterTime(float[] signal, int frameSize, int frameOffset, float[] filter)
         {
@@ -110,5 +130,102 @@ namespace AudioFiltering
             return result;
         }
 
+
+
+
+
+        public static float[] SignalFilterFreq(float[] signal, int frameSize, int frameOffset,
+             int filterSize, float filterCutoff, WindowType windowType, bool causal)
+        {
+
+            float[] impulse = Helper.CreateImpulseSignal(filterSize, filterCutoff, 44100);
+
+            int powerTwo = 0;
+
+            for (int p = 2; p <= 120000; p *= 2)
+            {
+                if (p >= frameSize + impulse.Length - 1)
+                {
+                    powerTwo = p;
+                    break;
+                }
+            }
+            float[] filter = new float[powerTwo];
+            if (causal)
+            {
+                filter = Helper.AddZerosAfter(impulse, powerTwo - impulse.Length);
+            }
+            else
+            {
+                filter = Helper.AddZerosInMiddle(impulse, powerTwo - impulse.Length);
+            }
+
+
+
+            float[][] frames = CreateFrames(signal, frameSize, frameOffset);
+            float[] result = new float[signal.Length + filter.Length - frameSize];
+            Complex[] fftFilter = filter.Select(v => new Complex(v, 0)).ToArray();
+
+
+           fftFilter =  Audio.Classes.AudioHelper.FFT(fftFilter, true);
+
+
+            float[] windowValues = SignalWindow.ValuesByWindow(frameSize, true,windowType);
+
+
+            for (int i = 0; i < frames.Length; i++)
+            {
+                float[] frame = new float[frameSize];
+
+                for(int j=0; j < frame.Length; j++)
+                {
+                    frame[j] = frames[i][j] * windowValues[j];    // każda ramka wymnożona przez wartości okna
+                }
+
+                float[] frameWithZeros = AddZerosAfter(frame, filter.Length - frames[i].Length); // uzupełniamy zerami na końcu ramki
+
+                float[] appliedFilter = FilterPerFrameFreq(frameWithZeros, fftFilter);
+
+                for (int j = 0; j < appliedFilter.Length; j++)
+                    result[i * frameOffset + j] += appliedFilter[j];
+
+           
+
+            }
+
+            float multi = 1 / result.Max() ;
+            for (int i = 0; i < result.Length; i++)
+            {
+                result[i] *= multi;
+            }
+
+            return result;
+        }
+
+
+        public static void WriteSound(float[] audioData, string fileName)
+        {
+            byte[] byteData = ConvertAudioToBytes(audioData);
+            WriteSound(byteData, fileName);
+        }
+
+        public static void WriteSound(byte[] byteAudioData, string fileName)
+        {
+            using (WaveFileWriter writer = new WaveFileWriter(fileName, WaveFormat.CreateIeeeFloatWaveFormat(44100, 1)))
+            {
+                writer.Write(byteAudioData, 0, byteAudioData.Length * sizeof(byte));
+                //writer.Write(byteAudioData);
+            }
+
+            // writer.Write(byteAudioData);
+            // writer.Flush();
+        }
+
+        public static byte[] ConvertAudioToBytes(float[] audioData)
+        {
+            byte[] byteAudioData = new byte[audioData.Length * sizeof(float)];
+            Buffer.BlockCopy(audioData, 0, byteAudioData, 0, byteAudioData.Length);
+            return byteAudioData;
+        }
     }
 }

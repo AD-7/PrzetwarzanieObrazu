@@ -18,13 +18,15 @@ namespace AudioFiltering
         {
             InitializeComponent();
              parameters = new Parameters();
+       
         }
         float[] _loadedSignal;
-        int _frameSize = 512;
-        float _frameHopSize = 256;
+        float[] _filteredSignal;
+        int _frameSize = 1024;
+        float _frameHopSize = 511;
         bool _ifCausal = true;
-        int _filterSize = 511;
-        float _filterCutOff = 321;
+        int _filterSize = 921;
+        float _filterCutOff = 433;
         WindowType _windowType = WindowType.Hamming;
         private void wczytajToolStripMenuItem_Click(object sender, EventArgs e)
         {
@@ -76,8 +78,10 @@ namespace AudioFiltering
         {
             if (_loadedSignal == null)
                 return;
-
+            DateTime start = DateTime.Now;
+            DateTime end = DateTime.Now;
             float[] resultTime = Helper.SignalFilterTime(_loadedSignal, _frameSize, (int)_frameHopSize, Helper.CreateImpulseSignal(_filterSize, _filterCutOff, 44100, _windowType, _ifCausal));
+            _filteredSignal = resultTime;
             chartFiltered.Series.Clear();
             chartFiltered.Series.Add("Value");
             chartFiltered.Series["Value"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
@@ -90,6 +94,45 @@ namespace AudioFiltering
                 //   freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
                 chartFiltered.Series["Value"].Points.AddXY(time, value);
             }
+            end = DateTime.Now;
+            TimeSpan timespan = start - end;
+            tbTime.Text = " " + timespan.TotalSeconds.ToString() + " s";
+
+
+        }
+
+        private void dziedzinaCzęstotliwościToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            if (_loadedSignal == null)
+                return;
+            DateTime start = DateTime.Now;
+            DateTime end = DateTime.Now;
+            float[] resultFreq = Helper.SignalFilterFreq(_loadedSignal, _frameSize, (int)_frameHopSize,_filterSize,_filterCutOff, _windowType, _ifCausal);
+            _filteredSignal = resultFreq;
+            chartFiltered.Series.Clear();
+            chartFiltered.Series.Add("Value");
+            chartFiltered.Series["Value"].ChartType = System.Windows.Forms.DataVisualization.Charting.SeriesChartType.FastLine;
+            chartFiltered.Series["Value"].MarkerSize = 1;
+
+            for (int i = 0; i < resultFreq.Count(); i++)
+            {
+                float value = resultFreq[i] / 44100.0f;
+                float time = i / 44100.0f;
+                //   freq[i] = (int)(i * sampleRate / result.Length);           // to jest do widma amplitudowego
+                chartFiltered.Series["Value"].Points.AddXY(time, value);
+            }
+            end = DateTime.Now;
+            TimeSpan timespan = end - start;
+            tbTime.Text = " " + timespan.TotalSeconds.ToString() + " s";
+        }
+
+        private void zapiszToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            GetFileName getfilename = new GetFileName();
+            getfilename.ShowDialog();
+
+            Helper.WriteSound(_filteredSignal, getfilename.fileName);
+            getfilename.Dispose();
         }
     }
 }

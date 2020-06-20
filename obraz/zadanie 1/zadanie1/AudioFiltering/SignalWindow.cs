@@ -31,7 +31,25 @@ namespace AudioFiltering
                     return SignalWindow.RectangleMultiply(data, causal);
             }
         }
+        public static float[] ValuesByWindow(int frameSIZE, bool causal, WindowType windowType)
+        {
+            switch (windowType)
+            {
+                case WindowType.Rectangle:
+                    return SignalWindow.Rectangle(frameSIZE, causal);
 
+
+                case WindowType.VonnHann:
+                    return SignalWindow.VonHann(frameSIZE, causal);
+
+                case WindowType.Hamming:
+                    return SignalWindow.Hamming(frameSIZE, causal);
+
+                default:
+
+                    return SignalWindow.Rectangle(frameSIZE, causal);
+            }
+        }
         public static float[] FlipResult(float[] result)
         {
             int toMove = result.Length / 2;
