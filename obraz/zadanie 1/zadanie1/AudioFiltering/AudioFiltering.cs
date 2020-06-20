@@ -95,7 +95,7 @@ namespace AudioFiltering
                 chartFiltered.Series["Value"].Points.AddXY(time, value);
             }
             end = DateTime.Now;
-            TimeSpan timespan = start - end;
+            TimeSpan timespan = end - start;
             tbTime.Text = " " + timespan.TotalSeconds.ToString() + " s";
 
 
